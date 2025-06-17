@@ -77,144 +77,205 @@ const HeroSection = () => {
         display: 'flex',
         alignItems: 'center',
         position: 'relative',
+        overflow: 'hidden',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: '20%',
+          left: '10%',
+          width: '500px',
+          height: '500px',
+          background: 'radial-gradient(circle, rgba(0, 203, 117, 0.25) 0%, rgba(0, 203, 117, 0.12) 40%, transparent 70%)',
+          borderRadius: '50%',
+          filter: 'blur(80px)',
+          zIndex: 1,
+        },
+        '&::after': {
+          content: '""',
+          position: 'absolute',
+          top: '60%',
+          right: '15%',
+          width: '400px',
+          height: '400px',
+          background: 'radial-gradient(circle, rgba(45, 250, 135, 0.22) 0%, rgba(45, 250, 135, 0.08) 40%, transparent 70%)',
+          borderRadius: '50%',
+          filter: 'blur(100px)',
+          zIndex: 1,
+        },
       }}
     >
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: { xs: 'column', lg: 'row' },
-          alignItems: 'center',
-          gap: 6,
-          width: '100%',
-        }}
-      >
-        {/* Content Column */}
-        <Box sx={{ flex: 1, maxWidth: { lg: '60%' } }}>
-          <Box sx={{ mb: 4 }}>
-            <Typography
-              variant="h1"
-              component="h1"
-              sx={{
-                fontSize: { xs: '2.5rem', sm: '3.5rem', lg: '4rem' },
-                fontWeight: 700,
-                lineHeight: 1.1,
-                mb: 3,
-                color: 'white',
-              }}
-            >
-              Transform Your Enterprise Team Into{' '}
-              <Box
-                component="span"
-                sx={{
-                  background: 'linear-gradient(135deg, #00cb75 0%, #2dfa87 100%)',
-                  backgroundClip: 'text',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  fontWeight: 700,
-                }}
-              >
-                AI-Native Engineers
-              </Box>{' '}
-              in Just 2-3 Days
-            </Typography>
-
-            <Typography
-              variant="h5"
-              component="p"
-              sx={{
-                fontSize: { xs: '1.1rem', md: '1.25rem' },
-                lineHeight: 1.6,
-                color: 'rgba(255, 255, 255, 0.9)',
-                mb: 4,
-                maxWidth: '600px',
-              }}
-            >
-              The definitive training in Agentic Programming - from the pioneers who&apos;ve deployed AI-first systems at scale. Build enterprise-grade software without writing code.
-            </Typography>
-          </Box>
-
-          {/* Authority Indicators */}
-          <Box sx={{ mb: 4 }}>
-            <AuthorityIndicator>Enterprise-Proven Methodologies</AuthorityIndicator>
-            <AuthorityIndicator>Industry-Leading AI Experts</AuthorityIndicator>
-            <AuthorityIndicator>Immediate ROI Guaranteed</AuthorityIndicator>
-          </Box>
-
-          {/* CTA Buttons */}
-          <Box sx={{ display: 'flex', gap: 2, mb: 6, flexWrap: 'wrap' }}>
-            <CTAButton
-              variant="primary"
-              size="large"
-              href="#enrollment"
-              icon="→"
-            >
-              Enroll Your Team Now
-            </CTAButton>
-            <CTAButton
-              variant="secondary"
-              size="large"
-              href="#program-details"
-            >
-              View Program Details
-            </CTAButton>
-          </Box>
-
-          {/* Social Proof */}
-          <Card
-            sx={{
-              background: 'rgba(255, 255, 255, 0.1)',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              borderRadius: 2,
-              p: 3,
-            }}
-          >
-            <Box sx={{ display: 'flex', gap: 3, mb: 3 }}>
-              <StatCard number="500+" label="Engineers Trained" />
-              <StatCard number="50+" label="Enterprise Teams" />
-              <StatCard number="90%" label="Faster Development" />
-            </Box>
-            <Typography
-              variant="body1"
-              sx={{
-                fontStyle: 'italic',
-                color: 'rgba(255, 255, 255, 0.9)',
-                textAlign: 'center',
-              }}
-            >
-              &quot;Transformed our development process completely. We&apos;re now deploying enterprise solutions in days, not months.&quot;
-            </Typography>
-          </Card>
-        </Box>
-
-        {/* Logo Column */}
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            maxWidth: { lg: '40%' },
-          }}
-        >
-          <AccsoLogo />
-        </Box>
-      </Box>
-
-      {/* Scroll Indicator */}
+      {/* Additional Background Glow Elements */}
       <Box
         sx={{
           position: 'absolute',
-          bottom: 32,
-          left: '50%',
-          transform: 'translateX(-50%)',
-          textAlign: 'center',
-          color: 'rgba(255, 255, 255, 0.7)',
+          top: '10%',
+          right: '25%',
+          width: '300px',
+          height: '300px',
+          background: 'radial-gradient(circle, rgba(0, 203, 117, 0.15) 0%, transparent 60%)',
+          borderRadius: '50%',
+          filter: 'blur(60px)',
+          zIndex: 1,
+        }}
+      />
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: '15%',
+          left: '20%',
+          width: '350px',
+          height: '350px',
+          background: 'radial-gradient(circle, rgba(45, 250, 135, 0.12) 0%, transparent 50%)',
+          borderRadius: '50%',
+          filter: 'blur(70px)',
+          zIndex: 1,
+        }}
+      />
+
+      {/* ACCSO Logo - Top Right Corner */}
+      <Box
+        sx={{
+          position: 'absolute',
+          top: { xs: 20, md: 40 },
+          right: { xs: 20, md: 40 },
+          zIndex: 10,
         }}
       >
-        <Typography variant="body2" sx={{ mb: 1 }}>
-          Scroll to explore
-        </Typography>
-        <Typography variant="h6">↓</Typography>
+        <AccsoLogo />
+      </Box>
+
+      {/* Centered Content */}
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          textAlign: 'center',
+          width: '100%',
+          maxWidth: { xs: '100%', sm: '800px', md: '1000px', lg: '1200px', xl: '1400px' },
+          mx: 'auto',
+          px: { xs: 2, md: 4, lg: 6 },
+          position: 'relative',
+          zIndex: 2,
+        }}
+      >
+        <Box sx={{ mb: 4 }}>
+          <Typography
+            variant="h1"
+            component="h1"
+            sx={{
+              fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4rem', lg: '4.5rem', xl: '5rem' },
+              fontWeight: 700,
+              lineHeight: 1.1,
+              mb: 3,
+              color: 'white',
+              maxWidth: { xs: '100%', md: '900px', lg: '1100px' },
+              mx: 'auto',
+            }}
+          >
+            Transform Your Enterprise Team Into{' '}
+            <Box
+              component="span"
+              sx={{
+                background: 'linear-gradient(135deg, #00cb75 0%, #2dfa87 100%)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                fontWeight: 700,
+              }}
+            >
+              AI-Native Engineers
+            </Box>{' '}
+            in Just 2-3 Days
+          </Typography>
+
+          <Typography
+            variant="h5"
+            component="p"
+            sx={{
+              fontSize: { xs: '1.1rem', md: '1.25rem', lg: '1.4rem' },
+              lineHeight: 1.6,
+              color: 'rgba(255, 255, 255, 0.9)',
+              mb: 4,
+              maxWidth: { xs: '100%', md: '800px', lg: '900px' },
+              mx: 'auto',
+            }}
+          >
+            The definitive training in Agentic Programming - from the pioneers who&apos;ve deployed AI-first systems at scale. Build enterprise-grade software without writing code.
+          </Typography>
+        </Box>
+
+        {/* Authority Indicators - Centered */}
+        <Box sx={{ 
+          mb: 4, 
+          display: 'flex', 
+          flexDirection: { xs: 'column', md: 'row' },
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: { xs: 0, md: 4, lg: 6 },
+          maxWidth: { md: '800px', lg: '1000px' },
+          width: '100%',
+        }}>
+          <AuthorityIndicator>Enterprise-Proven Methodologies</AuthorityIndicator>
+          <AuthorityIndicator>Industry-Leading AI Experts</AuthorityIndicator>
+          <AuthorityIndicator>Immediate ROI Guaranteed</AuthorityIndicator>
+        </Box>
+
+        {/* CTA Buttons - Centered */}
+        <Box sx={{ display: 'flex', gap: { xs: 2, md: 3 }, mb: 6, flexWrap: 'wrap', justifyContent: 'center' }}>
+          <CTAButton
+            variant="primary"
+            size="large"
+            href="#enrollment"
+            icon="→"
+          >
+            Enroll Your Team Now
+          </CTAButton>
+          <CTAButton
+            variant="secondary"
+            size="large"
+            href="#program-details"
+          >
+            View Program Details
+          </CTAButton>
+        </Box>
+
+        {/* Social Proof - Bottom */}
+        <Card
+          sx={{
+            background: 'rgba(255, 255, 255, 0.1)',
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
+            borderRadius: 2,
+            p: { xs: 3, md: 4, lg: 5 },
+            maxWidth: { xs: '100%', md: '700px', lg: '800px', xl: '900px' },
+            width: '100%',
+          }}
+        >
+          <Box sx={{ 
+            display: 'flex', 
+            gap: { xs: 2, md: 4, lg: 6 }, 
+            mb: 3, 
+            justifyContent: 'center',
+            flexWrap: 'wrap'
+          }}>
+            <StatCard number="500+" label="Engineers Trained" />
+            <StatCard number="50+" label="Enterprise Teams" />
+            <StatCard number="90%" label="Faster Development" />
+          </Box>
+          <Typography
+            variant="body1"
+            sx={{
+              fontStyle: 'italic',
+              color: 'rgba(255, 255, 255, 0.9)',
+              textAlign: 'center',
+              fontSize: { xs: '1rem', md: '1.1rem' },
+              lineHeight: 1.6,
+            }}
+          >
+            &quot;Transformed our development process completely. We&apos;re now deploying enterprise solutions in days, not months.&quot;
+          </Typography>
+        </Card>
       </Box>
     </Section>
   );
