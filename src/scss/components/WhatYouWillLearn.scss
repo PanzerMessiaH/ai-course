@@ -1,0 +1,45 @@
+@use "./mixins" as *;
+// WhatYouWillFind
+@include block("WhatYouWillLearn") {
+
+  h2{
+    font-size: 2.5rem;
+    color: var(--dark-green);
+    & > strong{
+      color: var(--neon-green-on-white);
+    }
+  }
+
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @include element("item") {
+    display: flex;
+    gap: 0px;
+    align-items: center;
+
+    @media (prefers-reduced-motion: no-preference) {
+      @supports (animation-timeline: scroll()) {
+        div {
+          animation: scale-a-lil linear both;
+          animation-timeline: view();
+          animation-range: 0vh 20vh;
+        } 
+      }
+    }
+    
+
+    & > div {
+      padding: 20px;
+      &:first-of-type{
+        background-color: var(--neon-green);
+        flex-basis: 300px;
+        border-bottom-left-radius: 20px;
+        border-top-right-radius: 20px;
+      }
+    }
+  }
+  
+}
+

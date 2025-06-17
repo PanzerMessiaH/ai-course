@@ -1,0 +1,33 @@
+@use "./mixins" as *;
+
+// Modern max-width container
+.max-width {
+    display: block;
+    max-width: 1284px;
+    margin: 0 auto;
+    padding: 20px;
+
+    @media (min-width: 768px) {
+        padding: 40px;
+    }
+
+    @media (min-width: 1024px) {
+        padding: 60px;
+    }
+}
+
+// Legacy BEM version (for backwards compatibility)
+@include block("MaxWidth") {
+    display: block;
+    max-width: 1284px;
+    margin: 0 auto;
+    padding: 20px;
+
+    @include respond-to("medium") {
+        padding: 40px;
+    }
+
+    @include respond-to("large") {
+        padding: 60px;
+    }
+}

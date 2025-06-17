@@ -1,0 +1,12 @@
+@use "./mixins" as *;
+// BioPic
+@include block("Quote") {
+  font-size: 1.8rem;
+  padding: 40px;
+  border-radius: 40px;
+  background-color: var(--light-grey);
+  line-height: 1.2;
+  font-weight: 600;
+  font-style: italic;
+  margin: auto;
+}

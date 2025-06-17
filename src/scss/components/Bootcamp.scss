@@ -1,0 +1,31 @@
+
+@use "./mixins" as *;
+// HomePage
+@include block("Bootcamp") {
+
+    border: 1px solid var(--dark-green);
+    border-bottom-left-radius: 40px;
+    border-top-right-radius: 40px;
+
+    @media (max-width: 1284px) {
+        margin: 0px 20px;
+    }
+
+    h2{
+        font-size: 2.5rem;
+        line-height: 1.1;
+        color: var(--dark-green);
+        & > strong{
+        color: var(--neon-green-on-white);
+        }
+    }
+    
+    h3{
+        font-size: 1.6rem;
+        color: var(--dark-green);
+        & > strong{
+        color: var(--neon-green-on-white);
+        }
+    }
+  
+}

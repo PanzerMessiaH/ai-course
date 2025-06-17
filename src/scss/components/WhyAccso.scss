@@ -1,0 +1,76 @@
+@use "./mixins" as *;
+// HomePage
+@include block("WhyAccso") {
+  h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #003c3c;
+  }
+
+  p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: #666;
+    font-weight: 500;
+  }
+
+  h3 {
+    color: #003c3c;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  // Subtle container for dense content (bullets)  
+  ul {
+    background-color: #f8f9fa;
+    padding: 2.5rem;
+    border-radius: 12px;
+    border-left: 4px solid #003c3c;
+    max-width: 900px;
+    margin: 0 auto 2rem auto;
+    box-shadow: 0 2px 8px rgba(0, 60, 60, 0.05);
+
+    li {
+      margin-bottom: 1.5rem;
+      padding-left: 0.5rem;
+      line-height: 1.7;
+      font-size: 1.05rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      strong {
+        color: #003c3c;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 0.25rem;
+      }
+
+      // Enhanced visual hierarchy within list items
+      &::marker {
+        color: #003c3c;
+      }
+    }
+  }
+
+  // Responsive adjustments
+  @media (max-width: 768px) {
+    ul {
+      padding: 1.5rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+    
+    h2 {
+      font-size: 1.75rem;
+    }
+    
+    p {
+      font-size: 1.1rem;
+    }
+  }
+}

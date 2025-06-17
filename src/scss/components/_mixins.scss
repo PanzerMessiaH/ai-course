@@ -1,0 +1,53 @@
+@use "sass:map";
+@use "vars" as *; // Import variables if needed
+// Mixin for BEM Block
+@mixin block($block) {
+  $current-block: $block !global; // Set the current block in a global variable
+  .#{$block} {
+    @content;
+  }
+}
+
+// Mixin for BEM Element
+@mixin element($element) {
+  $current-element: $element !global; // Set the current element in a global variable
+  &__#{$element} {
+    @content;
+  }
+}
+
+// Mixin for BEM Modifier
+@mixin modifier($modifier) {
+  @if $current-element != null {
+    // Modifier applied to the element
+    .#{$current-block}__#{$current-element}--#{$modifier},
+    &--#{$modifier} {
+      // Standalone modifier for the element
+      @content;
+    }
+  } @else {
+    // Modifier applied to the block
+    &--#{$modifier} {
+      @content;
+    }
+  }
+}
+
+// Define breakpoints
+$breakpoints: (
+  'small': 480px,
+  'medium': 768px,
+  'large': 1024px,
+  'xlarge': 1284px
+);
+
+// Mixin
+@mixin respond-to($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$breakpoint}";
+  }
+}
