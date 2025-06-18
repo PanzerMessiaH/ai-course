@@ -107,10 +107,10 @@ const AuthoritySection = () => {
   ];
 
   const stats = [
-    { number: '500+', label: 'Engineers Trained' },
-    { number: '50+', label: 'Enterprise Clients' },
+    { number: '2-3', label: 'Days Training' },
+    { number: '100%', label: 'Hands-On Learning' },
     { number: '90%', label: 'Faster Development' },
-    { number: '95%', label: 'Client Satisfaction' },
+    { number: '24/7', label: 'Expert Support' },
   ];
 
   return (

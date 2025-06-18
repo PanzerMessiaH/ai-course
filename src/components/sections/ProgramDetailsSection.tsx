@@ -185,7 +185,7 @@ const SocialProofIndicator = () => (
         color: 'secondary.main',
       }}
     >
-      500+
+      2-3
     </Typography>
     <Typography
       variant="body1"
@@ -194,7 +194,7 @@ const SocialProofIndicator = () => (
         fontWeight: 500,
       }}
     >
-      engineers have already transformed their careers
+      intensive days to transform your team
     </Typography>
   </Box>
 );

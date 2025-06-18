@@ -208,7 +208,7 @@ const GuaranteeSection = () => {
     {
       icon: '🏆',
       title: 'Proven Methodology',
-      description: 'Based on successful enterprise implementations across 50+ organizations',
+      description: 'Based on successful enterprise implementations and industry best practices',
     },
     {
       icon: '🔄',
@@ -228,7 +228,7 @@ const GuaranteeSection = () => {
           textAlign: 'center',
         }}
       >
-        Why This Program Delivers Guaranteed Results
+        Why This Program Delivers Proven Results
       </Typography>
       <Box
         sx={{

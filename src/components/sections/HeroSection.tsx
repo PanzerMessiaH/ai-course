@@ -218,7 +218,7 @@ const HeroSection = () => {
         }}>
           <AuthorityIndicator>Enterprise-Proven Methodologies</AuthorityIndicator>
           <AuthorityIndicator>Industry-Leading AI Experts</AuthorityIndicator>
-          <AuthorityIndicator>Immediate ROI Guaranteed</AuthorityIndicator>
+          <AuthorityIndicator>Measurable ROI Impact</AuthorityIndicator>
         </Box>
 
         {/* CTA Buttons - Centered */}
@@ -259,8 +259,8 @@ const HeroSection = () => {
             justifyContent: 'center',
             flexWrap: 'wrap'
           }}>
-            <StatCard number="500+" label="Engineers Trained" />
-            <StatCard number="50+" label="Enterprise Teams" />
+            <StatCard number="2-3" label="Days Training" />
+            <StatCard number="100%" label="Hands-On Learning" />
             <StatCard number="90%" label="Faster Development" />
           </Box>
           <Typography

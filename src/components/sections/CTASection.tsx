@@ -130,7 +130,7 @@ const CTASection = () => {
   const investmentStats = [
     { number: '2-3', label: 'Intensive Days' },
     { number: '90%', label: 'Faster Development' },
-    { number: 'ROI', label: 'Guaranteed' },
+    { number: '100%', label: 'Hands-On Learning' },
     { number: '∞', label: 'Future Potential' },
   ];
 
