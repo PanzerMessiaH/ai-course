@@ -108,9 +108,9 @@ export default function RootLayout({
         <meta name="theme-color" content="#003c3c" />
         <meta name="msapplication-TileColor" content="#003c3c" />
         <meta name="format-detection" content="telephone=no" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/ai-course/favicon.ico" sizes="any" />
+        <link rel="icon" href="/ai-course/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/ai-course/apple-touch-icon.png" />
         <link rel="manifest" href="/ai-course/manifest.json" />
       </head>
       <body className={sourceSans3.variable}>
