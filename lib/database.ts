@@ -220,6 +220,7 @@ export class UserRepository {
   }
 
   async getUserByEmail(email: string): Promise<User | null> {
+    console.log(`Getting user by email: ${email}`);
     try {
       const user = this.getUserByEmailStmt.get(email) as User | undefined;
       return user || null;
@@ -230,8 +231,10 @@ export class UserRepository {
   }
 
   async getAllUsers(): Promise<User[]> {
+    console.log('Getting all users for admin dashboard');
     try {
-      const users = this.getAllUsersStmt.all() as User[];
+      const users = this.db.prepare('SELECT * FROM users ORDER BY createdAt DESC').all() as User[];
+      console.log(`Retrieved ${users.length} users`);
       return users;
     } catch (error) {
       console.error('Error getting all users:', error);
@@ -240,8 +243,9 @@ export class UserRepository {
   }
 
   async getUserCount(): Promise<number> {
+    console.log('Getting user count');
     try {
-      const result = this.getUserCountStmt.get() as { count: number };
+      const result = this.db.prepare('SELECT COUNT(*) as count FROM users').get() as { count: number };
       return result.count;
     } catch (error) {
       console.error('Error getting user count:', error);
