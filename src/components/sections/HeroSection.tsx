@@ -10,8 +10,9 @@ const AccsoLogo = () => (
     role="img"
     aria-label="ACCSO Company Logo"
     sx={{
-      width: { xs: '200px', md: '280px' },
-      height: 'auto',
+      width: { xs: '140px', sm: '160px', md: '180px', lg: '200px' },
+      height: { xs: '32px', sm: '36px', md: '41px', lg: '45px' },
+      display: 'block',
       '& .cls-1': {
         fill: '#2dfa87',
       },
@@ -32,6 +33,23 @@ const AccsoLogo = () => (
       <polygon className="cls-1" points="81.36 51.57 30.7 51.57 33.4 43.72 84.06 43.72 81.36 51.57"/>
     </g>
   </Box>
+);
+
+const DominicSystemsLogo = () => (
+  <Box
+    component="img"
+    src="/ai-course/dominic-systems-logo.svg"
+    alt="Dominic Systems Limited Logo"
+    role="img"
+    aria-label="Dominic Systems Limited - CRM Integration and ERP Solutions Partner"
+    sx={{
+      width: { xs: '140px', sm: '160px', md: '180px', lg: '200px' },
+      height: { xs: '32px', sm: '36px', md: '41px', lg: '45px' },
+      display: 'block',
+      objectFit: 'contain',
+      filter: 'brightness(1.1) contrast(1.05)',
+    }}
+  />
 );
 
 const AuthorityIndicator = ({ children }: { children: string }) => (
@@ -136,13 +154,31 @@ const HeroSection = () => {
         }}
       />
 
+      {/* Dominic Systems Logo - Top Left Corner */}
+      <Box
+        sx={{
+          position: 'absolute',
+          top: { xs: 16, sm: 20, md: 32, lg: 40 },
+          left: { xs: 16, sm: 20, md: 32, lg: 40 },
+          zIndex: 10,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <DominicSystemsLogo />
+      </Box>
+
       {/* ACCSO Logo - Top Right Corner */}
       <Box
         sx={{
           position: 'absolute',
-          top: { xs: 20, md: 40 },
-          right: { xs: 20, md: 40 },
+          top: { xs: 16, sm: 20, md: 32, lg: 40 },
+          right: { xs: 16, sm: 20, md: 32, lg: 40 },
           zIndex: 10,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
         <AccsoLogo />
