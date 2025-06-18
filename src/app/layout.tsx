@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     default: "AI-Native Agentic Programming Bootcamp | Enterprise Software Development Training",
     template: "%s | AI-Native Agentic Programming Bootcamp",
   },
-  description: "Transform your enterprise team into AI-Native Engineers in just 2-3 days. Learn Agentic Programming methodologies from industry pioneers who've deployed AI-first systems at scale. Build enterprise-grade software without writing code.",
+  description: "Transform your enterprise team into AI-Native Engineers in just 2-3 days. Comprehensive training in Agentic Programming methodologies designed for enterprise teams. Learn to build enterprise-grade software using AI-Native development approaches.",
   keywords: [
     "AI-Native Programming",
     "Agentic Programming", 
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     url: 'https://ai-course.accso.com',
     siteName: 'AI-Native Agentic Programming Bootcamp',
     title: 'Transform Your Enterprise Team Into AI-Native Engineers in Just 2-3 Days',
-    description: 'The definitive training in Agentic Programming - from the pioneers who\'ve deployed AI-first systems at scale. Build enterprise-grade software without writing code.',
+    description: 'Comprehensive training in Agentic Programming methodologies designed for enterprise teams. Learn to build enterprise-grade software using AI-Native development approaches.',
     images: [
       {
         url: 'https://ai-course.accso.com/og-image.jpg',
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     site: '@accso',
     creator: '@accso',
     title: 'Transform Your Enterprise Team Into AI-Native Engineers',
-    description: 'Learn Agentic Programming from industry pioneers. Build enterprise-grade software without writing code. 2-3 day intensive bootcamp.',
+    description: 'Comprehensive Agentic Programming training for enterprise teams. Build enterprise-grade software using AI-Native approaches. 2-3 day intensive bootcamp.',
     images: ['https://ai-course.accso.com/twitter-image.jpg'],
   },
   

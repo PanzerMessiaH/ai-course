@@ -201,7 +201,7 @@ const HeroSection = () => {
               mx: 'auto',
             }}
           >
-            The definitive training in Agentic Programming - from the pioneers who&apos;ve deployed AI-first systems at scale. Build enterprise-grade software without writing code.
+            Comprehensive training in Agentic Programming methodologies designed for enterprise teams. Learn to build enterprise-grade software using AI-Native development approaches.
           </Typography>
         </Box>
 
