@@ -14,10 +14,17 @@ export async function verifyAdminSession(request: NextRequest): Promise<{
   response?: NextResponse;
 }> {
   try {
+    // Debug: Log all cookies
+    const allCookies = request.cookies.getAll();
+    console.log('All cookies received:', allCookies.map(c => `${c.name}=${c.value?.substring(0, 10)}...`));
+    
     // Get session cookie
     const sessionId = request.cookies.get('admin-session')?.value;
 
+    console.log('Verifying admin session, sessionId:', sessionId ? `${sessionId.substring(0, 10)}...` : 'missing');
+
     if (!sessionId) {
+      console.log('No session ID found');
       return {
         isAuthenticated: false,
         response: NextResponse.json(
@@ -29,9 +36,11 @@ export async function verifyAdminSession(request: NextRequest): Promise<{
 
     // Verify session
     const session = SessionManager.getSession(sessionId);
+    console.log('Session lookup result:', session ? 'found' : 'not found');
 
     if (!session) {
       // Session expired or invalid
+      console.log('Session expired or invalid');
       const response = NextResponse.json(
         { message: 'Session expired. Please login again.' },
         { status: 401 }
@@ -48,6 +57,7 @@ export async function verifyAdminSession(request: NextRequest): Promise<{
 
     // Extend session if valid
     SessionManager.extendSession(sessionId);
+    console.log('Session verified and extended for admin:', session.username);
 
     return {
       isAuthenticated: true,

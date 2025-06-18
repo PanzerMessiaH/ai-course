@@ -207,7 +207,7 @@ const AuthoritySection = () => {
         <CTAButton
           variant="outline"
           size="large"
-          href="#enrollment"
+          href="/register"
           icon="→"
           ariaLabel="Get started today with AI-Native Agentic Programming training"
         >

@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 interface StructuredDataProps {
@@ -81,25 +83,26 @@ const StructuredData: React.FC<StructuredDataProps> = ({ type = 'all' }) => {
     }
   };
 
-  const renderSchema = (schema: object) => (
+  const renderSchema = (schema: object, key: string) => (
     <script
+      key={key}
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
   );
 
-  if (type === 'course') return renderSchema(courseSchema);
-  if (type === 'organization') return renderSchema(organizationSchema);
-  if (type === 'website') return renderSchema(websiteSchema);
+  if (type === 'course') return renderSchema(courseSchema, 'course-schema');
+  if (type === 'organization') return renderSchema(organizationSchema, 'org-schema');
+  if (type === 'website') return renderSchema(websiteSchema, 'website-schema');
 
   // Render all schemas by default
   return (
     <>
-      {renderSchema(organizationSchema)}
-      {renderSchema(courseSchema)}
-      {renderSchema(websiteSchema)}
+      {renderSchema(organizationSchema, 'org-schema')}
+      {renderSchema(courseSchema, 'course-schema')}
+      {renderSchema(websiteSchema, 'website-schema')}
     </>
   );
 };
 
-export default StructuredData; 
+export default StructuredData;

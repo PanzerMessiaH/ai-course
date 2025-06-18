@@ -118,46 +118,59 @@ export class SessionManager {
     };
 
     this.sessions.set(sessionId, sessionData);
+    console.log(`Session created: ${sessionId} for admin: ${username}, total sessions: ${this.sessions.size}`);
     return sessionId;
   }
 
   static getSession(sessionId: string): SessionData | null {
+    console.log(`Looking up session: ${sessionId}, total sessions: ${this.sessions.size}`);
     const session = this.sessions.get(sessionId);
     
     if (!session) {
+      console.log(`Session not found: ${sessionId}`);
       return null;
     }
 
     // Check if session has expired
     if (Date.now() > session.expiresAt) {
+      console.log(`Session expired: ${sessionId}`);
       this.sessions.delete(sessionId);
       return null;
     }
 
+    console.log(`Session found and valid: ${sessionId} for admin: ${session.username}`);
     return session;
   }
 
   static deleteSession(sessionId: string): void {
-    this.sessions.delete(sessionId);
+    const deleted = this.sessions.delete(sessionId);
+    console.log(`Session deleted: ${sessionId}, success: ${deleted}`);
   }
 
   static extendSession(sessionId: string): boolean {
     const session = this.sessions.get(sessionId);
     
     if (!session) {
+      console.log(`Cannot extend session, not found: ${sessionId}`);
       return false;
     }
 
     session.expiresAt = Date.now() + this.SESSION_DURATION;
+    console.log(`Session extended: ${sessionId}`);
     return true;
   }
 
   static cleanup(): void {
     const now = Date.now();
+    let cleaned = 0;
     for (const [sessionId, session] of this.sessions.entries()) {
       if (now > session.expiresAt) {
         this.sessions.delete(sessionId);
+        cleaned++;
       }
+    }
+    if (cleaned > 0) {
+      console.log(`Cleaned up ${cleaned} expired sessions`);
     }
   }
 

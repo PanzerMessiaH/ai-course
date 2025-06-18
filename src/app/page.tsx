@@ -46,39 +46,13 @@ const BenefitsSection = dynamic(() => import('@/components/sections/BenefitsSect
   ),
 });
 
-const CTASection = dynamic(() => import('@/components/sections/CTASection'), {
-  loading: () => (
-    <Box sx={{ display: 'flex', justifyContent: 'center', py: 4 }}>
-      <CircularProgress />
-    </Box>
-  ),
-});
-
 export default function Home() {
   return (
     <>
       <StructuredData />
+      
       {/* Skip Navigation Link for Accessibility */}
-      <a 
-        href="#main-content" 
-        className="skip-link"
-        style={{
-          position: 'absolute',
-          top: '-40px',
-          left: '6px',
-          background: '#000',
-          color: '#fff',
-          padding: '8px',
-          textDecoration: 'none',
-          zIndex: 1000,
-          fontSize: '14px',
-          borderRadius: '4px',
-          transform: 'translateY(-100%)',
-          transition: 'transform 0.3s'
-        }}
-        onFocus={(e) => e.target.style.transform = 'translateY(0)'}
-        onBlur={(e) => e.target.style.transform = 'translateY(-100%)'}
-      >
+      <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
       
@@ -89,7 +63,6 @@ export default function Home() {
           <ProblemSolutionSection />
           <ProgramDetailsSection />
           <BenefitsSection />
-          <CTASection />
         </Suspense>
       </main>
     </>

@@ -38,13 +38,13 @@ const AccsoLogo = () => (
 const DominicSystemsLogo = () => (
   <Box
     component="img"
-    src="/ai-course/dominic-systems-logo.svg"
+    src="/dominic-systems-logo.svg"
     alt="Dominic Systems Limited Logo"
     role="img"
     aria-label="Dominic Systems Limited - CRM Integration and ERP Solutions Partner"
     sx={{
-      width: { xs: '180px', sm: '200px', md: '220px', lg: '240px' },
-      height: { xs: '41px', sm: '45px', md: '50px', lg: '55px' },
+      width: { xs: '220px', sm: '250px', md: '280px', lg: '320px' },
+      height: { xs: '50px', sm: '57px', md: '64px', lg: '73px' },
       display: 'block',
       objectFit: 'contain',
       filter: 'brightness(1.1) contrast(1.05)',
@@ -273,7 +273,7 @@ const HeroSection = () => {
           <CTAButton
             variant="primary"
             size="large"
-            href="#enrollment"
+            href="/register"
             icon="→"
             ariaLabel="Enroll your team now in the AI-Native Agentic Programming Bootcamp"
           >

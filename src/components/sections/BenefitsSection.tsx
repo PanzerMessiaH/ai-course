@@ -94,7 +94,7 @@ const BenefitsSection = () => {
   const benefits = [
     {
       icon: '🎯',
-      title: 'What You&rsquo;ll Master',
+      title: "What You'll Master",
       items: [
         'AI-Native system architecture design',
         'Autonomous code generation and optimization',
@@ -104,7 +104,7 @@ const BenefitsSection = () => {
     },
     {
       icon: '📦',
-      title: 'What You&rsquo;ll Take Home',
+      title: "What You'll Take Home",
       items: [
         'Complete enterprise application built during training',
         'AI-Native development methodology framework',
@@ -128,7 +128,7 @@ const BenefitsSection = () => {
             lineHeight: 1.2,
           }}
         >
-          What You&rsquo;ll{' '}
+          What You&apos;ll{' '}
           <Box
             component="span"
             sx={{
@@ -178,7 +178,7 @@ const BenefitsSection = () => {
         <CTAButton
           variant="outline"
           size="medium"
-          href="#enrollment"
+          href="/register"
         >
           Enroll Your Team
         </CTAButton>

@@ -233,7 +233,7 @@ export class UserRepository {
   async getAllUsers(): Promise<User[]> {
     console.log('Getting all users for admin dashboard');
     try {
-      const users = this.db.prepare('SELECT * FROM users ORDER BY createdAt DESC').all() as User[];
+      const users = this.db.prepare('SELECT * FROM users ORDER BY registrationDate DESC').all() as User[];
       console.log(`Retrieved ${users.length} users`);
       return users;
     } catch (error) {

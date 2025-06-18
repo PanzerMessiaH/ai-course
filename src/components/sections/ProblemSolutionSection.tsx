@@ -164,7 +164,7 @@ const ProblemSolutionSection = () => {
         <CTAButton
           variant="primary"
           size="large"
-          href="#enrollment"
+          href="/register"
           icon="→"
         >
           Transform Your Team

@@ -13,8 +13,7 @@ import {
   Alert,
   CircularProgress,
   InputAdornment,
-  IconButton,
-  Divider
+  IconButton
 } from '@mui/material';
 import {
   Visibility,
@@ -22,12 +21,15 @@ import {
   Security,
   Login as LoginIcon,
   AdminPanelSettings,
-  Lock
+  Lock,
+  Home
 } from '@mui/icons-material';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { adminLoginSchema, type AdminLoginData } from '../../../../lib/auth';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function AdminLoginPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -91,202 +93,392 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <Container maxWidth="sm" sx={{ py: 8 }}>
-      <Paper 
-        elevation={6} 
-        sx={{ 
-          p: 4,
-          background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
-          border: '1px solid rgba(0, 0, 0, 0.1)'
+    <Box
+      sx={{
+        minHeight: '100vh',
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        position: 'relative',
+        overflow: 'hidden',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        py: 4,
+      }}
+    >
+      {/* Animated Background Elements */}
+      <Box
+        sx={{
+          position: 'absolute',
+          top: '10%',
+          left: '10%',
+          width: '300px',
+          height: '300px',
+          borderRadius: '50%',
+          background: 'rgba(255, 255, 255, 0.1)',
+          filter: 'blur(60px)',
+          animation: 'float 6s ease-in-out infinite',
+          '@keyframes float': {
+            '0%, 100%': { transform: 'translateY(0px)' },
+            '50%': { transform: 'translateY(-20px)' },
+          },
         }}
-      >
-        {/* Header */}
-        <Box textAlign="center" mb={4}>
-          <Box sx={{ mb: 2 }}>
-            <AdminPanelSettings 
-              sx={{ 
-                fontSize: 60, 
-                color: 'primary.main',
-                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
-              }} 
-            />
-          </Box>
-          <Typography variant="h4" component="h1" gutterBottom fontWeight="bold">
-            Admin Login
-          </Typography>
-          <Typography variant="body1" color="text.secondary">
-            Secure access to course registration management
-          </Typography>
-        </Box>
+      />
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: '10%',
+          right: '10%',
+          width: '200px',
+          height: '200px',
+          borderRadius: '50%',
+          background: 'rgba(0, 203, 117, 0.2)',
+          filter: 'blur(40px)',
+          animation: 'float 8s ease-in-out infinite reverse',
+        }}
+      />
 
-        {/* Security Indicator */}
-        <Box 
-          sx={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center',
-            mb: 3,
-            p: 1,
-            bgcolor: 'success.light',
-            borderRadius: 1,
-            color: 'success.dark'
-          }}
-        >
-          <Security sx={{ mr: 1, fontSize: 18 }} />
-          <Typography variant="body2" fontWeight="medium">
-            Secure HTTPS Connection
-          </Typography>
-        </Box>
-
-        {/* Status Messages */}
-        {loginStatus === 'success' && (
-          <Alert severity="success" sx={{ mb: 3 }}>
-            {loginMessage}
-          </Alert>
-        )}
-
-        {loginStatus === 'error' && (
-          <Alert severity="error" sx={{ mb: 3 }}>
-            {loginMessage}
-          </Alert>
-        )}
-
-        <form onSubmit={handleSubmit(onSubmit)}>
-          {/* Username Field */}
-          <Box mb={3}>
-            <Controller
-              name="username"
-              control={control}
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  fullWidth
-                  label="Username"
-                  required
-                  error={!!errors.username}
-                  helperText={errors.username?.message}
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <AdminPanelSettings color={errors.username ? 'error' : 'action'} />
-                      </InputAdornment>
-                    )
-                  }}
-                  sx={{
-                    '& .MuiOutlinedInput-root': {
-                      bgcolor: 'white',
-                      '&:hover': {
-                        bgcolor: 'grey.50'
-                      }
-                    }
-                  }}
-                />
-              )}
-            />
+      <Container maxWidth="sm">
+        {/* Header with Logos and Navigation */}
+        <Box sx={{ mb: 4 }}>
+          {/* Navigation */}
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
+            <Link href="/" style={{ textDecoration: 'none' }}>
+              <Button
+                startIcon={<Home />}
+                sx={{
+                  color: 'white',
+                  '&:hover': {
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  },
+                }}
+              >
+                Back to Home
+              </Button>
+            </Link>
           </Box>
 
-          {/* Password Field */}
-          <Box mb={3}>
-            <Controller
-              name="password"
-              control={control}
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  fullWidth
-                  label="Password"
-                  type={showPassword ? 'text' : 'password'}
-                  required
-                  error={!!errors.password}
-                  helperText={errors.password?.message}
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <Lock color={errors.password ? 'error' : 'action'} />
-                      </InputAdornment>
-                    ),
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <IconButton
-                          onClick={handleTogglePasswordVisibility}
-                          edge="end"
-                          aria-label="toggle password visibility"
-                        >
-                          {showPassword ? <VisibilityOff /> : <Visibility />}
-                        </IconButton>
-                      </InputAdornment>
-                    )
-                  }}
-                  sx={{
-                    '& .MuiOutlinedInput-root': {
-                      bgcolor: 'white',
-                      '&:hover': {
-                        bgcolor: 'grey.50'
-                      }
-                    }
-                  }}
-                />
-              )}
-            />
-          </Box>
-
-          {/* Remember Me */}
-          <Box mb={3}>
-            <Controller
-              name="rememberMe"
-              control={control}
-              render={({ field }) => (
-                <FormControlLabel
-                  control={
-                    <Checkbox 
-                      {...field} 
-                      checked={field.value || false}
-                      color="primary"
-                    />
-                  }
-                  label="Remember me for 30 days"
-                />
-              )}
-            />
-          </Box>
-
-          <Divider sx={{ mb: 3 }} />
-
-          {/* Login Button */}
-          <Button
-            type="submit"
-            variant="contained"
-            size="large"
-            fullWidth
-            disabled={isSubmitting || !isValid}
-            startIcon={isSubmitting ? <CircularProgress size={20} /> : <LoginIcon />}
-            sx={{ 
-              py: 1.5,
-              fontSize: '1.1rem',
-              fontWeight: 'bold',
-              background: 'linear-gradient(135deg, #1976d2 0%, #42a5f5 100%)',
-              '&:hover': {
-                background: 'linear-gradient(135deg, #1565c0 0%, #1976d2 100%)',
-                transform: 'translateY(-1px)',
-                boxShadow: 3
-              },
-              transition: 'all 0.3s ease'
+          {/* Company Logos */}
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: 4,
+              mb: 4,
             }}
           >
-            {isSubmitting ? 'Authenticating...' : 'Login to Dashboard'}
-          </Button>
-        </form>
-
-        {/* Footer Info */}
-        <Box textAlign="center" mt={4}>
-          <Typography variant="body2" color="text.secondary">
-            Default credentials: admin / admin123
-          </Typography>
-          <Typography variant="caption" color="text.secondary" sx={{ mt: 1, display: 'block' }}>
-            ⚠️ Please change the default password after first login
-          </Typography>
+            <Image
+              src="/accso-logo.svg"
+              alt="ACCSO Logo"
+              width={0}
+              height={0}
+              style={{
+                width: '220px',
+                height: '50px',
+                filter: 'brightness(0) invert(1)',
+              }}
+            />
+            <Typography
+              variant="h6"
+              sx={{
+                color: 'white',
+                fontWeight: 300,
+                opacity: 0.8,
+              }}
+            >
+              &
+            </Typography>
+            <Image
+              src="/dominic-systems-logo.svg"
+              alt="Dominic Systems Logo"
+              width={0}
+              height={0}
+              style={{
+                width: '280px',
+                height: '64px',
+                filter: 'brightness(0) invert(1)',
+              }}
+            />
+          </Box>
         </Box>
-      </Paper>
-    </Container>
+
+        {/* Main Login Card */}
+        <Paper 
+          elevation={0}
+          sx={{ 
+            p: 6,
+            background: 'rgba(255, 255, 255, 0.9)',
+            backdropFilter: 'blur(20px)',
+            borderRadius: '24px',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+          }}
+        >
+          {/* Header */}
+          <Box textAlign="center" mb={4}>
+            <Box sx={{ mb: 3 }}>
+              <AdminPanelSettings 
+                sx={{ 
+                  fontSize: 72, 
+                  color: '#00cb75',
+                  filter: 'drop-shadow(0 4px 8px rgba(0, 203, 117, 0.3))',
+                }} 
+              />
+            </Box>
+            <Typography 
+              variant="h3" 
+              component="h1" 
+              gutterBottom 
+              sx={{
+                fontWeight: 700,
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                mb: 2,
+              }}
+            >
+              Admin Login
+            </Typography>
+            <Typography variant="h6" sx={{ color: '#555555', fontWeight: 400 }}>
+              Secure access to course registration management
+            </Typography>
+          </Box>
+
+          {/* Security Indicator */}
+          <Box 
+            sx={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center',
+              mb: 4,
+              p: 2,
+              background: 'linear-gradient(135deg, #00cb75 0%, #00a661 100%)',
+              borderRadius: '12px',
+              color: 'white',
+              boxShadow: '0 4px 15px rgba(0, 203, 117, 0.3)',
+            }}
+          >
+            <Security sx={{ mr: 1, fontSize: 20 }} />
+            <Typography variant="body1" fontWeight="600">
+              Secure HTTPS Connection
+            </Typography>
+          </Box>
+
+          {/* Status Messages */}
+          {loginStatus === 'success' && (
+            <Alert 
+              severity="success" 
+              sx={{ 
+                mb: 3,
+                borderRadius: '12px',
+                '& .MuiAlert-message': {
+                  fontWeight: 500,
+                },
+              }}
+            >
+              {loginMessage}
+            </Alert>
+          )}
+
+          {loginStatus === 'error' && (
+            <Alert 
+              severity="error" 
+              sx={{ 
+                mb: 3,
+                borderRadius: '12px',
+                '& .MuiAlert-message': {
+                  fontWeight: 500,
+                },
+              }}
+            >
+              {loginMessage}
+            </Alert>
+          )}
+
+          <form onSubmit={handleSubmit(onSubmit)}>
+            {/* Username Field */}
+            <Box mb={3}>
+              <Controller
+                name="username"
+                control={control}
+                render={({ field }) => (
+                  <TextField
+                    {...field}
+                    fullWidth
+                    label="Username"
+                    required
+                    error={!!errors.username}
+                    helperText={errors.username?.message}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <AdminPanelSettings color={errors.username ? 'error' : 'action'} />
+                        </InputAdornment>
+                      )
+                    }}
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                        borderRadius: '12px',
+                        '& fieldset': {
+                          borderColor: 'rgba(0, 0, 0, 0.1)',
+                        },
+                        '&:hover fieldset': {
+                          borderColor: '#00cb75',
+                        },
+                        '&.Mui-focused fieldset': {
+                          borderColor: '#00cb75',
+                        },
+                      },
+                      '& .MuiInputLabel-root': {
+                        color: '#333333',
+                        '&.Mui-focused': {
+                          color: '#00cb75',
+                        },
+                      },
+                      '& .MuiOutlinedInput-input': {
+                        color: '#333333',
+                      },
+                    }}
+                  />
+                )}
+              />
+            </Box>
+
+            {/* Password Field */}
+            <Box mb={3}>
+              <Controller
+                name="password"
+                control={control}
+                render={({ field }) => (
+                  <TextField
+                    {...field}
+                    fullWidth
+                    label="Password"
+                    type={showPassword ? 'text' : 'password'}
+                    required
+                    error={!!errors.password}
+                    helperText={errors.password?.message}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <Lock color={errors.password ? 'error' : 'action'} />
+                        </InputAdornment>
+                      ),
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <IconButton
+                            onClick={handleTogglePasswordVisibility}
+                            edge="end"
+                            aria-label="toggle password visibility"
+                          >
+                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                          </IconButton>
+                        </InputAdornment>
+                      )
+                    }}
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                        borderRadius: '12px',
+                        '& fieldset': {
+                          borderColor: 'rgba(0, 0, 0, 0.1)',
+                        },
+                        '&:hover fieldset': {
+                          borderColor: '#00cb75',
+                        },
+                        '&.Mui-focused fieldset': {
+                          borderColor: '#00cb75',
+                        },
+                      },
+                      '& .MuiInputLabel-root': {
+                        color: '#333333',
+                        '&.Mui-focused': {
+                          color: '#00cb75',
+                        },
+                      },
+                      '& .MuiOutlinedInput-input': {
+                        color: '#333333',
+                      },
+                    }}
+                  />
+                )}
+              />
+            </Box>
+
+            {/* Remember Me */}
+            <Box mb={4}>
+              <Controller
+                name="rememberMe"
+                control={control}
+                render={({ field }) => (
+                  <FormControlLabel
+                    control={
+                      <Checkbox 
+                        {...field} 
+                        checked={field.value || false}
+                        sx={{
+                          color: '#00cb75',
+                          '&.Mui-checked': {
+                            color: '#00cb75',
+                          },
+                        }}
+                      />
+                    }
+                    label={
+                      <Typography sx={{ color: '#555555', fontWeight: 500 }}>
+                        Remember me for 30 days
+                      </Typography>
+                    }
+                  />
+                )}
+              />
+            </Box>
+
+            {/* Login Button */}
+            <Button
+              type="submit"
+              variant="contained"
+              size="large"
+              fullWidth
+              disabled={isSubmitting || !isValid}
+              startIcon={isSubmitting ? <CircularProgress size={20} color="inherit" /> : <LoginIcon />}
+              sx={{ 
+                py: 2,
+                fontSize: '1.2rem',
+                fontWeight: 700,
+                borderRadius: '12px',
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                boxShadow: '0 8px 25px rgba(102, 126, 234, 0.4)',
+                textTransform: 'none',
+                '&:hover': {
+                  background: 'linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%)',
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 12px 35px rgba(102, 126, 234, 0.5)',
+                },
+                '&:disabled': {
+                  background: 'rgba(0, 0, 0, 0.12)',
+                  color: 'rgba(0, 0, 0, 0.26)',
+                },
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+              }}
+            >
+              {isSubmitting ? 'Authenticating...' : 'Access Dashboard'}
+            </Button>
+          </form>
+
+          {/* Footer Info */}
+          <Box textAlign="center" mt={4}>
+            <Typography variant="body2" sx={{ color: '#555555', mb: 1 }}>
+              Default credentials: <strong>admin</strong> / <strong>admin123</strong>
+            </Typography>
+            <Typography variant="caption" sx={{ color: '#777777' }}>
+              ⚠️ Please change the default password after first login
+            </Typography>
+          </Box>
+        </Paper>
+      </Container>
+    </Box>
   );
 }

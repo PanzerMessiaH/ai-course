@@ -2,6 +2,7 @@
 
 import { Button, ButtonProps, Box, styled } from '@mui/material';
 import { ReactNode } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface CTAButtonProps extends Omit<ButtonProps, 'variant'> {
   children: ReactNode;
@@ -10,6 +11,7 @@ interface CTAButtonProps extends Omit<ButtonProps, 'variant'> {
   pulse?: boolean;
   ariaLabel?: string;
   ariaDescribedBy?: string;
+  href?: string;
 }
 
 const PrimaryButton = styled(Button)(() => ({
@@ -96,15 +98,45 @@ const CTAButton: React.FC<CTAButtonProps> = ({
   icon,
   ariaLabel,
   ariaDescribedBy,
+  href,
+  onClick,
   ...props
 }) => {
+  const router = useRouter();
+  
   const ButtonComponent = 
     variant === 'primary' ? PrimaryButton : 
     variant === 'secondary' ? SecondaryButton : 
     OutlineButton;
 
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    if (href) {
+      event.preventDefault();
+      if (href.startsWith('/')) {
+        // Internal navigation
+        router.push(href);
+      } else if (href.startsWith('#')) {
+        // Scroll to anchor
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        // External link
+        window.open(href, '_blank', 'noopener,noreferrer');
+      }
+    } else if (onClick) {
+      onClick(event);
+    }
+  };
+
   return (
-    <ButtonComponent {...props} aria-label={ariaLabel} aria-describedby={ariaDescribedBy}>
+    <ButtonComponent 
+      {...props} 
+      onClick={handleClick}
+      aria-label={ariaLabel} 
+      aria-describedby={ariaDescribedBy}
+    >
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
         {children}
         {icon && <Box component="span">{icon}</Box>}

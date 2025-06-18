@@ -304,7 +304,7 @@ const ProgramDetailsSection = () => {
         <CTAButton
           variant="primary"
           size="large"
-          href="#enrollment"
+          href="/register"
           icon="→"
         >
           Reserve Your Team&apos;s Seats
