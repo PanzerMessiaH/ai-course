@@ -5,7 +5,7 @@ import { ReactNode } from 'react';
 
 interface CTAButtonProps extends Omit<ButtonProps, 'variant'> {
   children: ReactNode;
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'outline';
   icon?: ReactNode;
   pulse?: boolean;
 }
@@ -61,13 +61,43 @@ const SecondaryButton = styled(Button)(() => ({
   },
 }));
 
+const OutlineButton = styled(Button)(({ theme }) => ({
+  background: 'transparent',
+  color: theme.palette.text.primary,
+  fontWeight: 600,
+  fontSize: '1.1rem',
+  padding: '16px 32px',
+  borderRadius: '8px',
+  textTransform: 'none',
+  border: '2px solid',
+  borderColor: theme.palette.text.primary,
+  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+  '@media (min-width: 768px)': {
+    fontSize: '1.2rem',
+    padding: '18px 36px',
+  },
+  '&:hover': {
+    backgroundColor: theme.palette.text.primary,
+    color: theme.palette.background.paper,
+    borderColor: theme.palette.text.primary,
+    transform: 'translateY(-2px)',
+    boxShadow: `0 6px 20px ${theme.palette.text.primary}33`,
+  },
+  '&:active': {
+    transform: 'translateY(0)',
+  },
+}));
+
 const CTAButton: React.FC<CTAButtonProps> = ({
   children,
   variant = 'primary',
   icon,
   ...props
 }) => {
-  const ButtonComponent = variant === 'primary' ? PrimaryButton : SecondaryButton;
+  const ButtonComponent = 
+    variant === 'primary' ? PrimaryButton : 
+    variant === 'secondary' ? SecondaryButton : 
+    OutlineButton;
 
   return (
     <ButtonComponent {...props}>

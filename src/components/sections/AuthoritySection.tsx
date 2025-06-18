@@ -186,11 +186,12 @@ const AuthoritySection = () => {
       {/* CTA */}
       <Box sx={{ textAlign: 'center' }}>
         <CTAButton
-          variant="secondary"
+          variant="outline"
           size="large"
-          href="#program-details"
+          href="#enrollment"
+          icon="→"
         >
-          View Program Details
+          Get Started Today
         </CTAButton>
       </Box>
     </Section>

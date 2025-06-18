@@ -176,7 +176,7 @@ const BenefitsSection = () => {
       {/* CTA */}
       <Box sx={{ textAlign: 'center' }}>
         <CTAButton
-          variant="secondary"
+          variant="outline"
           size="medium"
           href="#enrollment"
         >

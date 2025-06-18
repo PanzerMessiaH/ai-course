@@ -57,12 +57,12 @@ const CTASection = () => {
           size="large"
           href="mailto:info@accso.com?subject=Agentic%20Coding%20Bootcamp%20Information"
           sx={{
-            bgcolor: 'rgba(255, 255, 255, 0.1)',
-            borderColor: 'rgba(255, 255, 255, 0.3)',
+            bgcolor: 'rgba(255, 255, 255, 0.15)',
+            borderColor: 'rgba(255, 255, 255, 0.6)',
             color: 'white',
             '&:hover': {
-              bgcolor: 'rgba(255, 255, 255, 0.2)',
-              borderColor: 'rgba(255, 255, 255, 0.5)',
+              bgcolor: 'rgba(255, 255, 255, 0.25)',
+              borderColor: 'rgba(255, 255, 255, 0.8)',
             },
           }}
         >
