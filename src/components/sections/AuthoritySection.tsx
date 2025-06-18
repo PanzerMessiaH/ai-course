@@ -136,18 +136,28 @@ const AuthoritySection = () => {
           >
             ACCSO
           </Box>
+          {' & '}
+          <Box
+            component="span"
+            sx={{
+              color: 'secondary.main',
+              fontWeight: 700,
+            }}
+          >
+            Dominic Systems
+          </Box>
         </Typography>
         <Typography
           variant="h6"
           component="p"
           sx={{
             color: 'text.secondary',
-            maxWidth: '600px',
+            maxWidth: '700px',
             mx: 'auto',
             lineHeight: 1.6,
           }}
         >
-          Trusted expertise in AI-Native development training
+          Combined expertise in AI-Native development training and enterprise system integration
         </Typography>
       </Box>
 

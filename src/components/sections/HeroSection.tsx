@@ -43,8 +43,8 @@ const DominicSystemsLogo = () => (
     role="img"
     aria-label="Dominic Systems Limited - CRM Integration and ERP Solutions Partner"
     sx={{
-      width: { xs: '140px', sm: '160px', md: '180px', lg: '200px' },
-      height: { xs: '32px', sm: '36px', md: '41px', lg: '45px' },
+      width: { xs: '180px', sm: '200px', md: '220px', lg: '240px' },
+      height: { xs: '41px', sm: '45px', md: '50px', lg: '55px' },
       display: 'block',
       objectFit: 'contain',
       filter: 'brightness(1.1) contrast(1.05)',
@@ -82,7 +82,14 @@ const StatCard = ({ number, label }: { number: string; label: string }) => (
     >
       {number}
     </Typography>
-    <Typography variant="body2" color="text.secondary">
+    <Typography 
+      variant="body2" 
+      sx={{ 
+        color: 'rgba(255, 255, 255, 0.85)',
+        fontWeight: 500,
+        fontSize: { xs: '0.875rem', md: '0.9rem' }
+      }}
+    >
       {label}
     </Typography>
   </Box>
