@@ -1,101 +1,75 @@
 'use client';
 
 import React from 'react';
-import { Box, Typography } from '@mui/material';
-import Section from '@/components/shared/Section';
-import CTAButton from '@/components/shared/CTAButton';
+import { Box, Typography, Button, Container } from '@mui/material';
+import { ArrowForward, PersonAdd } from '@mui/icons-material';
+import Link from 'next/link';
+import { Section } from '../shared';
 
 const CTASection = () => {
   return (
-    <Section background="gradient" spacing="large" id="enrollment">
-      {/* Section Header */}
-      <Box sx={{ textAlign: 'center', mb: 8 }}>
-        <Typography
-          variant="h2"
-          component="h2"
-          sx={{
-            fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
-            fontWeight: 600,
-            mb: 3,
-            lineHeight: 1.2,
-            color: 'white',
-          }}
-        >
-          Ready to Transform Your Team?
+    <Section 
+      sx={{ 
+        background: 'linear-gradient(135deg, #1976d2 0%, #42a5f5 100%)',
+        color: 'white',
+        textAlign: 'center'
+      }}
+    >
+      <Container maxWidth="md">
+        <Typography variant="h3" component="h2" gutterBottom fontWeight="bold">
+          Ready to Transform Your Career?
         </Typography>
-        <Typography
-          variant="h6"
-          component="p"
-          sx={{
-            color: 'rgba(255, 255, 255, 0.9)',
-            maxWidth: '600px',
-            mx: 'auto',
-            lineHeight: 1.6,
-            mb: 6,
-          }}
-        >
-          Join the next cohort and lead your organization&apos;s AI transformation
+        
+        <Typography variant="h6" sx={{ mb: 4, opacity: 0.9 }}>
+          Join thousands of professionals who have mastered AI-Native development
         </Typography>
-      </Box>
-
-      {/* CTA Buttons */}
-      <Box sx={{ textAlign: 'center', mb: 6 }}>
-        <CTAButton
-          variant="primary"
-          size="large"
-          href="mailto:training@accso.com?subject=Agentic%20Coding%20Bootcamp%20Enrollment"
-          sx={{
-            mr: { xs: 0, sm: 3 },
-            mb: { xs: 3, sm: 0 },
-          }}
-          icon="→"
-        >
-          Enroll Your Team Now
-        </CTAButton>
-        <CTAButton
-          variant="secondary"
-          size="large"
-          href="mailto:info@accso.com?subject=Agentic%20Coding%20Bootcamp%20Information"
-          sx={{
-            bgcolor: 'rgba(255, 255, 255, 0.15)',
-            borderColor: 'rgba(255, 255, 255, 0.6)',
-            color: 'white',
-            '&:hover': {
-              bgcolor: 'rgba(255, 255, 255, 0.25)',
-              borderColor: 'rgba(255, 255, 255, 0.8)',
-            },
-          }}
-        >
-          Get More Information
-        </CTAButton>
-      </Box>
-
-      {/* Simple Contact Info */}
-      <Box sx={{ textAlign: 'center' }}>
-        <Typography
-          variant="body1"
-          sx={{
-            color: 'rgba(255, 255, 255, 0.8)',
-            fontSize: '1rem',
-          }}
-        >
-          Questions? Contact us at{' '}
-          <Box
-            component="a"
-            href="mailto:training@accso.com"
+        
+        <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
+          <Button
+            component={Link}
+            href="/register"
+            variant="contained"
+            size="large"
+            startIcon={<PersonAdd />}
             sx={{
-              color: 'secondary.main',
-              textDecoration: 'none',
-              fontWeight: 500,
+              bgcolor: 'white',
+              color: 'primary.main',
+              px: 4,
+              py: 1.5,
+              fontSize: '1.1rem',
+              fontWeight: 'bold',
               '&:hover': {
-                textDecoration: 'underline',
+                bgcolor: 'grey.100',
+                transform: 'translateY(-2px)',
               },
+              transition: 'all 0.3s ease',
             }}
           >
-            training@accso.com
-          </Box>
-        </Typography>
-      </Box>
+            Register Now
+          </Button>
+          
+          <Button
+            variant="outlined"
+            size="large"
+            endIcon={<ArrowForward />}
+            sx={{
+              borderColor: 'white',
+              color: 'white',
+              px: 4,
+              py: 1.5,
+              fontSize: '1.1rem',
+              '&:hover': {
+                borderColor: 'white',
+                bgcolor: 'rgba(255, 255, 255, 0.1)',
+                transform: 'translateY(-2px)',
+              },
+              transition: 'all 0.3s ease',
+            }}
+          >
+            Learn More
+          </Button>
+        </Box>
+      </Container>
     </Section>
   );
 };
