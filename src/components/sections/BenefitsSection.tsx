@@ -90,192 +90,26 @@ const BenefitCard: React.FC<BenefitCardProps> = ({ icon, title, items }) => (
   </Card>
 );
 
-interface FeatureCardProps {
-  icon: string;
-  title: string;
-  description: string;
-}
-
-const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description }) => (
-  <Card
-    sx={{
-      height: '100%',
-      border: '1px solid',
-      borderColor: 'divider',
-      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-      '&:hover': {
-        borderColor: 'secondary.main',
-        boxShadow: '0 6px 20px rgba(0, 203, 117, 0.12)',
-        transform: 'translateY(-2px)',
-      },
-    }}
-  >
-    <CardContent sx={{ p: 3, textAlign: 'center', height: '100%', display: 'flex', flexDirection: 'column' }}>
-      <Box
-        sx={{
-          fontSize: '2.5rem',
-          mb: 2,
-          display: 'flex',
-          justifyContent: 'center',
-        }}
-      >
-        {icon}
-      </Box>
-      <Typography
-        variant="h6"
-        component="h4"
-        sx={{
-          fontWeight: 600,
-          mb: 2,
-          color: 'text.primary',
-        }}
-      >
-        {title}
-      </Typography>
-      <Typography
-        variant="body1"
-        sx={{
-          color: 'text.secondary',
-          lineHeight: 1.6,
-          flexGrow: 1,
-        }}
-      >
-        {description}
-      </Typography>
-    </CardContent>
-  </Card>
-);
-
-const WhoShouldAttendSection = () => {
-  const attendees = [
-    {
-      icon: '👨‍💻',
-      title: 'Software Engineers & Technical Leads',
-      description: 'Build AI-native systems and lead technical transformation',
-    },
-    {
-      icon: '👥',
-      title: 'Cross-Functional Teams (3-5 members)',
-      description: 'Transition entire teams to AI-first workflows',
-    },
-    {
-      icon: '📊',
-      title: 'Engineering Managers',
-      description: 'Integrate AI strategies into team processes',
-    },
-  ];
-
-  return (
-    <Box sx={{ mb: 8 }}>
-      <Typography
-        variant="h4"
-        component="h3"
-        sx={{
-          fontWeight: 600,
-          mb: 4,
-          textAlign: 'center',
-        }}
-      >
-        Who Should Attend?
-      </Typography>
-      <Box
-        sx={{
-          display: 'grid',
-          gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
-          gap: 4,
-        }}
-      >
-        {attendees.map((attendee, index) => (
-          <FeatureCard
-            key={index}
-            icon={attendee.icon}
-            title={attendee.title}
-            description={attendee.description}
-          />
-        ))}
-      </Box>
-    </Box>
-  );
-};
-
-const GuaranteeSection = () => {
-  const guarantees = [
-    {
-      icon: '⚡',
-      title: 'Immediate Implementation',
-      description: 'Start using AI-Native techniques on day one with hands-on application building',
-    },
-    {
-      icon: '🏆',
-      title: 'Proven Methodology',
-      description: 'Based on successful enterprise implementations and industry best practices',
-    },
-    {
-      icon: '🔄',
-      title: 'Ongoing Support',
-      description: '90-day consultation period ensures successful integration into your workflows',
-    },
-  ];
-
-  return (
-    <Box>
-      <Typography
-        variant="h4"
-        component="h3"
-        sx={{
-          fontWeight: 600,
-          mb: 4,
-          textAlign: 'center',
-        }}
-      >
-        Why This Program Delivers Proven Results
-      </Typography>
-      <Box
-        sx={{
-          display: 'grid',
-          gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
-          gap: 4,
-        }}
-      >
-        {guarantees.map((guarantee, index) => (
-          <FeatureCard
-            key={index}
-            icon={guarantee.icon}
-            title={guarantee.title}
-            description={guarantee.description}
-          />
-        ))}
-      </Box>
-    </Box>
-  );
-};
-
 const BenefitsSection = () => {
   const benefits = [
     {
       icon: '🎯',
-      title: 'Core Competencies Mastered',
+      title: 'What You&apos;ll Master',
       items: [
         'AI-Native system architecture design',
         'Autonomous code generation and optimization',
         'Enterprise-grade AI tool integration',
-        'Requirements engineering with AI assistance',
-        'Scalable prototype development',
         'Team transformation leadership',
-        'Future-proof AI adoption strategies',
       ],
     },
     {
       icon: '📦',
-      title: 'Deliverables & Assets',
+      title: 'What You&apos;ll Take Home',
       items: [
         'Complete enterprise application built during training',
         'AI-Native development methodology framework',
-        'Customized implementation roadmap for your organization',
-        'Access to exclusive AI tool configurations',
+        'Customized implementation roadmap',
         '90-day post-training support and consultation',
-        'Ongoing community access and updates',
-        'Professional certification in Agentic Programming',
       ],
     },
   ];
@@ -294,7 +128,7 @@ const BenefitsSection = () => {
             lineHeight: 1.2,
           }}
         >
-          Complete{' '}
+          What You&apos;ll{' '}
           <Box
             component="span"
             sx={{
@@ -302,9 +136,8 @@ const BenefitsSection = () => {
               fontWeight: 700,
             }}
           >
-            Learning Outcomes
-          </Box>{' '}
-          & Deliverables
+            Achieve
+          </Box>
         </Typography>
         <Typography
           variant="h6"
@@ -316,7 +149,7 @@ const BenefitsSection = () => {
             lineHeight: 1.6,
           }}
         >
-          Exactly what your team will master and the assets you&apos;ll take home
+          Core skills and deliverables from the intensive training
         </Typography>
       </Box>
 
@@ -340,22 +173,16 @@ const BenefitsSection = () => {
         </Box>
       </Box>
 
-      {/* Who Should Attend */}
-      <WhoShouldAttendSection />
-
       {/* CTA */}
-      <Box sx={{ textAlign: 'center', mb: 8 }}>
+      <Box sx={{ textAlign: 'center' }}>
         <CTAButton
           variant="secondary"
           size="medium"
           href="#enrollment"
         >
-          See Full Program Details
+          Enroll Your Team
         </CTAButton>
       </Box>
-
-      {/* Guarantee Section */}
-      <GuaranteeSection />
     </Section>
   );
 };

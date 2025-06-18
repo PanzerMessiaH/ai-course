@@ -91,24 +91,18 @@ const AuthoritySection = () => {
   const features = [
     {
       icon: '🏆',
-      title: 'Proven Enterprise Leadership',
-      description: 'Advanced methodologies for AI-first systems that enable rapid deployment of enterprise-grade solutions at scale.',
-    },
-    {
-      icon: '🚀',
-      title: 'Successful Implementations',
-      description: 'Leading organizations trust us to transform their development teams using our proven approach to AI-Native engineering.',
+      title: 'Enterprise-Proven Methods',
+      description: 'Advanced methodologies for AI-first systems that enable rapid deployment of enterprise solutions.',
     },
     {
       icon: '⚡',
       title: 'Industry-Leading Techniques',
-      description: "Through successful enterprise implementations, we've developed the definitive framework for Agentic Programming adoption.",
+      description: "Comprehensive framework for Agentic Programming adoption in enterprise environments.",
     },
   ];
 
   const stats = [
     { number: '2-3', label: 'Days Training' },
-    { number: '100%', label: 'Hands-On Learning' },
     { number: '90%', label: 'Faster Development' },
     { number: '24/7', label: 'Expert Support' },
   ];
@@ -136,8 +130,7 @@ const AuthoritySection = () => {
             }}
           >
             ACCSO
-          </Box>{' '}
-          Leads Enterprise AI Transformation
+          </Box>
         </Typography>
         <Typography
           variant="h6"
@@ -149,7 +142,7 @@ const AuthoritySection = () => {
             lineHeight: 1.6,
           }}
         >
-          The trusted authority in AI-Native development for forward-thinking enterprises
+          Trusted expertise in AI-Native development training
         </Typography>
       </Box>
 
@@ -157,7 +150,7 @@ const AuthoritySection = () => {
       <Box
         sx={{
           display: 'grid',
-          gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
+          gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)' },
           gap: 4,
           mb: 8,
         }}
@@ -176,10 +169,7 @@ const AuthoritySection = () => {
       <Box
         sx={{
           display: 'grid',
-          gridTemplateColumns: { 
-            xs: 'repeat(2, 1fr)', 
-            sm: 'repeat(4, 1fr)' 
-          },
+          gridTemplateColumns: 'repeat(3, 1fr)',
           gap: 4,
           mb: 6,
           p: 4,
@@ -200,7 +190,7 @@ const AuthoritySection = () => {
           size="large"
           href="#program-details"
         >
-          Learn About Our Methodology
+          View Program Details
         </CTAButton>
       </Box>
     </Section>

@@ -204,42 +204,39 @@ const ProgramDetailsSection = () => {
 
   const programDays = [
     {
-      title: 'Day 1: Rethinking Enterprise Architecture',
+      title: 'Day 1: AI-Native Architecture',
       activities: [
         'Shift from manual coding to AI-driven orchestration',
-        'Understand "no-code" in AI-Native contexts',
         'Master enterprise-grade AI tool configuration',
         'Design scalable AI-first system architectures',
       ],
       outcome: {
-        title: 'Immediate Outcomes',
-        description: 'Your team will understand how to integrate AI tools into existing workflows and begin planning AI-Native system architectures.',
+        title: 'Day 1 Outcome',
+        description: 'Understand how to integrate AI tools into existing workflows and plan AI-Native architectures.',
       },
     },
     {
-      title: 'Day 2: Mastering Agentic Development',
+      title: 'Day 2: Agentic Development',
       activities: [
-        'Use AI agents for autonomous code generation, testing, and optimization',
-        'Transform vague specs into precise, actionable plans',
-        'Develop functional, scalable prototypes (APIs, web apps)',
-        'Integrate third-party tools with Model Context Protocol (MCP)',
+        'Use AI agents for autonomous code generation and testing',
+        'Transform specs into actionable plans',
+        'Build functional prototypes using AI tools',
       ],
       outcome: {
-        title: 'Hands-On Results',
-        description: 'Build and deploy a complete enterprise application using only AI tools and orchestration techniques.',
+        title: 'Day 2 Outcome',
+        description: 'Build and deploy a complete enterprise application using AI tools and orchestration.',
       },
     },
     {
-      title: 'Day 3: Team Integration & Future-Proofing',
+      title: 'Day 3: Team Integration',
       activities: [
-        'Define new roles (AI Prompt Engineer, Solution Architect)',
-        'Implement AI adoption strategies for your organization',
-        'Stay ahead of trends like multi-agent systems',
+        'Define new AI-focused roles and responsibilities',
+        'Implement AI adoption strategies',
         'Create sustainable AI-Native development processes',
       ],
       outcome: {
-        title: 'Strategic Transformation',
-        description: 'Leave with a complete roadmap for transforming your entire development organization into an AI-Native powerhouse.',
+        title: 'Day 3 Outcome',
+        description: 'Leave with a complete roadmap for transforming your development organization.',
       },
     },
   ];

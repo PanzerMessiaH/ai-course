@@ -84,49 +84,16 @@ const ContentCard: React.FC<ContentCardProps> = ({ icon, title, items, variant =
   </Card>
 );
 
-const UrgencyIndicator = () => (
-  <Box
-    sx={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      gap: 1,
-      mt: 3,
-      p: 2,
-      borderRadius: 2,
-      background: 'linear-gradient(135deg, rgba(255, 130, 40, 0.1) 0%, rgba(255, 130, 40, 0.2) 100%)',
-      border: '1px solid rgba(255, 130, 40, 0.3)',
-    }}
-  >
-    <Box sx={{ fontSize: '1.5rem' }}>🔥</Box>
-    <Typography
-      variant="body1"
-      sx={{
-        fontWeight: 600,
-        color: '#ff8228',
-      }}
-    >
-      Limited seats available - Next cohort starting soon
-    </Typography>
-  </Box>
-);
-
 const ProblemSolutionSection = () => {
   const problems = [
     'Development cycles taking months instead of days',
-    'Technical debt accumulating faster than you can resolve it',
-    'Skilled developers spending time on repetitive coding tasks',
-    'Difficulty integrating AI tools into existing workflows',
-    'Inability to rapidly prototype and validate ideas',
+    'Skilled developers spending time on repetitive tasks',
     'Teams struggling to keep pace with AI innovation',
   ];
 
   const solutions = [
-    'Build enterprise-grade software without writing code',
-    'Eliminate technical debt with AI-generated, optimized solutions',
-    'Transform developers into AI orchestrators and solution architects',
-    'Seamlessly integrate AI tools into agile workflows',
-    'Deploy scalable prototypes in days, not months',
+    'Build enterprise software without writing code',
+    'Transform developers into AI orchestrators',
     'Future-proof your team with cutting-edge AI skills',
   ];
 
@@ -144,7 +111,7 @@ const ProblemSolutionSection = () => {
             lineHeight: 1.2,
           }}
         >
-          The Enterprise Development Crisis:{' '}
+          The Challenge:{' '}
           <Box
             component="span"
             sx={{
@@ -152,7 +119,7 @@ const ProblemSolutionSection = () => {
               fontWeight: 700,
             }}
           >
-            Manual Coding is Holding You Back
+            Traditional Development is Too Slow
           </Box>
         </Typography>
         <Typography
@@ -160,12 +127,12 @@ const ProblemSolutionSection = () => {
           component="p"
           sx={{
             color: 'text.secondary',
-            maxWidth: '800px',
+            maxWidth: '600px',
             mx: 'auto',
             lineHeight: 1.6,
           }}
         >
-          While your competitors embrace AI-Native development, traditional coding creates bottlenecks that cost time, money, and market opportunities.
+          While competitors embrace AI-Native development, traditional coding creates bottlenecks.
         </Typography>
       </Box>
 
@@ -180,13 +147,13 @@ const ProblemSolutionSection = () => {
       >
         <ContentCard
           icon="⚠️"
-          title="The Problems You Face Daily"
+          title="Current Challenges"
           items={problems}
           variant="problem"
         />
         <ContentCard
           icon="✨"
-          title="The AI-Native Solution"
+          title="AI-Native Solution"
           items={solutions}
           variant="solution"
         />
@@ -200,9 +167,8 @@ const ProblemSolutionSection = () => {
           href="#enrollment"
           icon="→"
         >
-          Transform Your Team Today
+          Transform Your Team
         </CTAButton>
-        <UrgencyIndicator />
       </Box>
     </Section>
   );
