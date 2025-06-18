@@ -8,6 +8,8 @@ interface CTAButtonProps extends Omit<ButtonProps, 'variant'> {
   variant?: 'primary' | 'secondary' | 'outline';
   icon?: ReactNode;
   pulse?: boolean;
+  ariaLabel?: string;
+  ariaDescribedBy?: string;
 }
 
 const PrimaryButton = styled(Button)(() => ({
@@ -92,6 +94,8 @@ const CTAButton: React.FC<CTAButtonProps> = ({
   children,
   variant = 'primary',
   icon,
+  ariaLabel,
+  ariaDescribedBy,
   ...props
 }) => {
   const ButtonComponent = 
@@ -100,7 +104,7 @@ const CTAButton: React.FC<CTAButtonProps> = ({
     OutlineButton;
 
   return (
-    <ButtonComponent {...props}>
+    <ButtonComponent {...props} aria-label={ariaLabel} aria-describedby={ariaDescribedBy}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
         {children}
         {icon && <Box component="span">{icon}</Box>}

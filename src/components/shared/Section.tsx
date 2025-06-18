@@ -10,6 +10,9 @@ interface SectionProps extends Omit<BoxProps, 'component'> {
   spacing?: 'small' | 'medium' | 'large';
   maxWidth?: 'default' | 'narrow' | 'wide';
   component?: React.ElementType;
+  ariaLabel?: string;
+  ariaLabelledBy?: string;
+  role?: string;
 }
 
 const Section: React.FC<SectionProps> = ({
@@ -18,6 +21,9 @@ const Section: React.FC<SectionProps> = ({
   spacing = 'large',
   maxWidth = 'default',
   component = 'section',
+  ariaLabel,
+  ariaLabelledBy,
+  role,
   sx = {},
   ...props
 }) => {
@@ -57,6 +63,16 @@ const Section: React.FC<SectionProps> = ({
     }
   };
 
+  // Build accessibility props
+  const accessibilityProps: { 
+    'aria-label'?: string; 
+    'aria-labelledby'?: string; 
+    role?: string; 
+  } = {};
+  if (ariaLabel) accessibilityProps['aria-label'] = ariaLabel;
+  if (ariaLabelledBy) accessibilityProps['aria-labelledby'] = ariaLabelledBy;
+  if (role) accessibilityProps.role = role;
+
   return (
     <Box
       component={component}
@@ -65,6 +81,7 @@ const Section: React.FC<SectionProps> = ({
         ...getPaddingStyles(),
         ...sx,
       }}
+      {...accessibilityProps}
       {...props}
     >
       <MaxWidth size={maxWidth}>
@@ -74,4 +91,4 @@ const Section: React.FC<SectionProps> = ({
   );
 };
 
-export default Section; 
+export default Section;

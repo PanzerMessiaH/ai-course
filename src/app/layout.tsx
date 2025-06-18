@@ -105,6 +105,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Performance optimizations */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://ai-course.accso.com" />
+        
         <meta name="theme-color" content="#003c3c" />
         <meta name="msapplication-TileColor" content="#003c3c" />
         <meta name="format-detection" content="telephone=no" />

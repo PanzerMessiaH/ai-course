@@ -7,6 +7,8 @@ const AccsoLogo = () => (
   <Box
     component="svg"
     viewBox="0 0 280.63 63.9"
+    role="img"
+    aria-label="ACCSO Company Logo"
     sx={{
       width: { xs: '200px', md: '280px' },
       height: 'auto',
@@ -15,6 +17,7 @@ const AccsoLogo = () => (
       },
     }}
   >
+    <title>ACCSO Logo</title>
     <path className="cls-1" d="M63.9,63.9H0V0h63.9v63.9ZM2.24,61.66h59.42V2.24H2.24v59.42Z"/>
     <path className="cls-1" d="M120.27,18.64l-4.54,15.56h11.56l-4.36-15.56-1.21-4.78h-.18l-1.27,4.78ZM129.71,42.73h-16.47l-2.54,8.84h-10.78l15.68-45.4h12.17l15.86,45.4h-11.38l-2.54-8.84Z"/>
     <g>
@@ -72,6 +75,7 @@ const HeroSection = () => {
     <Section
       background="gradient"
       spacing="large"
+      ariaLabel="Hero section with course introduction and enrollment options"
       sx={{
         minHeight: '100vh',
         display: 'flex',
@@ -228,6 +232,7 @@ const HeroSection = () => {
             size="large"
             href="#enrollment"
             icon="→"
+            ariaLabel="Enroll your team now in the AI-Native Agentic Programming Bootcamp"
           >
             Enroll Your Team Now
           </CTAButton>
@@ -235,6 +240,7 @@ const HeroSection = () => {
             variant="secondary"
             size="large"
             href="#program-details"
+            ariaLabel="View detailed program information and curriculum"
           >
             View Program Details
           </CTAButton>

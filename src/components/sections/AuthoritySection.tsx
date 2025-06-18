@@ -108,12 +108,17 @@ const AuthoritySection = () => {
   ];
 
   return (
-    <Section background="secondary" spacing="large">
+    <Section 
+      background="secondary" 
+      spacing="large"
+      ariaLabel="Why choose ACCSO - company authority and credentials"
+    >
       {/* Section Header */}
       <Box sx={{ textAlign: 'center', mb: 8 }}>
         <Typography
           variant="h2"
           component="h2"
+          id="authority-heading"
           sx={{
             fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
             fontWeight: 600,
@@ -154,6 +159,8 @@ const AuthoritySection = () => {
           gap: 4,
           mb: 8,
         }}
+        role="region"
+        aria-labelledby="authority-heading"
       >
         {features.map((feature, index) => (
           <FeatureCard
@@ -177,6 +184,8 @@ const AuthoritySection = () => {
           background: 'linear-gradient(135deg, rgba(0, 203, 117, 0.1) 0%, rgba(45, 250, 135, 0.1) 100%)',
           border: '1px solid rgba(0, 203, 117, 0.2)',
         }}
+        role="region"
+        aria-label="Training program statistics"
       >
         {stats.map((stat, index) => (
           <StatItem key={index} number={stat.number} label={stat.label} />
@@ -190,6 +199,7 @@ const AuthoritySection = () => {
           size="large"
           href="#enrollment"
           icon="→"
+          ariaLabel="Get started today with AI-Native Agentic Programming training"
         >
           Get Started Today
         </CTAButton>
