@@ -42,15 +42,32 @@ let db: Database.Database | null = null;
 
 export function getDatabase(): Database.Database {
   if (!db) {
-    // Create database file in project root
-    const dbPath = join(process.cwd(), 'course-registrations.db');
-    db = new Database(dbPath);
-    
-    // Enable WAL mode for better performance
-    db.pragma('journal_mode = WAL');
-    
-    // Initialize database schema
-    initializeDatabase(db);
+    try {
+      // Use /tmp directory in serverless environments (Vercel)
+      const isServerless = process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME;
+      const dbPath = isServerless 
+        ? '/tmp/course-registrations.db'
+        : join(process.cwd(), 'course-registrations.db');
+      
+      console.log(`Initializing database at: ${dbPath}`);
+      
+      db = new Database(dbPath);
+      
+      // Enable WAL mode for better performance (if supported)
+      try {
+        db.pragma('journal_mode = WAL');
+      } catch (walError) {
+        console.warn('WAL mode not supported, using default journal mode:', walError instanceof Error ? walError.message : 'Unknown error');
+      }
+      
+      // Initialize database schema
+      initializeDatabase(db);
+      
+      console.log('Database initialized successfully');
+    } catch (error) {
+      console.error('Failed to initialize database:', error);
+      throw new Error(`Database initialization failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    }
   }
   
   return db;
@@ -117,25 +134,25 @@ function initializeDatabase(database: Database.Database) {
 }
 
 function createDefaultAdmin(database: Database.Database) {
-  const checkAdmin = database.prepare('SELECT COUNT(*) as count FROM admins').get() as { count: number };
-  
-  if (checkAdmin.count === 0) {
-    // Import bcrypt here to avoid issues during build
-    const defaultPassword = 'admin123'; // Should be changed in production
-    const hashedPassword = bcrypt.hashSync(defaultPassword, 12);
+  try {
+    const checkAdmin = database.prepare('SELECT COUNT(*) as count FROM admins').get() as { count: number };
     
-    const insertAdmin = database.prepare(`
-      INSERT INTO admins (username, passwordHash)
-      VALUES (?, ?)
-    `);
-    
-    try {
+    if (checkAdmin.count === 0) {
+      const defaultPassword = 'admin123'; // Should be changed in production
+      const hashedPassword = bcrypt.hashSync(defaultPassword, 12);
+      
+      const insertAdmin = database.prepare(`
+        INSERT INTO admins (username, passwordHash)
+        VALUES (?, ?)
+      `);
+      
       insertAdmin.run('admin', hashedPassword);
       console.log('Default admin user created (username: admin, password: admin123)');
       console.log('⚠️  IMPORTANT: Change the default password in production!');
-    } catch (error) {
-      console.error('Error creating default admin:', error);
     }
+  } catch (error) {
+    console.error('Error creating default admin:', error);
+    // Don't throw here, as this is not critical for user registration
   }
 }
 
@@ -151,16 +168,21 @@ export class UserRepository {
   constructor() {
     this.db = getDatabase();
     
-    // Prepare statements for better performance
-    this.insertUserStmt = this.db.prepare(`
-      INSERT INTO users (firstName, lastName, email, phone, company, jobTitle, experience, interests, source)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-    `);
-    
-    this.getUserByEmailStmt = this.db.prepare('SELECT * FROM users WHERE email = ?');
-    this.getAllUsersStmt = this.db.prepare('SELECT * FROM users ORDER BY registrationDate DESC');
-    this.getUserByIdStmt = this.db.prepare('SELECT * FROM users WHERE id = ?');
-    this.getUserCountStmt = this.db.prepare('SELECT COUNT(*) as count FROM users');
+    try {
+      // Prepare statements for better performance
+      this.insertUserStmt = this.db.prepare(`
+        INSERT INTO users (firstName, lastName, email, phone, company, jobTitle, experience, interests, source)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+      `);
+      
+      this.getUserByEmailStmt = this.db.prepare('SELECT * FROM users WHERE email = ?');
+      this.getAllUsersStmt = this.db.prepare('SELECT * FROM users ORDER BY registrationDate DESC');
+      this.getUserByIdStmt = this.db.prepare('SELECT * FROM users WHERE id = ?');
+      this.getUserCountStmt = this.db.prepare('SELECT COUNT(*) as count FROM users');
+    } catch (error) {
+      console.error('Error preparing database statements:', error);
+      throw error;
+    }
   }
 
   async createUser(userData: NewUser): Promise<User> {
@@ -186,6 +208,10 @@ export class UserRepository {
 
       // Return the created user
       const newUser = this.getUserByIdStmt.get(result.lastInsertRowid) as User;
+      if (!newUser) {
+        throw new Error('Failed to retrieve created user');
+      }
+      
       return newUser;
     } catch (error) {
       console.error('Error creating user:', error);
@@ -260,7 +286,12 @@ export class AdminRepository {
 // Close database connection (for cleanup)
 export function closeDatabase() {
   if (db) {
-    db.close();
-    db = null;
+    try {
+      db.close();
+      db = null;
+      console.log('Database connection closed');
+    } catch (error) {
+      console.error('Error closing database:', error);
+    }
   }
 } 

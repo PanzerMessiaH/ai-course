@@ -3,6 +3,8 @@ import { userRegistrationSchema, InputSanitizer, RateLimiter } from '../../../..
 import { UserRepository } from '../../../../lib/database';
 
 export async function POST(request: NextRequest) {
+  console.log('Registration API called');
+  
   try {
     // Get client IP for rate limiting
     const forwarded = request.headers.get('x-forwarded-for');
@@ -10,9 +12,12 @@ export async function POST(request: NextRequest) {
                      request.headers.get('x-real-ip') || 
                      '127.0.0.1';
 
+    console.log(`Registration attempt from IP: ${clientIP}`);
+
     // Check rate limit
     const rateLimit = RateLimiter.checkRateLimit(`register:${clientIP}`);
     if (!rateLimit.allowed) {
+      console.log(`Rate limit exceeded for IP: ${clientIP}`);
       return NextResponse.json(
         { 
           message: 'Too many registration attempts. Please try again later.',
@@ -30,7 +35,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Parse and validate request body
+    console.log('Parsing request body...');
     const body = await request.json();
+    console.log('Request body parsed successfully');
     
     // Sanitize input data
     const sanitizedData = {
@@ -45,10 +52,13 @@ export async function POST(request: NextRequest) {
       source: body.source ? InputSanitizer.sanitizeString(body.source) : undefined
     };
 
+    console.log('Data sanitized successfully');
+
     // Validate with Zod schema
     const validationResult = userRegistrationSchema.safeParse(sanitizedData);
     
     if (!validationResult.success) {
+      console.log('Validation failed:', validationResult.error);
       return NextResponse.json(
         { 
           message: 'Validation failed',
@@ -59,11 +69,15 @@ export async function POST(request: NextRequest) {
     }
 
     const validatedData = validationResult.data;
+    console.log('Data validation passed');
 
     // Create user repository and save to database
-    const userRepository = new UserRepository();
+    console.log('Initializing user repository...');
     
     try {
+      const userRepository = new UserRepository();
+      console.log('User repository initialized successfully');
+      
       const newUser = await userRepository.createUser({
         firstName: validatedData.firstName,
         lastName: validatedData.lastName,
@@ -76,8 +90,7 @@ export async function POST(request: NextRequest) {
         source: validatedData.source || 'website'
       });
 
-      // Log successful registration (without sensitive data)
-      console.log(`New user registered: ${newUser.email} (ID: ${newUser.id})`);
+      console.log(`New user registered successfully: ${newUser.email} (ID: ${newUser.id})`);
 
       // Return success response (without exposing user ID or sensitive data)
       return NextResponse.json(
@@ -112,7 +125,10 @@ export async function POST(request: NextRequest) {
 
       // Generic database error
       return NextResponse.json(
-        { message: 'Registration failed. Please try again later.' },
+        { 
+          message: 'Registration failed due to database error. Please try again later.',
+          error: process.env.NODE_ENV === 'development' ? dbError instanceof Error ? dbError.message : 'Unknown database error' : undefined
+        },
         { status: 500 }
       );
     }
@@ -130,7 +146,10 @@ export async function POST(request: NextRequest) {
 
     // Generic server error
     return NextResponse.json(
-      { message: 'Internal server error' },
+      { 
+        message: 'Internal server error',
+        error: process.env.NODE_ENV === 'development' ? error instanceof Error ? error.message : 'Unknown error' : undefined
+      },
       { status: 500 }
     );
   }
