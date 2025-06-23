@@ -169,11 +169,12 @@ export default function AdminLoginPage() {
           >
             <Image
               src="/accso-logo.svg"
-              alt="ACCSO Logo"
-              width={0}
-              height={0}
+              alt="ACCSO company logo"
+              width={220}
+              height={50}
+              priority
               style={{
-                width: '220px',
+                width: 'auto',
                 height: '50px',
                 filter: 'brightness(0) invert(1)',
               }}
@@ -190,11 +191,12 @@ export default function AdminLoginPage() {
             </Typography>
             <Image
               src="/dominic-systems-logo.svg"
-              alt="Dominic Systems Logo"
-              width={0}
-              height={0}
+              alt="Dominic Systems company logo"
+              width={280}
+              height={64}
+              priority
               style={{
-                width: '280px',
+                width: 'auto',
                 height: '64px',
                 filter: 'brightness(0) invert(1)',
               }}
@@ -369,9 +371,9 @@ export default function AdminLoginPage() {
                       endAdornment: (
                         <InputAdornment position="end">
                           <IconButton
+                            aria-label={showPassword ? 'Hide password' : 'Show password'}
                             onClick={handleTogglePasswordVisibility}
                             edge="end"
-                            aria-label="toggle password visibility"
                           >
                             {showPassword ? <VisibilityOff /> : <Visibility />}
                           </IconButton>

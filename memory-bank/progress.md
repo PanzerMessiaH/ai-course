@@ -7,6 +7,16 @@
 
 ## COMPLETED MILESTONES
 
+### 🔧 **Level 1: SEO Route Fix** (2024-09-06)
+**Status**: ✅ COMPLETE - Archived
+**Archive**: [archive/archive-level1-seo-route-fix.md](archive/archive-level1-seo-route-fix.md)
+**Impact**: Fixed hardcoded URLs in `robots.ts` and `sitemap.ts` by using environment variables, making SEO file generation robust for multiple deployment environments.
+
+### ♿ **Level 2: Accessibility Score Enhancement** (2024-09-06)
+**Status**: ✅ COMPLETE - Archived
+**Archive**: [archive/archive-2.md](archive/archive-2.md)
+**Impact**: Addressed all specific accessibility issues from Lighthouse report (`button-name`, `image-alt`, `link-name`). While the reported issues were fixed, the overall score remained at 85%, indicating the need for a deeper analysis of the scoring algorithm in the future.
+
 ### 🤝 **Level 2: Dual Partnership Integration** (2024-12-19)
 **Status**: ✅ COMPLETE - Archived  
 **Archive**: [archive-level2-dual-partnership-integration.md](archive/archive-level2-dual-partnership-integration.md)  

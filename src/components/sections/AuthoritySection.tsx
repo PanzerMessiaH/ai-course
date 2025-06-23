@@ -29,7 +29,9 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description }) =
           justifyContent: 'center',
         }}
       >
-        {icon}
+        <Box component="span" role="img" aria-label={title}>
+          {icon}
+        </Box>
       </Box>
       <Typography
         variant="h5"
