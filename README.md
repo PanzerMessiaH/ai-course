@@ -4,9 +4,9 @@ A comprehensive landing page for the AI-Native Agentic Programming Bootcamp, sho
 
 ## 🚀 Live Demo
 
-**Production Site**: [https://panzermessiah.github.io/ai-course/](https://panzermessiah.github.io/ai-course/)
+**Production Site**: [https://ai-course-lilac.vercel.app/](https://ai-course-lilac.vercel.app/)
 
-The site is automatically deployed to GitHub Pages using GitHub Actions whenever changes are pushed to the main branch.
+The site is automatically deployed to Vercel whenever changes are pushed to the main branch.
 
 ## 🛠 Technology Stack
 
@@ -14,8 +14,8 @@ The site is automatically deployed to GitHub Pages using GitHub Actions whenever
 - **UI Library**: Material UI v7.1.1
 - **Language**: TypeScript 5.8.3
 - **Styling**: Emotion (CSS-in-JS)
-- **Build System**: Next.js static export
-- **Deployment**: GitHub Pages with GitHub Actions
+- **Build System**: Next.js 
+- **Deployment**: Vercel
 - **SEO**: Comprehensive optimization with structured data
 
 ## 📦 Features
@@ -47,7 +47,7 @@ The site is automatically deployed to GitHub Pages using GitHub Actions whenever
 
 ### Installation
 
-```bash
+\`\`\`bash
 # Clone the repository
 git clone https://github.com/PanzerMessiaH/ai-course.git
 cd ai-course
@@ -57,13 +57,13 @@ npm install
 
 # Start development server
 npm run dev
-```
+\`\`\`
 
 Open [http://localhost:3000](http://localhost:3000) to view the site in development mode.
 
 ### Available Scripts
 
-```bash
+\`\`\`bash
 # Development server with hot reload
 npm run dev
 
@@ -75,11 +75,11 @@ npm start
 
 # Lint code
 npm run lint
-```
+\`\`\`
 
 ## 📁 Project Structure
 
-```
+\`\`\`
 ai-course/
 ├── src/
 │   ├── app/                    # Next.js App Router
@@ -106,60 +106,22 @@ ai-course/
 │       ├── index.ts           # Material UI theme
 │       └── ThemeProvider.tsx  # Theme context
 ├── public/                     # Static assets
-├── .github/
-│   └── workflows/
-│       └── deploy.yml         # GitHub Actions deployment
-└── out/                       # Static export output
-```
+└── vercel.json                 # Vercel deployment configuration
+\`\`\`
 
 ## 🚀 Deployment
 
-### Automatic Deployment
-
-The site automatically deploys to GitHub Pages when:
-- Changes are pushed to the `main` branch
-- The GitHub Actions workflow runs successfully
-- All build steps complete without errors
-
-### Manual Deployment
-
-To deploy manually:
-
-```bash
-# Build the static site
-npm run build
-
-# The output will be in the 'out' directory
-# This directory is automatically deployed by GitHub Actions
-```
-
-### Deployment Configuration
-
-The deployment is configured in `.github/workflows/deploy.yml`:
-- **Trigger**: Push to main branch or manual dispatch
-- **Build Environment**: Ubuntu latest with Node.js 18
-- **Build Process**: `npm ci && npm run build`
-- **Deployment Target**: GitHub Pages
-- **Static Files**: Served from `/out` directory
+Deployment is handled automatically by Vercel. When changes are pushed to the \`main\` branch, Vercel triggers a new build and deployment cycle.
 
 ## 🔧 Configuration
 
 ### Next.js Configuration
 
-Key settings in `next.config.ts`:
-```typescript
-const nextConfig: NextConfig = {
-  output: 'export',        // Static site generation
-  trailingSlash: true,     // GitHub Pages compatibility
-  images: {
-    unoptimized: true,     // Static export compatibility
-  },
-};
-```
+The \`next.config.ts\` is optimized for Vercel deployment.
 
 ### SEO Configuration
 
-SEO settings are centralized in `src/config/seo.ts` and include:
+SEO settings are centralized in \`src/config/seo.ts\` and include:
 - Meta tags and Open Graph data
 - Structured data schemas
 - Sitemap configuration
@@ -170,15 +132,15 @@ SEO settings are centralized in `src/config/seo.ts` and include:
 Current performance metrics:
 - **Page Size**: 14.2kB (main page)
 - **First Load JS**: 152kB
-- **Build Time**: ~1 second
+- **Build Time**: ~3 second
 - **SEO Score**: Optimized for search engines
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+2. Create a feature branch (\`git checkout -b feature/amazing-feature\`)
+3. Commit your changes (\`git commit -m 'Add amazing feature'\`)
+4. Push to the branch (\`git push origin feature/amazing-feature\`)
 5. Open a Pull Request
 
 ### Development Guidelines
@@ -198,8 +160,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 For questions or support:
 - Create an issue on GitHub
 - Contact the development team
-- Check the project documentation
-
----
-
-**Built with ❤️ using Next.js, React, and Material UI**
