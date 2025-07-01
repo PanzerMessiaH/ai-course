@@ -96,20 +96,10 @@ const BenefitsSection = () => {
       icon: '🎯',
       title: "What You'll Master",
       items: [
-        'AI-Native system architecture design',
-        'Autonomous code generation and optimization',
-        'Enterprise-grade AI tool integration',
-        'Team transformation leadership',
-      ],
-    },
-    {
-      icon: '📦',
-      title: "What You'll Take Home",
-      items: [
-        'Complete enterprise application built during training',
-        'AI-Native development methodology framework',
-        'Customized implementation roadmap',
-        '90-day post-training support and consultation',
+        'Use agents to produce all development outputs—no manual coding or spec writing',
+        'Operate in agent-augmented workflows across every Scrum role',
+        'Maintain a shared team knowledge base that compounds learning',
+        'Work in a new mode of software delivery, where agents handle execution and humans guide systems thinking',
       ],
     },
   ];
@@ -171,17 +161,6 @@ const BenefitsSection = () => {
             />
           ))}
         </Box>
-      </Box>
-
-      {/* CTA */}
-      <Box sx={{ textAlign: 'center' }}>
-        <CTAButton
-          variant="outline"
-          size="medium"
-          href="/register"
-        >
-          Enroll Your Team
-        </CTAButton>
       </Box>
     </Section>
   );
