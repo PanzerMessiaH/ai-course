@@ -128,29 +128,36 @@ const AuthoritySection = () => {
             lineHeight: 1.2,
           }}
         >
-          Why{' '}
-          <Box
-            component="span"
-            sx={{
-              color: 'secondary.main',
-              fontWeight: 700,
-            }}
-          >
-            ACCSO
-          </Box>
-          {' & '}
-          <Box
-            component="span"
-            sx={{
-              color: 'secondary.main',
-              fontWeight: 700,
-            }}
-          >
-            Dominic Systems
-          </Box>
+          Why ACCSO & Dominic Systems
         </Typography>
         <Typography
           variant="h6"
+          component="p"
+          sx={{
+            color: 'text.secondary',
+            maxWidth: '900px',
+            mx: 'auto',
+            lineHeight: 1.6,
+            mb: 2,
+          }}
+        >
+          Accso Cape Town, part of Accso – Accelerated Solutions, is a leading full-service technology partner specializing in tailored business solutions through software engineering and consulting. With a strong reputation for quality and innovation, we support clients across a wide range of industries and geographies, delivering services that enable sustainable digital transformation.
+        </Typography>
+        <Typography
+          variant="body1"
+          component="p"
+          sx={{
+            color: 'text.secondary',
+            maxWidth: '900px',
+            mx: 'auto',
+            lineHeight: 1.6,
+            mb: 2,
+          }}
+        >
+          Since its founding in 2010, Accso has successfully delivered more than 2,000 projects. Today, the company operates across five strategic locations—Cape Town, Darmstadt, Frankfurt, Cologne, and Munich—and is powered by a team of over 350 dedicated professionals committed to excellence, agility, and long-term client success.
+        </Typography>
+        <Typography
+          variant="body1"
           component="p"
           sx={{
             color: 'text.secondary',
@@ -174,14 +181,16 @@ const AuthoritySection = () => {
         role="region"
         aria-labelledby="authority-heading"
       >
-        {features.map((feature, index) => (
-          <FeatureCard
-            key={index}
-            icon={feature.icon}
-            title={feature.title}
-            description={feature.description}
-          />
-        ))}
+        <FeatureCard
+          icon="🏆"
+          title="Enterprise-Proven Methods"
+          description="Advanced methodologies for AI-first systems that enable rapid deployment of enterprise solutions."
+        />
+        <FeatureCard
+          icon="⚡"
+          title="Industry-Leading Techniques"
+          description="Comprehensive framework for Agentic Programming adoption in enterprise environments."
+        />
       </Box>
 
       {/* Statistics Grid */}
@@ -199,9 +208,9 @@ const AuthoritySection = () => {
         role="region"
         aria-label="Training program statistics"
       >
-        {stats.map((stat, index) => (
-          <StatItem key={index} number={stat.number} label={stat.label} />
-        ))}
+        <StatItem number="2-3" label="Days Training" />
+        <StatItem number="90%" label="Faster Development" />
+        <StatItem number="24/7" label="Expert Support" />
       </Box>
 
       {/* CTA */}

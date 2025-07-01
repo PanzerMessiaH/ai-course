@@ -220,20 +220,7 @@ const HeroSection = () => {
               mx: 'auto',
             }}
           >
-            Transform Your Enterprise Team Into{' '}
-            <Box
-              component="span"
-              sx={{
-                background: 'linear-gradient(135deg, #00cb75 0%, #2dfa87 100%)',
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                fontWeight: 700,
-              }}
-            >
-              AI-Native Engineers
-            </Box>{' '}
-            in Just 2-3 Days
+            Transform your Enterprise Team into AI-Native Engineers in 3 Days
           </Typography>
 
           <Typography
@@ -248,7 +235,8 @@ const HeroSection = () => {
               mx: 'auto',
             }}
           >
-            Comprehensive training in Agentic Programming methodologies designed for enterprise teams. Learn to build enterprise-grade software using AI-Native development approaches.
+            In this course, your team will stop programming the old way. No more hand-writing code, specs, or tests. Instead, every Scrum role—from developer to designer to product owner—will work through intelligent agents like ChatGPT, Claude, Gemini, and DeepSeek.<br/><br/>
+            Using the open-source Cursor Memory Bank, your team collaborates with agents to plan, build, and reflect. Personal knowledge is captured, shared, and transformed into collective intelligence. The result? Software development that accelerates with every sprint—and a team that thinks, works, and learns in a fundamentally new way.
           </Typography>
         </Box>
 
@@ -263,9 +251,10 @@ const HeroSection = () => {
           maxWidth: { md: '800px', lg: '1000px' },
           width: '100%',
         }}>
-          <AuthorityIndicator>Enterprise-Proven Methodologies</AuthorityIndicator>
-          <AuthorityIndicator>Industry-Leading AI Experts</AuthorityIndicator>
-          <AuthorityIndicator>Measurable ROI Impact</AuthorityIndicator>
+          <AuthorityIndicator>Agents Write the Code. You Guide the Intelligence.</AuthorityIndicator>
+          <AuthorityIndicator>Team Knowledge Compounds via Shared Memory</AuthorityIndicator>
+          <AuthorityIndicator>Full-Role Transformation Across the Scrum Team</AuthorityIndicator>
+          <AuthorityIndicator>Backed by PKM & KM Theory for Organizational Learning</AuthorityIndicator>
         </Box>
 
         {/* CTA Buttons - Centered */}
@@ -308,7 +297,7 @@ const HeroSection = () => {
             justifyContent: 'center',
             flexWrap: 'wrap'
           }}>
-            <StatCard number="2-3" label="Days Training" />
+            <StatCard number="3" label="Days Training" />
             <StatCard number="100%" label="Hands-On Learning" />
             <StatCard number="90%" label="Faster Development" />
           </Box>
@@ -322,7 +311,7 @@ const HeroSection = () => {
               lineHeight: 1.6,
             }}
           >
-            &quot;Transformed our development process completely. We&apos;re now deploying enterprise solutions in days, not months.&quot;
+            "We don't write code anymore. We guide the agents who do. This changed how we deliver, think, and work—completely."
           </Typography>
         </Card>
       </Box>
