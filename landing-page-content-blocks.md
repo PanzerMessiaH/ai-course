@@ -72,23 +72,33 @@ Combined expertise in AI-Native development training and enterprise system integ
 
 ---
 
-## **BLOCK 9: AUTHORITY SECTION - FEATURE CARDS**
+## **BLOCK 9: AUTHORITY SECTION - FEATURE CARDS** ❌ REMOVED
 **File**: `src/components/sections/AuthoritySection.tsx`
+**Status**: Commented out per user request
 
-🏆 Enterprise-Proven Methods
-Advanced methodologies for AI-first systems that enable rapid deployment of enterprise solutions.
+~~🏆 Enterprise-Proven Methods~~
+~~Advanced methodologies for AI-first systems that enable rapid deployment of enterprise solutions.~~
 
-⚡ Industry-Leading Techniques
-Comprehensive framework for Agentic Programming adoption in enterprise environments.
+~~⚡ Industry-Leading Techniques~~
+~~Comprehensive framework for Agentic Programming adoption in enterprise environments.~~
 
 ---
 
-## **BLOCK 10: AUTHORITY SECTION - STATISTICS**
+## **BLOCK 10: AUTHORITY SECTION - STATISTICS** ❌ REMOVED
 **File**: `src/components/sections/AuthoritySection.tsx`
+**Status**: Commented out per user request
 
-2-3 | Days Training
-90% | Faster Development
-24/7 | Expert Support
+~~2-3 | Days Training~~
+~~90% | Faster Development~~
+~~24/7 | Expert Support~~
+
+---
+
+## **BLOCK 10A: AUTHORITY SECTION - CTA BUTTON** ❌ REMOVED
+**File**: `src/components/sections/AuthoritySection.tsx`
+**Status**: Commented out per user request
+
+~~Button: "Get Started Today"~~
 
 ---
 
@@ -201,10 +211,11 @@ Leave with a complete roadmap for transforming your development organization.
 
 ---
 
-## **BLOCK 20: PROGRAM DETAILS SECTION - FINAL CTA**
-**File**: `src/components/sections/ProgramDetailsSection.tsx`
+## **BLOCK 20: PROGRAM DETAILS SECTION - FINAL CTA** ✅ MOVED
+**File**: `src/components/sections/ProgramDetailsSection.tsx` → `src/components/sections/BenefitsSection.tsx`
+**Status**: Moved to Benefits section and updated text
 
-Button: "Reserve Your Team's Seats"
+~~Button: "Reserve Your Team's Seats"~~ → **Now**: "Enroll Your Team" (positioned before "What You'll Achieve")
 
 ---
 
@@ -225,7 +236,7 @@ Core skills and deliverables from the intensive training
 ## **BLOCK 23: BENEFITS SECTION - BENEFITS**
 **File**: `src/components/sections/BenefitsSection.tsx`
 
-🎯 What You'll Master
+🎯 Good, at the end of the course your team will learn
 - Use agents to produce all development outputs—no manual coding or spec writing
 - Operate in agent-augmented workflows across every Scrum role
 - Maintain a shared team knowledge base that compounds learning

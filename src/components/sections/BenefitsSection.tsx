@@ -13,45 +13,78 @@ const BenefitCard: React.FC<BenefitCardProps> = ({ icon, title, items }) => (
   <Card
     sx={{
       height: '100%',
-      border: '2px solid',
-      borderColor: 'divider',
+      background: 'linear-gradient(135deg, rgba(0, 203, 117, 0.15) 0%, rgba(45, 250, 135, 0.1) 50%, rgba(255, 255, 255, 0.1) 100%)',
+      backdropFilter: 'blur(15px)',
+      border: '2px solid rgba(0, 203, 117, 0.3)',
+      borderRadius: 3,
+      position: 'relative',
+      overflow: 'hidden',
       transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+      boxShadow: '0 8px 32px rgba(0, 203, 117, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+      '&:before': {
+        content: '""',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: '4px',
+        background: 'linear-gradient(90deg, rgba(0, 203, 117, 0.8) 0%, rgba(45, 250, 135, 0.8) 100%)',
+        zIndex: 1,
+      },
       '&:hover': {
         borderColor: 'secondary.main',
-        boxShadow: '0 8px 24px rgba(0, 203, 117, 0.15)',
-        transform: 'translateY(-4px)',
+        boxShadow: '0 12px 40px rgba(0, 203, 117, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+        transform: 'translateY(-6px) scale(1.02)',
+        background: 'linear-gradient(135deg, rgba(0, 203, 117, 0.2) 0%, rgba(45, 250, 135, 0.15) 50%, rgba(255, 255, 255, 0.15) 100%)',
       },
     }}
   >
-    <CardContent sx={{ p: 4, height: '100%', display: 'flex', flexDirection: 'column' }}>
+    <CardContent sx={{ p: 5, height: '100%', display: 'flex', flexDirection: 'column', position: 'relative', zIndex: 2 }}>
       {/* Card Header */}
-      <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+      <Box sx={{ display: 'flex', alignItems: 'flex-start', mb: 4 }}>
         <Box
           sx={{
-            fontSize: '2rem',
-            mr: 2,
+            fontSize: '2.5rem',
+            mr: 3,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            width: 56,
-            height: 56,
-            borderRadius: '12px',
-            background: 'linear-gradient(135deg, rgba(0, 203, 117, 0.1) 0%, rgba(45, 250, 135, 0.1) 100%)',
-            border: '1px solid rgba(0, 203, 117, 0.2)',
+            width: 72,
+            height: 72,
+            borderRadius: '20px',
+            background: 'linear-gradient(135deg, rgba(0, 203, 117, 0.3) 0%, rgba(45, 250, 135, 0.2) 100%)',
+            border: '2px solid rgba(0, 203, 117, 0.4)',
+            boxShadow: '0 4px 16px rgba(0, 203, 117, 0.3)',
+            position: 'relative',
+            '&:before': {
+              content: '""',
+              position: 'absolute',
+              inset: -2,
+              borderRadius: '22px',
+              padding: '2px',
+              background: 'linear-gradient(135deg, rgba(0, 203, 117, 0.5), rgba(45, 250, 135, 0.5))',
+              mask: 'linear-gradient(white 0 0) content-box, linear-gradient(white 0 0)',
+              maskComposite: 'exclude',
+            },
           }}
         >
           {icon}
         </Box>
-        <Typography
-          variant="h5"
-          component="h3"
-          sx={{
-            fontWeight: 600,
-            color: 'text.primary',
-          }}
-        >
-          {title}
-        </Typography>
+        <Box sx={{ flex: 1 }}>
+          <Typography
+            variant="h4"
+            component="h3"
+            sx={{
+              fontWeight: 700,
+              color: 'white',
+              lineHeight: 1.3,
+              mb: 1,
+              textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
+            }}
+          >
+            {title}
+          </Typography>
+        </Box>
       </Box>
 
       {/* Card Content */}
@@ -64,17 +97,32 @@ const BenefitCard: React.FC<BenefitCardProps> = ({ icon, title, items }) => (
           flexGrow: 1,
           '& li': {
             position: 'relative',
-            pl: 3,
-            mb: 2,
-            color: 'text.primary',
-            lineHeight: 1.6,
+            pl: 4,
+            mb: 3,
+            color: 'rgba(255, 255, 255, 0.95)',
+            lineHeight: 1.7,
+            fontSize: '1.1rem',
+            fontWeight: 500,
+            padding: '12px 16px 12px 40px',
+            borderRadius: '12px',
+            background: 'rgba(255, 255, 255, 0.05)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            transition: 'all 0.2s ease',
             '&:before': {
               content: '"✓"',
               position: 'absolute',
-              left: 0,
+              left: 16,
+              top: '50%',
+              transform: 'translateY(-50%)',
               color: 'secondary.main',
               fontWeight: 'bold',
-              fontSize: '1.1rem',
+              fontSize: '1.3rem',
+              textShadow: '0 0 8px rgba(0, 203, 117, 0.6)',
+            },
+            '&:hover': {
+              background: 'rgba(255, 255, 255, 0.08)',
+              borderColor: 'rgba(0, 203, 117, 0.3)',
+              transform: 'translateX(4px)',
             },
             '&:last-child': {
               mb: 0,
@@ -94,7 +142,7 @@ const BenefitsSection = () => {
   const benefits = [
     {
       icon: '🎯',
-      title: "What You'll Master",
+      title: "Good, at the end of the course your team will learn",
       items: [
         'Use agents to produce all development outputs—no manual coding or spec writing',
         'Operate in agent-augmented workflows across every Scrum role',
@@ -105,9 +153,91 @@ const BenefitsSection = () => {
   ];
 
   return (
-    <Section background="secondary" spacing="large">
+    <Section 
+      background="gradient" 
+      spacing="large"
+      sx={{
+        position: 'relative',
+        overflow: 'hidden',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: '15%',
+          left: '8%',
+          width: '350px',
+          height: '350px',
+          background: 'radial-gradient(circle, rgba(0, 203, 117, 0.15) 0%, rgba(0, 203, 117, 0.08) 40%, transparent 70%)',
+          borderRadius: '50%',
+          filter: 'blur(80px)',
+          zIndex: 1,
+        },
+        '&::after': {
+          content: '""',
+          position: 'absolute',
+          top: '65%',
+          right: '12%',
+          width: '400px',
+          height: '400px',
+          background: 'radial-gradient(circle, rgba(45, 250, 135, 0.18) 0%, rgba(45, 250, 135, 0.06) 40%, transparent 70%)',
+          borderRadius: '50%',
+          filter: 'blur(100px)',
+          zIndex: 1,
+        },
+      }}
+    >
+      {/* Additional Background Glow Elements */}
+      <Box
+        sx={{
+          position: 'absolute',
+          top: '30%',
+          right: '18%',
+          width: '280px',
+          height: '280px',
+          background: 'radial-gradient(circle, rgba(0, 203, 117, 0.12) 0%, transparent 60%)',
+          borderRadius: '50%',
+          filter: 'blur(60px)',
+          zIndex: 1,
+        }}
+      />
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: '25%',
+          left: '20%',
+          width: '320px',
+          height: '320px',
+          background: 'radial-gradient(circle, rgba(45, 250, 135, 0.1) 0%, transparent 50%)',
+          borderRadius: '50%',
+          filter: 'blur(70px)',
+          zIndex: 1,
+        }}
+      />
+
+      {/* Enrollment CTA Button */}
+      <Box sx={{ 
+        textAlign: 'center', 
+        mb: 6,
+        position: 'relative',
+        zIndex: 2,
+      }}>
+        <CTAButton
+          variant="primary"
+          size="large"
+          href="/register"
+          icon="→"
+          ariaLabel="Enroll your team in the AI-Native Agentic Programming Bootcamp"
+        >
+          Enroll Your Team
+        </CTAButton>
+      </Box>
+
       {/* Section Header */}
-      <Box sx={{ textAlign: 'center', mb: 8 }}>
+      <Box sx={{ 
+        textAlign: 'center', 
+        mb: 8,
+        position: 'relative',
+        zIndex: 2,
+      }}>
         <Typography
           variant="h2"
           component="h2"
@@ -116,6 +246,7 @@ const BenefitsSection = () => {
             fontWeight: 600,
             mb: 3,
             lineHeight: 1.2,
+            color: 'white',
           }}
         >
           What You&apos;ll{' '}
@@ -133,7 +264,7 @@ const BenefitsSection = () => {
           variant="h6"
           component="p"
           sx={{
-            color: 'text.secondary',
+            color: 'rgba(255, 255, 255, 0.9)',
             maxWidth: '600px',
             mx: 'auto',
             lineHeight: 1.6,
@@ -144,12 +275,17 @@ const BenefitsSection = () => {
       </Box>
 
       {/* Main Benefits Grid */}
-      <Box sx={{ mb: 8 }}>
+      <Box sx={{ 
+        mb: 8,
+        position: 'relative',
+        zIndex: 2,
+        display: 'flex',
+        justifyContent: 'center',
+      }}>
         <Box
           sx={{
-            display: 'grid',
-            gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)' },
-            gap: 6,
+            maxWidth: { xs: '100%', md: '800px', lg: '900px' },
+            width: '100%',
           }}
         >
           {benefits.map((benefit, index) => (

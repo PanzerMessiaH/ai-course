@@ -111,12 +111,73 @@ const AuthoritySection = () => {
 
   return (
     <Section 
-      background="secondary" 
+      background="gradient" 
       spacing="large"
       ariaLabel="Why choose ACCSO - company authority and credentials"
-    >
+      sx={{
+        position: 'relative',
+        overflow: 'hidden',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: '10%',
+          left: '5%',
+          width: '400px',
+          height: '400px',
+          background: 'radial-gradient(circle, rgba(0, 203, 117, 0.15) 0%, rgba(0, 203, 117, 0.08) 40%, transparent 70%)',
+          borderRadius: '50%',
+          filter: 'blur(80px)',
+          zIndex: 1,
+        },
+        '&::after': {
+          content: '""',
+          position: 'absolute',
+          top: '60%',
+          right: '10%',
+          width: '350px',
+          height: '350px',
+          background: 'radial-gradient(circle, rgba(45, 250, 135, 0.18) 0%, rgba(45, 250, 135, 0.06) 40%, transparent 70%)',
+          borderRadius: '50%',
+          filter: 'blur(100px)',
+          zIndex: 1,
+        },
+      }}
+          >
+      {/* Additional Background Glow Elements */}
+      <Box
+        sx={{
+          position: 'absolute',
+          top: '25%',
+          right: '20%',
+          width: '250px',
+          height: '250px',
+          background: 'radial-gradient(circle, rgba(0, 203, 117, 0.12) 0%, transparent 60%)',
+          borderRadius: '50%',
+          filter: 'blur(60px)',
+          zIndex: 1,
+        }}
+      />
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: '20%',
+          left: '15%',
+          width: '300px',
+          height: '300px',
+          background: 'radial-gradient(circle, rgba(45, 250, 135, 0.1) 0%, transparent 50%)',
+          borderRadius: '50%',
+          filter: 'blur(70px)',
+          zIndex: 1,
+        }}
+      />
+
       {/* Section Header */}
-      <Box sx={{ textAlign: 'center', mb: 8 }}>
+      <Box sx={{ 
+        textAlign: 'center', 
+        mb: 8,
+        position: 'relative',
+        zIndex: 2,
+      }}>
         <Typography
           variant="h2"
           component="h2"
@@ -126,6 +187,7 @@ const AuthoritySection = () => {
             fontWeight: 600,
             mb: 3,
             lineHeight: 1.2,
+            color: 'white',
           }}
         >
           Why ACCSO & Dominic Systems
@@ -134,7 +196,7 @@ const AuthoritySection = () => {
           variant="h6"
           component="p"
           sx={{
-            color: 'text.secondary',
+            color: 'rgba(255, 255, 255, 0.9)',
             maxWidth: '900px',
             mx: 'auto',
             lineHeight: 1.6,
@@ -147,7 +209,7 @@ const AuthoritySection = () => {
           variant="body1"
           component="p"
           sx={{
-            color: 'text.secondary',
+            color: 'rgba(255, 255, 255, 0.8)',
             maxWidth: '900px',
             mx: 'auto',
             lineHeight: 1.6,
@@ -160,18 +222,19 @@ const AuthoritySection = () => {
           variant="body1"
           component="p"
           sx={{
-            color: 'text.secondary',
+            color: 'rgba(255, 255, 255, 0.85)',
             maxWidth: '700px',
             mx: 'auto',
             lineHeight: 1.6,
+            fontWeight: 500,
           }}
         >
           Combined expertise in AI-Native development training and enterprise system integration
         </Typography>
       </Box>
 
-      {/* Feature Cards */}
-      <Box
+      {/* Feature Cards - REMOVED PER USER REQUEST */}
+      {/* <Box
         sx={{
           display: 'grid',
           gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)' },
@@ -191,10 +254,10 @@ const AuthoritySection = () => {
           title="Industry-Leading Techniques"
           description="Comprehensive framework for Agentic Programming adoption in enterprise environments."
         />
-      </Box>
+      </Box> */}
 
-      {/* Statistics Grid */}
-      <Box
+      {/* Statistics Grid - REMOVED PER USER REQUEST */}
+      {/* <Box
         sx={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
@@ -211,10 +274,10 @@ const AuthoritySection = () => {
         <StatItem number="2-3" label="Days Training" />
         <StatItem number="90%" label="Faster Development" />
         <StatItem number="24/7" label="Expert Support" />
-      </Box>
+      </Box> */}
 
-      {/* CTA */}
-      <Box sx={{ textAlign: 'center' }}>
+      {/* CTA - REMOVED PER USER REQUEST */}
+      {/* <Box sx={{ textAlign: 'center' }}>
         <CTAButton
           variant="outline"
           size="large"
@@ -224,7 +287,7 @@ const AuthoritySection = () => {
         >
           Get Started Today
         </CTAButton>
-      </Box>
+      </Box> */}
     </Section>
   );
 };

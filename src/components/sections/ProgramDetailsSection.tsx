@@ -264,17 +264,7 @@ const ProgramDetailsSection = () => {
         ))}
       </Box>
 
-      {/* CTA Section */}
-      <Box sx={{ textAlign: 'center' }}>
-        <CTAButton
-          variant="primary"
-          size="large"
-          href="/register"
-          icon="→"
-        >
-          Reserve Your Team&apos;s Seats
-        </CTAButton>
-      </Box>
+
     </Section>
   );
 };
