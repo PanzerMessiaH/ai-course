@@ -1,7 +1,7 @@
 'use client';
 
 import { Box, Typography, Card, CardContent } from '@mui/material';
-import { Section, CTAButton } from '../shared';
+import { Section } from '../shared';
 
 interface ContentCardProps {
   icon: string;
@@ -86,15 +86,26 @@ const ContentCard: React.FC<ContentCardProps> = ({ icon, title, items, variant =
 
 const ProblemSolutionSection = () => {
   const problems = [
-    'Development cycles taking months instead of days',
-    'Skilled developers spending time on repetitive tasks',
-    'Teams struggling to keep pace with AI innovation',
+    "You don't write the code anymore. Agents do.",
+    "Your job is to guide, review, and refine their work—like a lead engineer, architect, or strategist working through intelligent collaborators.",
+    "Every role in your Scrum team—developer, tester, designer, architect, product owner—works through agents to:",
+    "Assess product goals, constraints, and technical approaches",
+    "Plan sprints, epics, user stories, and architecture",
+    "Design APIs, UIs, data models, and system interactions",
+    "Implement production-ready code, tests, configs, docs",
+    "Reflect through retrospectives and feed learning into memory",
   ];
 
   const solutions = [
-    'Build enterprise software without writing code',
-    'Transform developers into AI orchestrators',
-    'Future-proof your team with cutting-edge AI skills',
+    "Using Cursor Memory Bank, the system builds persistent knowledge—not just output. It enables:",
+    "Personal Knowledge Loops: Each human—agent pairing creates a personal memory space—recording context, rationale, preferences, and lessons learned.",
+    "Team Knowledge Overlap: These memories connect via reflection and memory modes, forming overlapping Venn diagrams of shared understanding.",
+    "A Living Project Knowledge Base: These intersections create a persistent team or organizational memory—a knowledge system that accelerates delivery by learning from every interaction.",
+    "Rooted in Personal Knowledge Management (PKM) and Knowledge Management (KM) theory, this model:",
+    "Captures both tacit and explicit knowledge",
+    "Embeds learning directly into the development process",
+    "Turns retrospectives into fuel for smarter agent behavior",
+    "Makes every future sprint faster and more informed than the last",
   ];
 
   return (
@@ -111,16 +122,7 @@ const ProblemSolutionSection = () => {
             lineHeight: 1.2,
           }}
         >
-          The Challenge:{' '}
-          <Box
-            component="span"
-            sx={{
-              color: 'secondary.main',
-              fontWeight: 700,
-            }}
-          >
-            Traditional Development is Too Slow
-          </Box>
+          The Future of Software Development: Agents Write the Code—You Guide the Intelligence
         </Typography>
         <Typography
           variant="h6"
@@ -132,7 +134,10 @@ const ProblemSolutionSection = () => {
             lineHeight: 1.6,
           }}
         >
-          While competitors embrace AI-Native development, traditional coding creates bottlenecks.
+          In this transformational course, your Scrum team will learn to build software in a completely new way:<br/>
+          Agents—like ChatGPT, Claude, Gemini, and DeepSeek—write the code, generate requirements, create tests, design interfaces, and produce documentation. Humans no longer manually write these artifacts.<br/><br/>
+          This is Agentic Programming: a paradigm where every role in your team collaborates with intelligent agents to plan, design, implement, and evolve software systems—faster, more reflectively, and with growing organizational intelligence.<br/><br/>
+          This isn&apos;t about building AI apps. It&apos;s about building everything else—with AI.
         </Typography>
       </Box>
 
@@ -142,33 +147,21 @@ const ProblemSolutionSection = () => {
           display: 'grid',
           gridTemplateColumns: { xs: '1fr', lg: 'repeat(2, 1fr)' },
           gap: 4,
-          mb: 8,
+          mb: 4,
         }}
       >
         <ContentCard
-          icon="⚠️"
-          title="Current Challenges"
+          icon="🧠"
+          title="The Paradigm Shift"
           items={problems}
           variant="problem"
         />
         <ContentCard
-          icon="✨"
-          title="AI-Native Solution"
+          icon="🔁"
+          title="Memory and Learning: From Personal to Organizational Intelligence"
           items={solutions}
           variant="solution"
         />
-      </Box>
-
-      {/* CTA Section */}
-      <Box sx={{ textAlign: 'center' }}>
-        <CTAButton
-          variant="primary"
-          size="large"
-          href="/register"
-          icon="→"
-        >
-          Transform Your Team
-        </CTAButton>
       </Box>
     </Section>
   );

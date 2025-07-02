@@ -163,42 +163,6 @@ const DisclosureContent: React.FC<DisclosureContentProps> = ({
   </Card>
 );
 
-const SocialProofIndicator = () => (
-  <Box
-    sx={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      gap: 2,
-      mt: 3,
-      p: 3,
-      borderRadius: 2,
-      background: 'linear-gradient(135deg, rgba(0, 203, 117, 0.1) 0%, rgba(45, 250, 135, 0.1) 100%)',
-      border: '1px solid rgba(0, 203, 117, 0.2)',
-    }}
-  >
-    <Typography
-      variant="h4"
-      component="span"
-      sx={{
-        fontWeight: 700,
-        color: 'secondary.main',
-      }}
-    >
-      2-3
-    </Typography>
-    <Typography
-      variant="body1"
-      sx={{
-        color: 'text.primary',
-        fontWeight: 500,
-      }}
-    >
-      intensive days to transform your team
-    </Typography>
-  </Box>
-);
-
 const ProgramDetailsSection = () => {
   const [openDisclosure, setOpenDisclosure] = useState<number | null>(0); // First item open by default
 
@@ -255,8 +219,8 @@ const ProgramDetailsSection = () => {
           sx={{
             fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
             fontWeight: 600,
-            mb: 3,
-            lineHeight: 1.2,
+            mb: 1.5,
+            lineHeight: 1.1,
           }}
         >
           The{' '}
@@ -278,7 +242,8 @@ const ProgramDetailsSection = () => {
             color: 'text.secondary',
             maxWidth: '600px',
             mx: 'auto',
-            lineHeight: 1.6,
+            lineHeight: 1.4,
+            mb: 2,
           }}
         >
           A comprehensive 2-3 day intensive that transforms your entire development approach
@@ -286,7 +251,7 @@ const ProgramDetailsSection = () => {
       </Box>
 
       {/* Program Disclosure Content */}
-      <Box sx={{ mb: 8 }}>
+      <Box sx={{ mb: 4 }}>
         {programDays.map((day, index) => (
           <DisclosureContent
             key={index}
@@ -309,7 +274,6 @@ const ProgramDetailsSection = () => {
         >
           Reserve Your Team&apos;s Seats
         </CTAButton>
-        <SocialProofIndicator />
       </Box>
     </Section>
   );
