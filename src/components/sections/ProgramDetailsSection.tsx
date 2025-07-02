@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Box, Typography, Card, CardContent, Collapse, IconButton } from '@mui/material';
 import { ExpandMore } from '@mui/icons-material';
-import { Section, CTAButton } from '../shared';
+import { Section } from '../shared';
 
 interface DisclosureContentProps {
   title: string;

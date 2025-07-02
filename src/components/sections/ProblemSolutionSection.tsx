@@ -181,7 +181,7 @@ const ProblemSolutionSection = () => {
               fontStyle: 'italic',
             }}
           >
-            This isn't about building AI apps. It's about building everything else—with AI.
+            This isn&apos;t about building AI apps. It&apos;s about building everything else—with AI.
           </Typography>
         </Box>
       </Box>

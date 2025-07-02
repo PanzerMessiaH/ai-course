@@ -311,7 +311,7 @@ const HeroSection = () => {
               lineHeight: 1.6,
             }}
           >
-            "We don't write code anymore. We guide the agents who do. This changed how we deliver, think, and work—completely."
+            &ldquo;We don&apos;t write code anymore. We guide the agents who do. This changed how we deliver, think, and work—completely.&rdquo;
           </Typography>
         </Card>
       </Box>
