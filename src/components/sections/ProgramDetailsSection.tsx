@@ -168,39 +168,48 @@ const ProgramDetailsSection = () => {
 
   const programDays = [
     {
-      title: 'Day 1: AI-Native Architecture',
+      title: 'Day 1: Paradigm Shift + Core Agentic Skills',
       activities: [
-        'Shift from manual coding to AI-driven orchestration',
-        'Master enterprise-grade AI tool configuration',
-        'Design scalable AI-first system architectures',
+        'tbd',
+        'tbd',
+        'tbd',
+        'tbd',
+        'tbd',
+        'tbd',
       ],
       outcome: {
         title: 'Day 1 Outcome',
-        description: 'Understand how to integrate AI tools into existing workflows and plan AI-Native architectures.',
+        description: '...tbd',
       },
     },
     {
-      title: 'Day 2: Agentic Development',
+      title: 'Day 2: Applying Agentic Workflows Across Scrum Roles',
       activities: [
-        'Use AI agents for autonomous code generation and testing',
-        'Transform specs into actionable plans',
-        'Build functional prototypes using AI tools',
+        'tbd',
+        'tbd',
+        'tbd',
+        'tbd',
+        'tbd',
+        'tbd',
       ],
       outcome: {
         title: 'Day 2 Outcome',
-        description: 'Build and deploy a complete enterprise application using AI tools and orchestration.',
+        description: '...tbd',
       },
     },
     {
-      title: 'Day 3: Team Integration',
+      title: 'Day 3: Team Integration + Memory Reflection + Scaling the Practice',
       activities: [
-        'Define new AI-focused roles and responsibilities',
-        'Implement AI adoption strategies',
-        'Create sustainable AI-Native development processes',
+        'tbd',
+        'tbd',
+        'tbd',
+        'tbd',
+        'tbd',
+        'tbd',
       ],
       outcome: {
         title: 'Day 3 Outcome',
-        description: 'Leave with a complete roadmap for transforming your development organization.',
+        description: '...tbd',
       },
     },
   ];
@@ -223,7 +232,6 @@ const ProgramDetailsSection = () => {
             lineHeight: 1.1,
           }}
         >
-          The{' '}
           <Box
             component="span"
             sx={{
@@ -231,9 +239,22 @@ const ProgramDetailsSection = () => {
               fontWeight: 700,
             }}
           >
-            Agentic Coding Bootcamp
+            Agentic Programming
           </Box>
-          :{' '}Your Complete Transformation Program
+          {' '}Curriculum
+        </Typography>
+        <Typography
+          variant="h6"
+          component="p"
+          sx={{
+            color: 'text.secondary',
+            maxWidth: '600px',
+            mx: 'auto',
+            lineHeight: 1.4,
+            mb: 1,
+          }}
+        >
+          Format: Modular sessions + Hands-on labs + Reflection rounds
         </Typography>
         <Typography
           variant="h6"
@@ -246,7 +267,7 @@ const ProgramDetailsSection = () => {
             mb: 2,
           }}
         >
-          A comprehensive 2-3 day intensive that transforms your entire development approach
+          A comprehensive 3 day intensive that transforms your enterprise scrum team into AI-Native Engineers.
         </Typography>
       </Box>
 

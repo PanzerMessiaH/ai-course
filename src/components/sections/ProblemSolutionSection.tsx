@@ -118,27 +118,72 @@ const ProblemSolutionSection = () => {
           sx={{
             fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
             fontWeight: 600,
-            mb: 3,
+            mb: 4,
             lineHeight: 1.2,
+            maxWidth: { xs: '100%', md: '900px', lg: '1000px' },
+            mx: 'auto',
           }}
         >
           The Future of Software Development: Agents Write the Code—You Guide the Intelligence
         </Typography>
-        <Typography
-          variant="h6"
-          component="p"
-          sx={{
-            color: 'text.secondary',
-            maxWidth: '600px',
-            mx: 'auto',
-            lineHeight: 1.6,
-          }}
-        >
-          In this transformational course, your Scrum team will learn to build software in a completely new way:<br/>
-          Agents—like ChatGPT, Claude, Gemini, and DeepSeek—write the code, generate requirements, create tests, design interfaces, and produce documentation. Humans no longer manually write these artifacts.<br/><br/>
-          This is Agentic Programming: a paradigm where every role in your team collaborates with intelligent agents to plan, design, implement, and evolve software systems—faster, more reflectively, and with growing organizational intelligence.<br/><br/>
-          This isn&apos;t about building AI apps. It&apos;s about building everything else—with AI.
-        </Typography>
+        
+        <Box sx={{ maxWidth: { xs: '100%', md: '800px', lg: '900px', xl: '1000px' }, mx: 'auto' }}>
+          <Typography
+            variant="h6"
+            component="p"
+            sx={{
+              color: 'text.secondary',
+              lineHeight: 1.7,
+              mb: 3,
+              fontSize: { xs: '1.1rem', md: '1.2rem' },
+              fontWeight: 400,
+            }}
+          >
+            In this transformational course, your Scrum team will learn to build software in a completely new way:
+          </Typography>
+          
+          <Typography
+            variant="body1"
+            component="p"
+            sx={{
+              color: 'text.primary',
+              lineHeight: 1.7,
+              mb: 3,
+              fontSize: { xs: '1rem', md: '1.1rem' },
+              fontWeight: 400,
+            }}
+          >
+            Agents—like ChatGPT, Claude, Gemini, and DeepSeek—write the code, generate requirements, create tests, design interfaces, and produce documentation. Humans no longer manually write these artifacts.
+          </Typography>
+          
+          <Typography
+            variant="body1"
+            component="p"
+            sx={{
+              color: 'text.primary',
+              lineHeight: 1.7,
+              mb: 3,
+              fontSize: { xs: '1rem', md: '1.1rem' },
+              fontWeight: 400,
+            }}
+          >
+            This is Agentic Programming: a paradigm where every role in your team collaborates with intelligent agents to plan, design, implement, and evolve software systems—faster, more reflectively, and with growing organizational intelligence.
+          </Typography>
+          
+          <Typography
+            variant="h6"
+            component="p"
+            sx={{
+              color: 'text.secondary',
+              lineHeight: 1.6,
+              fontSize: { xs: '1.1rem', md: '1.2rem' },
+              fontWeight: 500,
+              fontStyle: 'italic',
+            }}
+          >
+            This isn't about building AI apps. It's about building everything else—with AI.
+          </Typography>
+        </Box>
       </Box>
 
       {/* Problem/Solution Cards */}

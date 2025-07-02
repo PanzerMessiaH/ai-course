@@ -109,14 +109,20 @@ The Future of Software Development: Agents Write the Code—You Guide the Intell
 
 ---
 
-## **BLOCK 12: PROBLEM/SOLUTION SECTION - SUBTITLE**
+## **BLOCK 12: PROBLEM/SOLUTION SECTION - SUBTITLE** ✅ LAYOUT IMPROVED
 **File**: `src/components/sections/ProblemSolutionSection.tsx`
+**Status**: Professional typography layout applied
 
+**Paragraph 1 (Introduction):**
 In this transformational course, your Scrum team will learn to build software in a completely new way:
+
+**Paragraph 2 (Agent Role):**
 Agents—like ChatGPT, Claude, Gemini, and DeepSeek—write the code, generate requirements, create tests, design interfaces, and produce documentation. Humans no longer manually write these artifacts.
 
+**Paragraph 3 (Definition):**
 This is Agentic Programming: a paradigm where every role in your team collaborates with intelligent agents to plan, design, implement, and evolve software systems—faster, more reflectively, and with growing organizational intelligence.
 
+**Paragraph 4 (Emphasis):**
 This isn't about building AI apps. It's about building everything else—with AI.
 
 ---
@@ -155,59 +161,69 @@ This isn't about building AI apps. It's about building everything else—with AI
 ## **BLOCK 15: PROGRAM DETAILS SECTION - MAIN HEADING**
 **File**: `src/components/sections/ProgramDetailsSection.tsx`
 
-The Agentic Coding Bootcamp: Your Complete Transformation Program
+Agentic Programming Curriculum
 
 ---
 
 ## **BLOCK 16: PROGRAM DETAILS SECTION - SUBTITLE**
 **File**: `src/components/sections/ProgramDetailsSection.tsx`
 
-A comprehensive 2-3 day intensive that transforms your entire development approach
-
+Format: Modular sessions + Hands-on labs + Reflection rounds
+A comprehensive 3 day intensive that transforms your enterprise scrum team into AI-Native Engineers.
 ---
 
 ## **BLOCK 17: PROGRAM DETAILS SECTION - DAY 1**
 **File**: `src/components/sections/ProgramDetailsSection.tsx`
 
-Day 1: AI-Native Architecture
+Day 1: Paradigm Shift + Core Agentic Skills
 
 Activities:
-✓ Shift from manual coding to AI-driven orchestration
-✓ Master enterprise-grade AI tool configuration
-✓ Design scalable AI-first system architectures
+✓ tbd
+✓ tbd
+✓ tbd
+✓ tbd
+✓ tbd
+✓ tbd
+
 
 Day 1 Outcome:
-Understand how to integrate AI tools into existing workflows and plan AI-Native architectures.
+...tbd
 
 ---
 
 ## **BLOCK 18: PROGRAM DETAILS SECTION - DAY 2**
 **File**: `src/components/sections/ProgramDetailsSection.tsx`
 
-Day 2: Agentic Development
+Day 2: Applying Agentic Workflows Across Scrum Roles
 
 Activities:
-✓ Use AI agents for autonomous code generation and testing
-✓ Transform specs into actionable plans
-✓ Build functional prototypes using AI tools
+✓ tbd
+✓ tbd
+✓ tbd
+✓ tbd
+✓ tbd
+✓ tbd
 
 Day 2 Outcome:
-Build and deploy a complete enterprise application using AI tools and orchestration.
+...tbd
 
 ---
 
 ## **BLOCK 19: PROGRAM DETAILS SECTION - DAY 3**
 **File**: `src/components/sections/ProgramDetailsSection.tsx`
 
-Day 3: Team Integration
+Day 3: Team Integration + Memory Reflection + Scaling the Practice
 
 Activities:
-✓ Define new AI-focused roles and responsibilities
-✓ Implement AI adoption strategies
-✓ Create sustainable AI-Native development processes
+✓ tbd
+✓ tbd
+✓ tbd
+✓ tbd
+✓ tbd
+✓ tbd
 
 Day 3 Outcome:
-Leave with a complete roadmap for transforming your development organization.
+...tbd
 
 ---
 
