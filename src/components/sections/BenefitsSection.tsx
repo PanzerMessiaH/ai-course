@@ -142,12 +142,12 @@ const BenefitsSection = () => {
   const benefits = [
     {
       icon: '🎯',
-      title: "Good, at the end of the course your team will learn",
+      title: "What You'll Achieve",
       items: [
-        'Use agents to produce all development outputs—no manual coding or spec writing',
-        'Operate in agent-augmented workflows across every Scrum role',
-        'Maintain a shared team knowledge base that compounds learning',
-        'Work in a new mode of software delivery, where agents handle execution and humans guide systems thinking',
+        'Transform your development approach with systematic problem-solving and innovative thinking capabilities',
+        'Master efficient development techniques and integrate cutting-edge tools for enhanced productivity',
+        'Lead AI-native team collaboration and implement quality practices that scale across organizations',
+        'Build sustainable development practices and prepare your organization for future technology trends',
       ],
     },
   ];
