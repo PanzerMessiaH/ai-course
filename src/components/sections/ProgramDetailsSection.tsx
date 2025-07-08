@@ -4,24 +4,30 @@ import { useState } from 'react';
 import { Box, Typography, Card, CardContent, Collapse, IconButton } from '@mui/material';
 import { ExpandMore } from '@mui/icons-material';
 import { Section } from '../shared';
+import { curriculumData, CurriculumModule as CurriculumModuleType } from '../../data/curriculum';
+import CurriculumModule from './CurriculumModule';
 
 interface DisclosureContentProps {
   title: string;
-  activities: string[];
+  modules: CurriculumModuleType[];
   outcome: {
     title: string;
     description: string;
   };
   isOpen: boolean;
   onToggle: () => void;
+  openModules: Set<string>;
+  onModuleToggle: (moduleId: string) => void;
 }
 
 const DisclosureContent: React.FC<DisclosureContentProps> = ({
   title,
-  activities,
+  modules,
   outcome,
   isOpen,
   onToggle,
+  openModules,
+  onModuleToggle,
 }) => (
   <Card
     sx={{
@@ -80,83 +86,71 @@ const DisclosureContent: React.FC<DisclosureContentProps> = ({
         <Box
           sx={{
             display: 'grid',
-            gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)' },
-            gap: 4,
+            gridTemplateColumns: { xs: '1fr', lg: '2fr 1fr' },
+            gap: { xs: 3, md: 4 },
+            alignItems: 'start',
           }}
         >
-          {/* Activities Card */}
-          <Card
-            variant="outlined"
-            sx={{
-              border: '1px solid rgba(0, 203, 117, 0.2)',
-              bgcolor: 'rgba(0, 203, 117, 0.02)',
-            }}
-          >
-            <CardContent>
-              <Box
-                component="ul"
-                sx={{
-                  listStyle: 'none',
-                  p: 0,
-                  m: 0,
-                  '& li': {
-                    position: 'relative',
-                    pl: 3,
-                    mb: 2,
-                    color: 'text.primary',
-                    lineHeight: 1.6,
-                    '&:before': {
-                      content: '"✓"',
-                      position: 'absolute',
-                      left: 0,
-                      color: 'secondary.main',
-                      fontWeight: 'bold',
-                      fontSize: '1.1rem',
-                    },
-                    '&:last-child': {
-                      mb: 0,
-                    },
-                  },
-                }}
-              >
-                {activities.map((activity, index) => (
-                  <li key={index}>{activity}</li>
-                ))}
-              </Box>
-            </CardContent>
-          </Card>
+          {/* Modules Section */}
+          <Box>
+            <Typography
+              variant="h6"
+              component="h4"
+              sx={{
+                fontWeight: 600,
+                mb: 3,
+                color: 'secondary.main',
+              }}
+            >
+              Course Modules
+            </Typography>
+            
+            {modules.map((module) => (
+              <CurriculumModule
+                key={module.id}
+                module={module}
+                isOpen={openModules.has(module.id)}
+                onToggle={() => onModuleToggle(module.id)}
+              />
+            ))}
+          </Box>
 
           {/* Outcome Card */}
-          <Card
-            variant="outlined"
-            sx={{
-              border: '1px solid rgba(0, 203, 117, 0.3)',
-              bgcolor: 'rgba(0, 203, 117, 0.05)',
-            }}
-          >
-            <CardContent>
-              <Typography
-                variant="h6"
-                component="h4"
-                sx={{
-                  fontWeight: 600,
-                  mb: 2,
-                  color: 'secondary.main',
-                }}
-              >
-                {outcome.title}
-              </Typography>
-              <Typography
-                variant="body1"
-                sx={{
-                  color: 'text.primary',
-                  lineHeight: 1.6,
-                }}
-              >
-                {outcome.description}
-              </Typography>
-            </CardContent>
-          </Card>
+          <Box>
+            <Card
+              variant="outlined"
+              sx={{
+                border: '1px solid rgba(0, 203, 117, 0.3)',
+                bgcolor: 'rgba(0, 203, 117, 0.05)',
+                position: { xs: 'static', lg: 'sticky' },
+                top: { lg: 20 },
+                height: 'fit-content',
+              }}
+            >
+              <CardContent>
+                <Typography
+                  variant="h6"
+                  component="h4"
+                  sx={{
+                    fontWeight: 600,
+                    mb: 2,
+                    color: 'secondary.main',
+                  }}
+                >
+                  {outcome.title}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: 'text.primary',
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {outcome.description}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
         </Box>
       </CardContent>
     </Collapse>
@@ -165,70 +159,40 @@ const DisclosureContent: React.FC<DisclosureContentProps> = ({
 
 const ProgramDetailsSection = () => {
   const [openDisclosure, setOpenDisclosure] = useState<number | null>(0); // First item open by default
-
-  const programDays = [
-    {
-      title: 'Day 1: Paradigm Shift + Core Agentic Skills',
-      activities: [
-        'tbd',
-        'tbd',
-        'tbd',
-        'tbd',
-        'tbd',
-        'tbd',
-      ],
-      outcome: {
-        title: 'Day 1 Outcome',
-        description: '...tbd',
-      },
-    },
-    {
-      title: 'Day 2: Applying Agentic Workflows Across Scrum Roles',
-      activities: [
-        'tbd',
-        'tbd',
-        'tbd',
-        'tbd',
-        'tbd',
-        'tbd',
-      ],
-      outcome: {
-        title: 'Day 2 Outcome',
-        description: '...tbd',
-      },
-    },
-    {
-      title: 'Day 3: Team Integration + Memory Reflection + Scaling the Practice',
-      activities: [
-        'tbd',
-        'tbd',
-        'tbd',
-        'tbd',
-        'tbd',
-        'tbd',
-      ],
-      outcome: {
-        title: 'Day 3 Outcome',
-        description: '...tbd',
-      },
-    },
-  ];
+  const [openModules, setOpenModules] = useState<Set<string>>(new Set(['module-1'])); // First module of first day open
 
   const handleDisclosureToggle = (index: number) => {
     setOpenDisclosure(openDisclosure === index ? null : index);
   };
 
+  const handleModuleToggle = (moduleId: string) => {
+    const newOpenModules = new Set(openModules);
+    if (newOpenModules.has(moduleId)) {
+      newOpenModules.delete(moduleId);
+    } else {
+      newOpenModules.add(moduleId);
+    }
+    setOpenModules(newOpenModules);
+  };
+
+  // Use the comprehensive curriculum data with modules
+  const programDays = curriculumData.map((day) => ({
+    title: day.title,
+    modules: day.modules,
+    outcome: day.outcome,
+  }));
+
   return (
     <Section background="secondary" spacing="large" id="program-details">
       {/* Section Header */}
-      <Box sx={{ textAlign: 'center', mb: 8 }}>
+      <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 8 } }}>
         <Typography
           variant="h2"
           component="h2"
           sx={{
             fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
             fontWeight: 600,
-            mb: 1.5,
+            mb: { xs: 1, md: 1.5 },
             lineHeight: 1.1,
           }}
         >
@@ -252,6 +216,7 @@ const ProgramDetailsSection = () => {
             mx: 'auto',
             lineHeight: 1.4,
             mb: 1,
+            fontSize: { xs: '1rem', md: '1.25rem' },
           }}
         >
           Format: Modular sessions + Hands-on labs + Reflection rounds
@@ -261,10 +226,11 @@ const ProgramDetailsSection = () => {
           component="p"
           sx={{
             color: 'text.secondary',
-            maxWidth: '600px',
+            maxWidth: '700px',
             mx: 'auto',
             lineHeight: 1.4,
             mb: 2,
+            fontSize: { xs: '1rem', md: '1.25rem' },
           }}
         >
           A comprehensive 3 day intensive that transforms your enterprise scrum team into AI-Native Engineers.
@@ -277,14 +243,15 @@ const ProgramDetailsSection = () => {
           <DisclosureContent
             key={index}
             title={day.title}
-            activities={day.activities}
+            modules={day.modules}
             outcome={day.outcome}
             isOpen={openDisclosure === index}
             onToggle={() => handleDisclosureToggle(index)}
+            openModules={openModules}
+            onModuleToggle={handleModuleToggle}
           />
         ))}
       </Box>
-
 
     </Section>
   );
