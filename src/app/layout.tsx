@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Source_Sans_3 } from "next/font/google";
+import { Analytics } from '@vercel/analytics/react';
 import { CustomThemeProvider } from "@/theme/ThemeProvider";
 import "./globals.css";
 
@@ -122,6 +123,7 @@ export default function RootLayout({
         <CustomThemeProvider>
           {children}
         </CustomThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
