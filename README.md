@@ -2,6 +2,8 @@
 
 A comprehensive landing page for the AI-Native Agentic Programming Bootcamp, showcasing modern web development practices with Next.js, React, and Material UI.
 
+> **Latest Update**: Website content optimized for improved readability and user experience with progressive disclosure patterns.
+
 ## 🚀 Live Demo
 
 **Production Site**: [https://ai-course-lilac.vercel.app/](https://ai-course-lilac.vercel.app/)
