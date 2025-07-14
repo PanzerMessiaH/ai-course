@@ -93,66 +93,40 @@ const AuthoritySection = () => {
           component="p"
           sx={{
             color: 'rgba(255, 255, 255, 0.9)',
-            maxWidth: '900px',
+            maxWidth: '800px',
             mx: 'auto',
             lineHeight: 1.6,
-            mb: 2,
+            mb: 3,
           }}
         >
-          Accso Cape Town, part of Accso – Accelerated Solutions, is a leading full-service technology partner specializing in tailored business solutions through software engineering and consulting. With a strong reputation for quality and innovation, we support clients across a wide range of industries and geographies, delivering services that enable sustainable digital transformation.
-        </Typography>
-        <Typography
-          variant="body1"
-          component="p"
-          sx={{
-            color: 'rgba(255, 255, 255, 0.8)',
-            maxWidth: '900px',
-            mx: 'auto',
-            lineHeight: 1.6,
-            mb: 2,
-          }}
-        >
-          Since its founding in 2010, Accso has successfully delivered more than 2,000 projects. Today, the company operates across five strategic locations—Cape Town, Darmstadt, Frankfurt, Cologne, and Munich—and is powered by a team of over 350 dedicated professionals committed to excellence, agility, and long-term client success.
+          <strong>ACCSO</strong> is a leading technology partner with 2,000+ delivered projects since 2010. Operating across five global locations with 350+ professionals, we specialize in enterprise digital transformation and AI-native development.
         </Typography>
         <Typography
           variant="h6"
           component="p"
           sx={{
             color: 'rgba(255, 255, 255, 0.9)',
-            maxWidth: '900px',
+            maxWidth: '800px',
             mx: 'auto',
             lineHeight: 1.6,
-            mb: 2,
-            mt: 4,
+            mb: 4,
           }}
         >
-          Dominic Systems Limited (Dominic) is a full-service consulting company focused on Dynamics 365, serving as a trusted advisor for medium-to-enterprise-sized customers looking to leverage the power of the cloud to quickly and effectively improve business processes. With a special focus on Canadian Local Government and government-related organisations such as Crown Corporations and Public Sector entities, Dominic brings extensive expertise in Microsoft Dynamics 365 and Power Platform environments.
-        </Typography>
-        <Typography
-          variant="body1"
-          component="p"
-          sx={{
-            color: 'rgba(255, 255, 255, 0.8)',
-            maxWidth: '900px',
-            mx: 'auto',
-            lineHeight: 1.6,
-            mb: 2,
-          }}
-        >
-          Since 2010, Dominic has grown alongside the continued enhancement of Dynamics 365 with key focus areas in Customer Engagement (CE) and Customer Relationship Management (CRM) applications, providing the very best services in these specialized areas for public sector and enterprise clients.
+          <strong>Dominic Systems</strong> brings 13+ years of Microsoft Dynamics 365 and AI expertise, specializing in government and enterprise solutions. As early adopters of Microsoft Copilot, we lead organizations through conversational AI transformation and productivity optimization.
         </Typography>
         <Typography
           variant="body1"
           component="p"
           sx={{
             color: 'rgba(255, 255, 255, 0.85)',
-            maxWidth: '700px',
+            maxWidth: '600px',
             mx: 'auto',
             lineHeight: 1.6,
             fontWeight: 500,
+            fontSize: '1.1rem',
           }}
         >
-          Combined expertise in AI-Native development training and enterprise system integration
+          Combined expertise: Enterprise-proven AI development training + Microsoft ecosystem mastery
         </Typography>
       </Box>
 
