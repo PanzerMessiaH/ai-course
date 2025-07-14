@@ -225,9 +225,9 @@ const BenefitsSection = () => {
           size="large"
           href="/register"
           icon="→"
-          ariaLabel="Enroll your team in the AI-Native Agentic Programming Bootcamp"
+          ariaLabel="Join waitlist for the AI-Native Agentic Programming Bootcamp"
         >
-          Enroll Your Team
+          Join Waitlist
         </CTAButton>
       </Box>
 
@@ -297,6 +297,124 @@ const BenefitsSection = () => {
             />
           ))}
         </Box>
+      </Box>
+
+      {/* Authority-Based Conversion Section */}
+      <Box
+        sx={{
+          position: 'relative',
+          zIndex: 2,
+          textAlign: 'center',
+          mt: 8,
+          mb: 6,
+        }}
+      >
+        {/* Partnership Authority Statement */}
+        <Typography
+          variant="h4"
+          component="h3"
+          sx={{
+            fontWeight: 700,
+            mb: 3,
+            color: 'white',
+            fontSize: { xs: '1.75rem', md: '2.25rem' },
+          }}
+        >
+          Delivered by ACCSO & Dominic Systems
+        </Typography>
+        <Typography
+          variant="h6"
+          component="p"
+          sx={{
+            color: 'rgba(255, 255, 255, 0.9)',
+            maxWidth: '800px',
+            mx: 'auto',
+            lineHeight: 1.6,
+            mb: 4,
+            fontWeight: 500,
+          }}
+        >
+          Combined expertise in AI-Native development training and enterprise Microsoft Dynamics 365 
+          with AI/Copilot integration. Leading organizations trust us to deliver transformational 
+          learning experiences that drive real business outcomes.
+        </Typography>
+
+        {/* Next Cohort Information + Urgency */}
+        <Box
+          sx={{
+            background: 'linear-gradient(135deg, rgba(0, 203, 117, 0.2) 0%, rgba(45, 250, 135, 0.15) 100%)',
+            border: '1px solid rgba(0, 203, 117, 0.4)',
+            borderRadius: 3,
+            p: 4,
+            mb: 4,
+            maxWidth: '600px',
+            mx: 'auto',
+            backdropFilter: 'blur(10px)',
+          }}
+        >
+          <Typography
+            variant="h5"
+            component="h4"
+            sx={{
+              fontWeight: 600,
+              mb: 2,
+              color: 'white',
+            }}
+          >
+            3-Day AI-Native Programming Bootcamp
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              color: 'rgba(255, 255, 255, 0.9)',
+              mb: 2,
+              fontSize: '1.125rem',
+            }}
+          >
+            Limited spaces available for our intensive 3-day AI-Native Programming Bootcamp
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{
+              color: 'rgba(45, 250, 135, 0.9)',
+              fontWeight: 600,
+              fontSize: '1rem',
+            }}
+          >
+            Join the waitlist to secure your spot
+          </Typography>
+        </Box>
+
+        {/* Join Waitlist CTA */}
+        <Box sx={{ mb: 4 }}>
+          <CTAButton
+            variant="primary"
+            size="large"
+            href="/register"
+            sx={{
+              fontSize: '1.25rem',
+              py: 2,
+              px: 4,
+              minWidth: '280px',
+            }}
+          >
+            Join Waitlist
+          </CTAButton>
+        </Box>
+
+        {/* Clear Waitlist Benefits */}
+        <Typography
+          variant="body1"
+          sx={{
+            color: 'rgba(255, 255, 255, 0.8)',
+            maxWidth: '500px',
+            mx: 'auto',
+            lineHeight: 1.6,
+            fontSize: '1rem',
+          }}
+        >
+          We&apos;ll contact you with enrollment details when the next cohort is scheduled.
+        </Typography>
       </Box>
     </Section>
   );

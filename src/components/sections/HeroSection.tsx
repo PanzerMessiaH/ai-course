@@ -264,9 +264,9 @@ const HeroSection = () => {
             size="large"
             href="/register"
             icon="→"
-            ariaLabel="Enroll your team now in the AI-Native Agentic Programming Bootcamp"
+            ariaLabel="Join waitlist for the AI-Native Agentic Programming Bootcamp"
           >
-            Enroll Your Team Now
+            Join Waitlist
           </CTAButton>
           <CTAButton
             variant="secondary"
