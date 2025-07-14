@@ -25,6 +25,20 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Prevent flash of white content by ensuring dark background */
+html, body, #__next {
+  background-color: #003c3c !important;
+  color: #ffffff !important;
+}
+
+/* Override for light mode when explicitly set */
+@media (prefers-color-scheme: light) {
+  html, body, #__next {
+    background-color: #ffffff !important;
+    color: #171717 !important;
+  }
+}
+
 /* Skip link accessibility styles */
 .skip-link {
   position: absolute;

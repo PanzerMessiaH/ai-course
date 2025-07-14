@@ -49,10 +49,8 @@ export const CustomThemeProvider: React.FC<ThemeProviderProps> = ({ children }) 
     const savedMode = localStorage.getItem('theme-mode') as ThemeMode;
     if (savedMode && (savedMode === 'light' || savedMode === 'dark')) {
       setMode(savedMode);
-    } else {
-      // Default to dark theme instead of checking system preference
-      setMode('dark');
     }
+    // If no saved mode, keep the default 'dark' theme - don't change it
   }, [mounted]);
 
   // Save theme preference to localStorage
@@ -66,8 +64,8 @@ export const CustomThemeProvider: React.FC<ThemeProviderProps> = ({ children }) 
     setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
   };
 
-  // Use dark theme by default, even during SSR to prevent hydration mismatch
-  const currentTheme = mounted && mode === 'light' ? lightTheme : darkTheme;
+  // Always use dark theme until explicitly switched to light
+  const currentTheme = mode === 'light' ? lightTheme : darkTheme;
   
   // Create emotion cache
   const emotionCache = createEmotionCache();

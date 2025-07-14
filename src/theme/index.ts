@@ -154,7 +154,7 @@ export const darkTheme = createTheme({
     },
     background: {
       default: colors.darkGreen,
-      paper: '#1a1a1a',
+      paper: colors.darkGreen,
     },
     text: {
       primary: colors.white,
