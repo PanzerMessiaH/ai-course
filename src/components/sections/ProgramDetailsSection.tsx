@@ -1,11 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { Box, Typography, Card, CardContent, Collapse, IconButton } from '@mui/material';
-import { ExpandMore } from '@mui/icons-material';
+import { Box, Typography, Card, CardContent, Collapse, IconButton, Button } from '@mui/material';
+import { ExpandMore, ViewList, ViewModule } from '@mui/icons-material';
 import { Section } from '../shared';
 import { curriculumData, CurriculumModule as CurriculumModuleType } from '../../data/curriculum';
 import CurriculumModule from './CurriculumModule';
+import CourseProgressionVisual from '../shared/CourseProgressionVisual';
+import DaySummaryCard from './DaySummaryCard';
 
 interface DisclosureContentProps {
   title: string;
@@ -158,8 +160,10 @@ const DisclosureContent: React.FC<DisclosureContentProps> = ({
 );
 
 const ProgramDetailsSection = () => {
-  const [openDisclosure, setOpenDisclosure] = useState<number | null>(0); // First item open by default
-  const [openModules, setOpenModules] = useState<Set<string>>(new Set(['module-1'])); // First module of first day open
+  const [viewMode, setViewMode] = useState<'summary' | 'detailed'>('summary');
+  const [openDisclosure, setOpenDisclosure] = useState<number | null>(null);
+  const [openModules, setOpenModules] = useState<Set<string>>(new Set());
+  const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set());
 
   const handleDisclosureToggle = (index: number) => {
     setOpenDisclosure(openDisclosure === index ? null : index);
@@ -173,6 +177,26 @@ const ProgramDetailsSection = () => {
       newOpenModules.add(moduleId);
     }
     setOpenModules(newOpenModules);
+  };
+
+  const handleCardToggle = (cardIndex: number) => {
+    const newExpandedCards = new Set(expandedCards);
+    if (newExpandedCards.has(cardIndex)) {
+      newExpandedCards.delete(cardIndex);
+    } else {
+      newExpandedCards.add(cardIndex);
+    }
+    setExpandedCards(newExpandedCards);
+  };
+
+  const handleViewModeToggle = () => {
+    if (viewMode === 'summary') {
+      setViewMode('detailed');
+      setOpenDisclosure(0); // Open first day by default
+    } else {
+      setViewMode('summary');
+      setOpenDisclosure(null);
+    }
   };
 
   // Use the comprehensive curriculum data with modules
@@ -194,6 +218,7 @@ const ProgramDetailsSection = () => {
             fontWeight: 600,
             mb: { xs: 1, md: 1.5 },
             lineHeight: 1.1,
+            color: 'white',
           }}
         >
           <Box
@@ -215,42 +240,86 @@ const ProgramDetailsSection = () => {
             maxWidth: '600px',
             mx: 'auto',
             lineHeight: 1.4,
-            mb: 1,
+            mb: 3,
             fontSize: { xs: '1rem', md: '1.25rem' },
           }}
         >
-          Format: Modular sessions + Hands-on labs + Reflection rounds
+          3-day intensive transformation: Individual skills → Advanced techniques → Team leadership
         </Typography>
-        <Typography
-          variant="h6"
-          component="p"
-          sx={{
-            color: 'text.secondary',
-            maxWidth: '700px',
-            mx: 'auto',
-            lineHeight: 1.4,
-            mb: 2,
-            fontSize: { xs: '1rem', md: '1.25rem' },
-          }}
-        >
-          A comprehensive 3 day intensive that transforms your enterprise scrum team into AI-Native Engineers.
-        </Typography>
+
+        {/* View Mode Toggle */}
+        <Box sx={{ display: 'flex', justifyContent: 'center', mb: 4 }}>
+          <Button
+            onClick={handleViewModeToggle}
+            startIcon={viewMode === 'summary' ? <ViewModule /> : <ViewList />}
+            variant="outlined"
+            sx={{
+              color: 'secondary.main',
+              borderColor: 'secondary.main',
+              textTransform: 'none',
+              fontWeight: 500,
+              '&:hover': {
+                borderColor: 'secondary.main',
+                bgcolor: 'rgba(0, 203, 117, 0.08)',
+              },
+            }}
+          >
+            {viewMode === 'summary' ? 'Show Detailed Curriculum' : 'Show Overview'}
+          </Button>
+        </Box>
       </Box>
 
-      {/* Program Disclosure Content */}
+      {/* Learning Progression Visual */}
+      <Box sx={{ 
+        mb: 6, 
+        display: 'flex', 
+        flexDirection: 'column', 
+        alignItems: 'center',
+        textAlign: 'center'
+      }}>
+        <Typography
+          variant="h5"
+          component="h3"
+          sx={{
+            textAlign: 'center',
+            fontWeight: 600,
+            mb: 3,
+            color: 'text.primary',
+          }}
+        >
+          Your Learning Journey
+        </Typography>
+        <CourseProgressionVisual size="medium" showLabels={true} />
+      </Box>
+
+      {/* Curriculum Content - Summary or Detailed View */}
       <Box sx={{ mb: 4 }}>
-        {programDays.map((day, index) => (
-          <DisclosureContent
-            key={index}
-            title={day.title}
-            modules={day.modules}
-            outcome={day.outcome}
-            isOpen={openDisclosure === index}
-            onToggle={() => handleDisclosureToggle(index)}
-            openModules={openModules}
-            onModuleToggle={handleModuleToggle}
-          />
-        ))}
+        {viewMode === 'summary' ? (
+          // Summary View - Day Summary Cards
+          curriculumData.map((day, index) => (
+            <DaySummaryCard
+              key={day.id}
+              day={day}
+              dayNumber={index + 1}
+              isExpanded={expandedCards.has(index)}
+              onToggle={() => handleCardToggle(index)}
+            />
+          ))
+        ) : (
+          // Detailed View - Full Disclosure System
+          programDays.map((day, index) => (
+            <DisclosureContent
+              key={index}
+              title={day.title}
+              modules={day.modules}
+              outcome={day.outcome}
+              isOpen={openDisclosure === index}
+              onToggle={() => handleDisclosureToggle(index)}
+              openModules={openModules}
+              onModuleToggle={handleModuleToggle}
+            />
+          ))
+        )}
       </Box>
 
     </Section>

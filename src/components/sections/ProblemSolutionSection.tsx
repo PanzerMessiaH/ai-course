@@ -86,26 +86,17 @@ const ContentCard: React.FC<ContentCardProps> = ({ icon, title, items, variant =
 
 const ProblemSolutionSection = () => {
   const problems = [
-    "You don't write the code anymore. Agents do.",
-    "Your job is to guide, review, and refine their work—like a lead engineer, architect, or strategist working through intelligent collaborators.",
-    "Every role in your Scrum team—developer, tester, designer, architect, product owner—works through agents to:",
-    "Assess product goals, constraints, and technical approaches",
-    "Plan sprints, epics, user stories, and architecture",
-    "Design APIs, UIs, data models, and system interactions",
-    "Implement production-ready code, tests, configs, docs",
-    "Reflect through retrospectives and feed learning into memory",
+    "AI agents write your code, tests, and documentation",
+    "You focus on strategy, review, and guiding the work",
+    "Every team role—developer, designer, tester—works with AI partners",
+    "Build faster with intelligent collaboration, not manual coding"
   ];
 
   const solutions = [
-    "Using Cursor Memory Bank, the system builds persistent knowledge—not just output. It enables:",
-    "Personal Knowledge Loops: Each human—agent pairing creates a personal memory space—recording context, rationale, preferences, and lessons learned.",
-    "Team Knowledge Overlap: These memories connect via reflection and memory modes, forming overlapping Venn diagrams of shared understanding.",
-    "A Living Project Knowledge Base: These intersections create a persistent team or organizational memory—a knowledge system that accelerates delivery by learning from every interaction.",
-    "Rooted in Personal Knowledge Management (PKM) and Knowledge Management (KM) theory, this model:",
-    "Captures both tacit and explicit knowledge",
-    "Embeds learning directly into the development process",
-    "Turns retrospectives into fuel for smarter agent behavior",
-    "Makes every future sprint faster and more informed than the last",
+    "Personal AI partnerships that learn your preferences and context",
+    "Team knowledge that connects and grows with every project",
+    "A living memory system that makes each sprint smarter than the last",
+    "Faster delivery through accumulated organizational intelligence"
   ];
 
   return (
@@ -122,59 +113,32 @@ const ProblemSolutionSection = () => {
             lineHeight: 1.2,
             maxWidth: { xs: '100%', md: '900px', lg: '1000px' },
             mx: 'auto',
+            color: 'white',
           }}
         >
-          The Future of Software Development: Agents Write the Code—You Guide the Intelligence
+          Build Software with AI Partners
         </Typography>
         
-        <Box sx={{ maxWidth: { xs: '100%', md: '800px', lg: '900px', xl: '1000px' }, mx: 'auto' }}>
+        <Box sx={{ maxWidth: { xs: '100%', md: '700px' }, mx: 'auto' }}>
           <Typography
             variant="h6"
             component="p"
             sx={{
-              color: 'text.secondary',
+              color: 'rgba(255, 255, 255, 0.9)',
               lineHeight: 1.7,
               mb: 3,
               fontSize: { xs: '1.1rem', md: '1.2rem' },
               fontWeight: 400,
             }}
           >
-            In this transformational course, your Scrum team will learn to build software in a completely new way:
-          </Typography>
-          
-          <Typography
-            variant="body1"
-            component="p"
-            sx={{
-              color: 'text.primary',
-              lineHeight: 1.7,
-              mb: 3,
-              fontSize: { xs: '1rem', md: '1.1rem' },
-              fontWeight: 400,
-            }}
-          >
-            Agents—like ChatGPT, Claude, Gemini, and DeepSeek—write the code, generate requirements, create tests, design interfaces, and produce documentation. Humans no longer manually write these artifacts.
-          </Typography>
-          
-          <Typography
-            variant="body1"
-            component="p"
-            sx={{
-              color: 'text.primary',
-              lineHeight: 1.7,
-              mb: 3,
-              fontSize: { xs: '1rem', md: '1.1rem' },
-              fontWeight: 400,
-            }}
-          >
-            This is Agentic Programming: a paradigm where every role in your team collaborates with intelligent agents to plan, design, implement, and evolve software systems—faster, more reflectively, and with growing organizational intelligence.
+            Learn to work with AI agents that handle coding while you focus on strategy and innovation.
           </Typography>
           
           <Typography
             variant="h6"
             component="p"
             sx={{
-              color: 'text.secondary',
+              color: 'rgba(255, 255, 255, 0.8)',
               lineHeight: 1.6,
               fontSize: { xs: '1.1rem', md: '1.2rem' },
               fontWeight: 500,
@@ -196,14 +160,14 @@ const ProblemSolutionSection = () => {
         }}
       >
         <ContentCard
-          icon="🧠"
-          title="The Paradigm Shift"
+          icon="🤝"
+          title="How You Work Now"
           items={problems}
           variant="problem"
         />
         <ContentCard
-          icon="🔁"
-          title="Memory and Learning: From Personal to Organizational Intelligence"
+          icon="🚀"
+          title="What You Gain"
           items={solutions}
           variant="solution"
         />
