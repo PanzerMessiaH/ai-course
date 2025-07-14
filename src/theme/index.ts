@@ -96,41 +96,7 @@ const baseTheme: ThemeOptions = {
   },
 };
 
-// Light theme
-export const lightTheme = createTheme({
-  ...baseTheme,
-  palette: {
-    mode: 'light',
-    primary: {
-      main: colors.darkGreen,
-      light: '#004d4d',
-      dark: '#002e2e',
-      contrastText: colors.white,
-    },
-    secondary: {
-      main: colors.technoGreen,
-      light: colors.neonGreen,
-      dark: colors.neonGreenOnWhite,
-      contrastText: colors.white,
-    },
-    success: {
-      main: colors.technoGreen,
-      light: colors.neonGreen,
-      dark: colors.neonGreenOnWhite,
-    },
-    background: {
-      default: colors.white,
-      paper: colors.white,
-    },
-    text: {
-      primary: '#1a1a1a',
-      secondary: '#6b7280',
-    },
-    divider: '#e5e7eb',
-  },
-});
-
-// Dark theme
+// Dark theme (always used)
 export const darkTheme = createTheme({
   ...baseTheme,
   palette: {
@@ -164,4 +130,4 @@ export const darkTheme = createTheme({
   },
 });
 
-export default lightTheme; 
+export default darkTheme; 

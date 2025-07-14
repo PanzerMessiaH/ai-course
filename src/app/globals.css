@@ -12,12 +12,7 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: #ffffff;
-    --foreground: #171717;
-  }
-}
+/* Force dark theme regardless of system preference */
 
 body {
   background: var(--background);
@@ -25,18 +20,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Prevent flash of white content by ensuring dark background */
+/* Force dark theme - no light mode allowed */
 html, body, #__next {
   background-color: #003c3c !important;
   color: #ffffff !important;
-}
-
-/* Override for light mode when explicitly set */
-@media (prefers-color-scheme: light) {
-  html, body, #__next {
-    background-color: #ffffff !important;
-    color: #171717 !important;
-  }
 }
 
 /* Skip link accessibility styles */
