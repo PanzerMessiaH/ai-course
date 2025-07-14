@@ -66,7 +66,7 @@ const DaySummaryCard: React.FC<DaySummaryCardProps> = ({
         overflow: 'visible',
         '&:hover': {
           borderColor: 'secondary.main',
-          boxShadow: '0 8px 24px rgba(0, 203, 117, 0.15)',
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.15)',
           transform: 'translateY(-2px)',
         },
       }}

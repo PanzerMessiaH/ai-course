@@ -15,22 +15,22 @@ interface CTAButtonProps extends Omit<ButtonProps, 'variant'> {
 }
 
 const PrimaryButton = styled(Button)(() => ({
-  background: 'linear-gradient(135deg, #00cb75 0%, #2dfa87 100%)',
-  color: '#003c3c',
+  background: 'var(--neon-green-on-white)',
+  color: '#fff',
   fontWeight: 600,
   fontSize: '1.1rem',
   padding: '16px 32px',
-  borderRadius: '8px',
+  borderRadius: '0 8px 0 8px',
   textTransform: 'none',
-  boxShadow: '0 4px 14px rgba(0, 203, 117, 0.3)',
+  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
   '@media (min-width: 768px)': {
     fontSize: '1.2rem',
     padding: '18px 36px',
   },
   '&:hover': {
-    background: 'linear-gradient(135deg, #018e53 0%, #00cb75 100%)',
-    boxShadow: '0 6px 20px rgba(0, 203, 117, 0.4)',
+    background: 'var(--techno-green)',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.15)',
     transform: 'translateY(-2px)',
   },
   '&:active': {
@@ -39,26 +39,24 @@ const PrimaryButton = styled(Button)(() => ({
 }));
 
 const SecondaryButton = styled(Button)(() => ({
-  background: 'transparent',
+  background: 'var(--dark-green)',
   color: 'white',
   fontWeight: 600,
   fontSize: '1.1rem',
   padding: '16px 32px',
-  borderRadius: '8px',
+  borderRadius: '0 8px 0 8px',
   textTransform: 'none',
-  border: '2px solid',
-  borderColor: 'white',
+  border: '2px solid var(--dark-green)',
   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
   '@media (min-width: 768px)': {
     fontSize: '1.2rem',
     padding: '18px 36px',
   },
   '&:hover': {
-    backgroundColor: 'white',
-    color: '#003c3c',
-    borderColor: 'white',
+    backgroundColor: '#004d4d',
+    borderColor: '#004d4d',
     transform: 'translateY(-2px)',
-    boxShadow: '0 6px 20px rgba(255, 255, 255, 0.3)',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.15)',
   },
   '&:active': {
     transform: 'translateY(0)',
@@ -71,7 +69,7 @@ const OutlineButton = styled(Button)(({ theme }) => ({
   fontWeight: 600,
   fontSize: '1.1rem',
   padding: '16px 32px',
-  borderRadius: '8px',
+  borderRadius: '0 8px 0 8px',
   textTransform: 'none',
   border: '2px solid',
   borderColor: theme.palette.text.primary,
@@ -85,7 +83,7 @@ const OutlineButton = styled(Button)(({ theme }) => ({
     color: theme.palette.background.paper,
     borderColor: theme.palette.text.primary,
     transform: 'translateY(-2px)',
-    boxShadow: `0 6px 20px ${theme.palette.text.primary}33`,
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.15)',
   },
   '&:active': {
     transform: 'translateY(0)',

@@ -2,20 +2,7 @@
 
 import { createTheme, ThemeOptions } from '@mui/material/styles';
 
-// Color palette based on current SCSS system
-const colors = {
-  darkGreen: '#003c3c',
-  technoGreen: '#00cb75',
-  neonGreen: '#2dfa87',
-  neonGreenOnWhite: '#018e53',
-  violet: '#7878fa',
-  orange: '#ff8228',
-  black: '#000',
-  white: '#fff',
-  lightGrey: '#f5f5f5',
-};
-
-// Base theme configuration
+// Base theme configuration with CSS variable integration
 const baseTheme: ThemeOptions = {
   typography: {
     fontFamily: '"Source Sans 3", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
@@ -24,17 +11,26 @@ const baseTheme: ThemeOptions = {
       fontWeight: 700,
       lineHeight: 1.1,
       letterSpacing: '-0.02em',
+      '@media (max-width: 768px)': {
+        fontSize: '2.5rem',
+      },
     },
     h2: {
       fontSize: '2.5rem',
       fontWeight: 600,
       lineHeight: 1.2,
       letterSpacing: '-0.01em',
+      '@media (max-width: 768px)': {
+        fontSize: '2rem',
+      },
     },
     h3: {
-      fontSize: '1.875rem',
+      fontSize: '2rem',
       fontWeight: 600,
       lineHeight: 1.3,
+      '@media (max-width: 768px)': {
+        fontSize: '1.5rem',
+      },
     },
     h4: {
       fontSize: '1.5rem',
@@ -53,11 +49,17 @@ const baseTheme: ThemeOptions = {
     },
     body1: {
       fontSize: '1rem',
-      lineHeight: 1.6,
+      lineHeight: 1.5,
+      '@media (min-width: 768px)': {
+        fontSize: '1.2rem',
+      },
     },
     body2: {
       fontSize: '0.875rem',
-      lineHeight: 1.5,
+      lineHeight: 1.4,
+      '@media (min-width: 768px)': {
+        fontSize: '1rem',
+      },
     },
   },
   breakpoints: {
@@ -78,56 +80,96 @@ const baseTheme: ThemeOptions = {
         root: {
           textTransform: 'none',
           fontWeight: 600,
-          borderRadius: 8,
-          padding: '12px 24px',
+          borderRadius: '0 20px 0 20px',
           fontSize: '1rem',
-          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          transition: '0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+        },
+        containedPrimary: {
+          backgroundColor: '#018e53',
+          color: '#fff',
+          padding: '12px 24px',
+          '&:hover': {
+            backgroundColor: '#00cb75',
+            transform: 'translateY(-1px)',
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+          },
+        },
+        containedSecondary: {
+          backgroundColor: '#003c3c',
+          color: '#fff',
+          padding: '12px 24px',
+          '&:hover': {
+            backgroundColor: '#004d4d',
+            transform: 'translateY(-1px)',
+          },
         },
       },
     },
     MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: 12,
-          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+          borderRadius: '0 20px 0 20px',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+          backgroundColor: '#fff',
+          border: '1px solid #e5e5e5',
+          transition: '0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+        },
+      },
+    },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          color: 'inherit', // Let parent components control color
+        },
+      },
+    },
+    MuiContainer: {
+      styleOverrides: {
+        root: {
+          paddingLeft: '16px',
+          paddingRight: '16px',
+          '@media (min-width: 768px)': {
+            paddingLeft: '32px',
+            paddingRight: '32px',
+          },
         },
       },
     },
   },
 };
 
-// Dark theme (always used)
-export const darkTheme = createTheme({
+// Light theme with CSS variable integration
+export const lightTheme = createTheme({
   ...baseTheme,
   palette: {
-    mode: 'dark',
+    mode: 'light',
     primary: {
-      main: colors.darkGreen,
+      main: '#003c3c',
       light: '#004d4d',
       dark: '#002e2e',
-      contrastText: colors.white,
+      contrastText: '#fff',
     },
     secondary: {
-      main: colors.technoGreen,
-      light: colors.neonGreen,
-      dark: colors.neonGreenOnWhite,
-      contrastText: colors.white,
+      main: '#00cb75',
+      light: '#2dfa87',
+      dark: '#018e53',
+      contrastText: '#fff',
     },
     success: {
-      main: colors.technoGreen,
-      light: colors.neonGreen,
-      dark: colors.neonGreenOnWhite,
+      main: '#00cb75',
+      light: '#2dfa87',
+      dark: '#018e53',
     },
     background: {
-      default: colors.darkGreen,
-      paper: colors.darkGreen,
+      default: '#fff',
+      paper: '#fff',
     },
     text: {
-      primary: colors.white,
-      secondary: '#a1a1aa',
+      primary: '#333',
+      secondary: '#666',
     },
-    divider: '#404040',
+    divider: '#e5e5e5',
   },
 });
 
-export default darkTheme; 
+export default lightTheme; 

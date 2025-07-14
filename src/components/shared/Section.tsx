@@ -40,7 +40,7 @@ const Section: React.FC<SectionProps> = ({
         };
       case 'gradient':
         return {
-          background: 'linear-gradient(135deg, #003c3c 0%, #004d4d 100%)',
+          background: 'var(--dark-green)',
           color: 'white',
         };
       case 'default':

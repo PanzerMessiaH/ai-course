@@ -18,10 +18,7 @@ export default function NotFound() {
         fontSize: '6rem', 
         fontWeight: 700, 
         margin: '0 0 16px 0',
-        background: 'linear-gradient(135deg, #00cb75 0%, #2dfa87 100%)',
-        WebkitBackgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
-        backgroundClip: 'text',
+        color: 'var(--neon-green-on-white)',
       }}>
         404
       </h1>
@@ -45,11 +42,11 @@ export default function NotFound() {
       <Link 
         href="/" 
         style={{
-          background: 'linear-gradient(135deg, #00cb75 0%, #2dfa87 100%)',
-          color: '#003c3c',
+          background: 'var(--neon-green-on-white)',
+          color: '#fff',
           fontWeight: 600,
           padding: '12px 24px',
-          borderRadius: '8px',
+          borderRadius: '0 8px 0 8px',
           textDecoration: 'none',
           fontSize: '1.1rem',
           transition: 'all 0.3s ease',

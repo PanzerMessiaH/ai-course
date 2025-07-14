@@ -178,33 +178,10 @@ export default function RegisterPage() {
     <Box
       sx={{
         minHeight: '100vh',
-        background: 'linear-gradient(135deg, #003c3c 0%, #004d4d 25%, #005a5a 50%, #006666 75%, #007373 100%)',
+        background: 'var(--dark-green)',
         position: 'relative',
         overflow: 'hidden',
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          top: '10%',
-          left: '10%',
-          width: '400px',
-          height: '400px',
-          background: 'radial-gradient(circle, rgba(0, 203, 117, 0.2) 0%, rgba(0, 203, 117, 0.1) 40%, transparent 70%)',
-          borderRadius: '50%',
-          filter: 'blur(60px)',
-          zIndex: 1,
-        },
-        '&::after': {
-          content: '""',
-          position: 'absolute',
-          top: '60%',
-          right: '10%',
-          width: '350px',
-          height: '350px',
-          background: 'radial-gradient(circle, rgba(45, 250, 135, 0.15) 0%, rgba(45, 250, 135, 0.05) 40%, transparent 70%)',
-          borderRadius: '50%',
-          filter: 'blur(80px)',
-          zIndex: 1,
-        },
+
       }}
     >
       {/* Header with Logos */}
@@ -267,10 +244,7 @@ export default function RegisterPage() {
                   fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
                   fontWeight: 700,
                   mb: 2,
-                  background: 'linear-gradient(135deg, #003c3c 0%, #00cb75 100%)',
-                  backgroundClip: 'text',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
+                  color: 'var(--neon-green-on-white)',
                 }}
               >
                 Register for Training
@@ -342,7 +316,7 @@ export default function RegisterPage() {
                       display: 'flex', 
                       alignItems: 'center', 
                       gap: 1.5,
-                      color: '#00cb75',
+                      color: 'var(--neon-green-on-white)',
                       fontWeight: 600,
                       mb: 3,
                     }}
@@ -520,7 +494,7 @@ export default function RegisterPage() {
                       display: 'flex', 
                       alignItems: 'center', 
                       gap: 1.5,
-                      color: '#00cb75',
+                      color: 'var(--neon-green-on-white)',
                       fontWeight: 600,
                       mb: 3,
                     }}
@@ -654,7 +628,7 @@ export default function RegisterPage() {
                     variant="h5" 
                     gutterBottom 
                     sx={{ 
-                      color: '#00cb75',
+                      color: 'var(--neon-green-on-white)',
                       fontWeight: 600,
                       mb: 3,
                     }}
@@ -691,13 +665,13 @@ export default function RegisterPage() {
                                 fontSize: '0.9rem',
                                 height: 40,
                                 backgroundColor: selectedInterests.includes(interest) 
-                                  ? '#00cb75' 
+                                  ? 'var(--neon-green-on-white)' 
                                   : 'rgba(255, 255, 255, 0.9)',
                                 color: selectedInterests.includes(interest) 
                                   ? '#ffffff' 
                                   : '#333333',
                                 border: selectedInterests.includes(interest) 
-                                  ? '1px solid #00cb75' 
+                                  ? '1px solid var(--neon-green-on-white)' 
                                   : '1px solid #cccccc',
                                 '&:hover': {
                                   transform: 'translateY(-1px)',
@@ -745,7 +719,7 @@ export default function RegisterPage() {
                     variant="h5" 
                     gutterBottom 
                     sx={{ 
-                      color: '#00cb75',
+                      color: 'var(--neon-green-on-white)',
                       fontWeight: 600,
                       mb: 3,
                     }}
@@ -798,12 +772,12 @@ export default function RegisterPage() {
                     fontSize: '1.2rem',
                     fontWeight: 600,
                     borderRadius: 3,
-                    background: 'linear-gradient(135deg, #00cb75 0%, #2dfa87 100%)',
-                    color: '#003c3c',
-                    boxShadow: '0 6px 20px rgba(0, 203, 117, 0.4)',
+                    background: 'var(--neon-green-on-white)',
+                    color: '#fff',
+                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.15)',
                     '&:hover': {
-                      background: 'linear-gradient(135deg, #018e53 0%, #00cb75 100%)',
-                      boxShadow: '0 8px 25px rgba(0, 203, 117, 0.5)',
+                      background: 'var(--techno-green)',
+                      boxShadow: '0 6px 12px rgba(0, 0, 0, 0.2)',
                       transform: 'translateY(-2px)',
                     },
                     '&:active': {

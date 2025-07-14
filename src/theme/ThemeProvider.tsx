@@ -5,7 +5,7 @@ import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 import CssBaseline from '@mui/material/CssBaseline';
-import { darkTheme } from './index';
+import { lightTheme } from './index';
 
 // Create emotion cache for consistent styling
 const createEmotionCache = () => {
@@ -18,11 +18,11 @@ interface ThemeProviderProps {
 
 export const CustomThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   // Create emotion cache
-  const emotionCache = createEmotionCache();
+  const cache = createEmotionCache();
 
   return (
-    <CacheProvider value={emotionCache}>
-      <MuiThemeProvider theme={darkTheme}>
+    <CacheProvider value={cache}>
+      <MuiThemeProvider theme={lightTheme}>
         <CssBaseline />
         {children}
       </MuiThemeProvider>

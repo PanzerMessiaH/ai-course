@@ -96,7 +96,7 @@ export default function AdminLoginPage() {
     <Box
       sx={{
         minHeight: '100vh',
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        background: 'var(--violet)',
         position: 'relative',
         overflow: 'hidden',
         display: 'flex',
@@ -233,10 +233,7 @@ export default function AdminLoginPage() {
               gutterBottom 
               sx={{
                 fontWeight: 700,
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
+                color: 'var(--violet)',
                 mb: 2,
               }}
             >
@@ -255,7 +252,7 @@ export default function AdminLoginPage() {
               justifyContent: 'center',
               mb: 4,
               p: 2,
-              background: 'linear-gradient(135deg, #00cb75 0%, #00a661 100%)',
+              background: 'var(--techno-green)',
               borderRadius: '12px',
               color: 'white',
               boxShadow: '0 4px 15px rgba(0, 203, 117, 0.3)',
@@ -451,13 +448,13 @@ export default function AdminLoginPage() {
                 fontSize: '1.2rem',
                 fontWeight: 700,
                 borderRadius: '12px',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                boxShadow: '0 8px 25px rgba(102, 126, 234, 0.4)',
+                background: 'var(--violet)',
+                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.15)',
                 textTransform: 'none',
                 '&:hover': {
-                  background: 'linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%)',
+                  background: '#6b6bfa',
                   transform: 'translateY(-2px)',
-                  boxShadow: '0 12px 35px rgba(102, 126, 234, 0.5)',
+                  boxShadow: '0 6px 12px rgba(0, 0, 0, 0.2)',
                 },
                 '&:disabled': {
                   background: 'rgba(0, 0, 0, 0.12)',

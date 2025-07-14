@@ -117,7 +117,7 @@ const CourseProgressionVisual: React.FC<CourseProgressionVisualProps> = ({
                 bottom: 0,
                 borderRadius: 2,
                 background: currentPhase === phase.id 
-                  ? 'linear-gradient(135deg, rgba(45, 250, 135, 0.1) 0%, rgba(0, 203, 117, 0.1) 100%)'
+                  ? 'rgba(0, 203, 117, 0.1)'
                   : 'transparent',
                 zIndex: -1,
               },
@@ -198,7 +198,6 @@ const CourseProgressionVisual: React.FC<CourseProgressionVisualProps> = ({
                 sx={{
                   color: 'rgba(45, 250, 135, 0.8)',
                   fontSize: '1.5rem',
-                  filter: 'drop-shadow(0 2px 4px rgba(0, 203, 117, 0.3))',
                 }}
               />
             </Box>
@@ -219,7 +218,6 @@ const CourseProgressionVisual: React.FC<CourseProgressionVisualProps> = ({
                 sx={{
                   color: 'rgba(45, 250, 135, 0.8)',
                   fontSize: '2rem',
-                  filter: 'drop-shadow(0 2px 4px rgba(0, 203, 117, 0.3))',
                 }}
               />
             </Box>

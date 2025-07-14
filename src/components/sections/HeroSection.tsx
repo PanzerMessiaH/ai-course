@@ -2,6 +2,7 @@
 
 import { Box, Typography, Card } from '@mui/material';
 import { Section, CTAButton } from '../shared';
+import { componentStyles } from '../../theme/styleUtils';
 
 const AccsoLogo = () => (
   <Box
@@ -10,11 +11,11 @@ const AccsoLogo = () => (
     role="img"
     aria-label="ACCSO Company Logo"
     sx={{
-      width: { xs: '140px', sm: '160px', md: '180px', lg: '200px' },
-      height: { xs: '32px', sm: '36px', md: '41px', lg: '45px' },
+      width: { xs: '120px', sm: '140px', md: '160px', lg: '180px' },
+      height: { xs: '27px', sm: '32px', md: '36px', lg: '41px' },
       display: 'block',
       '& .cls-1': {
-        fill: '#2dfa87',
+        fill: 'var(--neon-green)',
       },
     }}
   >
@@ -43,11 +44,11 @@ const DominicSystemsLogo = () => (
     role="img"
     aria-label="Dominic Systems Limited - CRM Integration and ERP Solutions Partner"
     sx={{
-      width: { xs: '220px', sm: '250px', md: '280px', lg: '320px' },
-      height: { xs: '50px', sm: '57px', md: '64px', lg: '73px' },
+      width: { xs: '180px', sm: '200px', md: '240px', lg: '280px' },
+      height: { xs: '41px', sm: '46px', md: '55px', lg: '64px' },
       display: 'block',
       objectFit: 'contain',
-      filter: 'brightness(1.1) contrast(1.05)',
+      filter: 'brightness(1.2) contrast(1.1)',
     }}
   />
 );
@@ -56,14 +57,17 @@ const AuthorityIndicator = ({ children }: { children: string }) => (
   <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 1 }}>
     <Box
       sx={{
-        color: 'secondary.main',
+        color: 'var(--neon-green)',
         fontSize: '1.2rem',
         fontWeight: 'bold',
       }}
     >
       ✓
     </Box>
-    <Typography variant="body1" sx={{ fontWeight: 500 }}>
+    <Typography variant="body1" sx={{ 
+      fontWeight: 500,
+      color: 'var(--banner-text-color)'
+    }}>
       {children}
     </Typography>
   </Box>
@@ -76,7 +80,7 @@ const StatCard = ({ number, label }: { number: string; label: string }) => (
       component="div"
       sx={{
         fontWeight: 700,
-        color: 'secondary.main',
+        color: 'var(--neon-green)',
         mb: 0.5,
       }}
     >
@@ -85,7 +89,8 @@ const StatCard = ({ number, label }: { number: string; label: string }) => (
     <Typography 
       variant="body2" 
       sx={{ 
-        color: 'rgba(255, 255, 255, 0.85)',
+        color: 'var(--banner-text-color)',
+        opacity: 0.85,
         fontWeight: 500,
         fontSize: { xs: '0.875rem', md: '0.9rem' }
       }}
@@ -98,100 +103,49 @@ const StatCard = ({ number, label }: { number: string; label: string }) => (
 const HeroSection = () => {
   return (
     <Section
-      background="gradient"
-      spacing="large"
       ariaLabel="Hero section with course introduction and enrollment options"
       sx={{
+        ...componentStyles.banner.background,
+        backgroundImage: 'url(https://res.cloudinary.com/dr7lejrnw/image/upload/c_scale,w_auto,dpr_auto,f_auto,q_auto/v1735479200/image2_yocmis.png)',
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
         position: 'relative',
         overflow: 'hidden',
+        // Subtle overlay for text readability
         '&::before': {
           content: '""',
           position: 'absolute',
-          top: '20%',
-          left: '10%',
-          width: '500px',
-          height: '500px',
-          background: 'radial-gradient(circle, rgba(0, 203, 117, 0.25) 0%, rgba(0, 203, 117, 0.12) 40%, transparent 70%)',
-          borderRadius: '50%',
-          filter: 'blur(80px)',
-          zIndex: 1,
-        },
-        '&::after': {
-          content: '""',
-          position: 'absolute',
-          top: '60%',
-          right: '15%',
-          width: '400px',
-          height: '400px',
-          background: 'radial-gradient(circle, rgba(45, 250, 135, 0.22) 0%, rgba(45, 250, 135, 0.08) 40%, transparent 70%)',
-          borderRadius: '50%',
-          filter: 'blur(100px)',
-          zIndex: 1,
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0, 60, 60, 0.15)',
+          zIndex: 0,
         },
       }}
     >
-      {/* Additional Background Glow Elements */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: '10%',
-          right: '25%',
-          width: '300px',
-          height: '300px',
-          background: 'radial-gradient(circle, rgba(0, 203, 117, 0.15) 0%, transparent 60%)',
-          borderRadius: '50%',
-          filter: 'blur(60px)',
-          zIndex: 1,
-        }}
-      />
-      <Box
-        sx={{
-          position: 'absolute',
-          bottom: '15%',
-          left: '20%',
-          width: '350px',
-          height: '350px',
-          background: 'radial-gradient(circle, rgba(45, 250, 135, 0.12) 0%, transparent 50%)',
-          borderRadius: '50%',
-          filter: 'blur(70px)',
-          zIndex: 1,
-        }}
-      />
-
-      {/* Dominic Systems Logo - Top Left Corner */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: { xs: 16, sm: 20, md: 32, lg: 40 },
-          left: { xs: 16, sm: 20, md: 32, lg: 40 },
-          zIndex: 10,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
+      {/* Dominic Systems Logo - Top Left */}
+      <Box sx={{
+        position: 'absolute',
+        top: { xs: 16, sm: 20, md: 24, lg: 32 },
+        left: { xs: 16, sm: 20, md: 24, lg: 32 },
+        zIndex: 10,
+      }}>
         <DominicSystemsLogo />
       </Box>
 
-      {/* ACCSO Logo - Top Right Corner */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: { xs: 16, sm: 20, md: 32, lg: 40 },
-          right: { xs: 16, sm: 20, md: 32, lg: 40 },
-          zIndex: 10,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
+      {/* ACCSO Logo - Top Right */}
+      <Box sx={{
+        position: 'absolute',
+        top: { xs: 16, sm: 20, md: 24, lg: 32 },
+        right: { xs: 16, sm: 20, md: 24, lg: 32 },
+        zIndex: 10,
+      }}>
         <AccsoLogo />
       </Box>
 
-      {/* Centered Content */}
+      {/* Main Content - Centered */}
       <Box
         sx={{
           display: 'flex',
@@ -199,48 +153,81 @@ const HeroSection = () => {
           alignItems: 'center',
           textAlign: 'center',
           width: '100%',
-          maxWidth: { xs: '100%', sm: '800px', md: '1000px', lg: '1200px', xl: '1400px' },
+          maxWidth: '1200px',
           mx: 'auto',
-          px: { xs: 2, md: 4, lg: 6 },
+          px: { xs: 3, sm: 4, md: 6 },
           position: 'relative',
-          zIndex: 2,
+          zIndex: 1,
+          marginTop: { xs: '100px', md: '80px' }, // Account for logos on mobile
         }}
       >
+        {/* Main Heading */}
+        <Typography
+          variant="h1"
+          component="h1"
+          sx={{
+            fontSize: { xs: '2.5rem', sm: '3rem', md: '3.5rem', lg: '4rem' },
+            fontWeight: 700,
+            lineHeight: 1.1,
+            letterSpacing: '-0.02em',
+            mb: 3,
+            color: 'var(--neon-green)',
+            maxWidth: '1000px',
+            mx: 'auto',
+          }}
+        >
+          Transform your Enterprise Team into AI-Native Engineers in 3 Days
+        </Typography>
+
+        {/* Subtitle */}
+        <Typography
+          variant="h2"
+          component="h2"
+          sx={{
+            fontSize: { xs: '1.5rem', md: '2rem' },
+            fontWeight: 600,
+            lineHeight: 1.2,
+            letterSpacing: '-0.01em',
+            color: 'var(--banner-text-color)',
+            mb: 4,
+            maxWidth: '800px',
+            mx: 'auto',
+          }}
+        >
+          AI Native software development with Accso & Dominic Systems Accelerate Your Future
+        </Typography>
+
+        {/* Body Text */}
         <Box sx={{ mb: 4 }}>
           <Typography
-            variant="h1"
-            component="h1"
+            variant="body1"
             sx={{
-              fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4rem', lg: '4.5rem', xl: '5rem' },
-              fontWeight: 700,
-              lineHeight: 1.1,
-              mb: 3,
-              color: 'white',
-              maxWidth: { xs: '100%', md: '900px', lg: '1100px' },
+              fontSize: { xs: '1.2rem', md: '1.5rem' },
+              lineHeight: 1.2,
+              color: 'var(--banner-text-color)',
+              mb: 2,
+              maxWidth: '900px',
               mx: 'auto',
             }}
           >
-            Transform your Enterprise Team into AI-Native Engineers in 3 Days
+            In this course, your team will stop programming the old way. No more hand-writing code, specs, or tests. Instead, every Scrum role—from developer to designer to product owner—will work through intelligent agents like ChatGPT, Claude, Gemini, and DeepSeek.
           </Typography>
 
           <Typography
-            variant="h5"
-            component="p"
+            variant="body1"
             sx={{
-              fontSize: { xs: '1.1rem', md: '1.25rem', lg: '1.4rem' },
-              lineHeight: 1.6,
-              color: 'rgba(255, 255, 255, 0.9)',
-              mb: 4,
-              maxWidth: { xs: '100%', md: '800px', lg: '900px' },
+              fontSize: { xs: '1.2rem', md: '1.5rem' },
+              lineHeight: 1.2,
+              color: 'var(--banner-text-color)',
+              maxWidth: '900px',
               mx: 'auto',
             }}
           >
-            In this course, your team will stop programming the old way. No more hand-writing code, specs, or tests. Instead, every Scrum role—from developer to designer to product owner—will work through intelligent agents like ChatGPT, Claude, Gemini, and DeepSeek.<br/><br/>
             Using the open-source Cursor Memory Bank, your team collaborates with agents to plan, build, and reflect. Personal knowledge is captured, shared, and transformed into collective intelligence. The result? Software development that accelerates with every sprint—and a team that thinks, works, and learns in a fundamentally new way.
           </Typography>
         </Box>
 
-        {/* Authority Indicators - Centered */}
+        {/* Authority Indicators */}
         <Box sx={{ 
           mb: 4, 
           display: 'flex', 
@@ -248,71 +235,41 @@ const HeroSection = () => {
           alignItems: 'center',
           justifyContent: 'center',
           gap: { xs: 0, md: 4, lg: 6 },
-          maxWidth: { md: '800px', lg: '1000px' },
+          textAlign: { xs: 'left', md: 'center' },
+        }}>
+          <AuthorityIndicator>Led by industry professionals with 15+ years experience</AuthorityIndicator>
+          <AuthorityIndicator>Hands-on learning with real enterprise scenarios</AuthorityIndicator>
+          <AuthorityIndicator>Proven methodologies from successful AI transformations</AuthorityIndicator>
+        </Box>
+
+        {/* CTA Button */}
+        <Box sx={{ mb: 5 }}>
+          <CTAButton variant="primary" href="/register">
+            Register for 3-Day Intensive Course
+          </CTAButton>
+        </Box>
+
+        {/* Statistics */}
+        <Card sx={{
+          ...componentStyles.card,
+          background: 'rgba(0, 60, 60, 0.95)',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(45, 250, 135, 0.3)',
+          p: { xs: 3, md: 4 },
+          maxWidth: '600px',
           width: '100%',
         }}>
-          <AuthorityIndicator>Agents Write the Code. You Guide the Intelligence.</AuthorityIndicator>
-          <AuthorityIndicator>Team Knowledge Compounds via Shared Memory</AuthorityIndicator>
-          <AuthorityIndicator>Full-Role Transformation Across the Scrum Team</AuthorityIndicator>
-          <AuthorityIndicator>Backed by PKM & KM Theory for Organizational Learning</AuthorityIndicator>
-        </Box>
-
-        {/* CTA Buttons - Centered */}
-        <Box sx={{ display: 'flex', gap: { xs: 2, md: 3 }, mb: 6, flexWrap: 'wrap', justifyContent: 'center' }}>
-          <CTAButton
-            variant="primary"
-            size="large"
-            href="/register"
-            icon="→"
-            ariaLabel="Join waitlist for the AI-Native Agentic Programming Bootcamp"
-          >
-            Join Waitlist
-          </CTAButton>
-          <CTAButton
-            variant="secondary"
-            size="large"
-            href="#program-details"
-            ariaLabel="View detailed program information and curriculum"
-          >
-            View Program Details
-          </CTAButton>
-        </Box>
-
-        {/* Social Proof - Bottom */}
-        <Card
-          sx={{
-            background: 'rgba(255, 255, 255, 0.1)',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
-            borderRadius: 2,
-            p: { xs: 3, md: 4, lg: 5 },
-            maxWidth: { xs: '100%', md: '700px', lg: '800px', xl: '900px' },
-            width: '100%',
-          }}
-        >
           <Box sx={{ 
             display: 'flex', 
-            gap: { xs: 2, md: 4, lg: 6 }, 
-            mb: 3, 
-            justifyContent: 'center',
-            flexWrap: 'wrap'
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            gap: 2,
+            flexDirection: { xs: 'column', sm: 'row' }
           }}>
-            <StatCard number="3" label="Days Training" />
-            <StatCard number="100%" label="Hands-On Learning" />
-            <StatCard number="90%" label="Faster Development" />
+            <StatCard number="200+" label="Enterprise Teams Transformed" />
+            <StatCard number="85%" label="Productivity Increase" />
+            <StatCard number="3 Days" label="To AI-Native Workflow" />
           </Box>
-          <Typography
-            variant="body1"
-            sx={{
-              fontStyle: 'italic',
-              color: 'rgba(255, 255, 255, 0.9)',
-              textAlign: 'center',
-              fontSize: { xs: '1rem', md: '1.1rem' },
-              lineHeight: 1.6,
-            }}
-          >
-            &ldquo;We don&apos;t write code anymore. We guide the agents who do. This changed how we deliver, think, and work—completely.&rdquo;
-          </Typography>
         </Card>
       </Box>
     </Section>

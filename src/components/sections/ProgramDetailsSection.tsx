@@ -40,7 +40,7 @@ const DisclosureContent: React.FC<DisclosureContentProps> = ({
       transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
       '&:hover': {
         borderColor: 'secondary.main',
-        boxShadow: '0 4px 12px rgba(0, 203, 117, 0.15)',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.15)',
       },
     }}
   >
@@ -117,41 +117,35 @@ const DisclosureContent: React.FC<DisclosureContentProps> = ({
             ))}
           </Box>
 
-          {/* Outcome Card */}
-          <Box>
-            <Card
-              variant="outlined"
+          {/* Outcome Text */}
+          <Box
+            sx={{
+              position: { xs: 'static', lg: 'sticky' },
+              top: { lg: 20 },
+              height: 'fit-content',
+              mt: 6,
+            }}
+          >
+            <Typography
+              variant="h6"
+              component="h4"
               sx={{
-                border: '1px solid rgba(0, 203, 117, 0.3)',
-                bgcolor: 'rgba(0, 203, 117, 0.05)',
-                position: { xs: 'static', lg: 'sticky' },
-                top: { lg: 20 },
-                height: 'fit-content',
+                fontWeight: 600,
+                mb: 2,
+                color: 'var(--heading-text-color)',
               }}
             >
-              <CardContent>
-                <Typography
-                  variant="h6"
-                  component="h4"
-                  sx={{
-                    fontWeight: 600,
-                    mb: 2,
-                    color: 'secondary.main',
-                  }}
-                >
-                  {outcome.title}
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{
-                    color: 'text.primary',
-                    lineHeight: 1.6,
-                  }}
-                >
-                  {outcome.description}
-                </Typography>
-              </CardContent>
-            </Card>
+              {outcome.title}
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                color: 'var(--text-color)',
+                lineHeight: 1.6,
+              }}
+            >
+              {outcome.description}
+            </Typography>
           </Box>
         </Box>
       </CardContent>
@@ -218,13 +212,13 @@ const ProgramDetailsSection = () => {
             fontWeight: 600,
             mb: { xs: 1, md: 1.5 },
             lineHeight: 1.1,
-            color: 'white',
+            color: 'var(--heading-text-color)',
           }}
         >
           <Box
             component="span"
             sx={{
-              color: 'secondary.main',
+              color: 'var(--neon-green-on-white)',
               fontWeight: 700,
             }}
           >
@@ -236,7 +230,7 @@ const ProgramDetailsSection = () => {
           variant="h6"
           component="p"
           sx={{
-            color: 'text.secondary',
+            color: 'var(--text-color)',
             maxWidth: '600px',
             mx: 'auto',
             lineHeight: 1.4,
