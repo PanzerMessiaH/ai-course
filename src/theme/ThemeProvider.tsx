@@ -34,7 +34,7 @@ interface ThemeProviderProps {
 }
 
 export const CustomThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [mode, setMode] = useState<ThemeMode>('light');
+  const [mode, setMode] = useState<ThemeMode>('dark'); // Default to dark theme
   const [mounted, setMounted] = useState(false);
 
   // Prevent hydration mismatch by only running theme detection after mount
@@ -50,9 +50,8 @@ export const CustomThemeProvider: React.FC<ThemeProviderProps> = ({ children }) 
     if (savedMode && (savedMode === 'light' || savedMode === 'dark')) {
       setMode(savedMode);
     } else {
-      // Check system preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setMode(prefersDark ? 'dark' : 'light');
+      // Default to dark theme instead of checking system preference
+      setMode('dark');
     }
   }, [mounted]);
 
@@ -67,8 +66,8 @@ export const CustomThemeProvider: React.FC<ThemeProviderProps> = ({ children }) 
     setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
   };
 
-  // Always use light theme during SSR and initial render to prevent hydration mismatch
-  const currentTheme = mounted && mode === 'dark' ? darkTheme : lightTheme;
+  // Use dark theme by default, even during SSR to prevent hydration mismatch
+  const currentTheme = mounted && mode === 'light' ? lightTheme : darkTheme;
   
   // Create emotion cache
   const emotionCache = createEmotionCache();
