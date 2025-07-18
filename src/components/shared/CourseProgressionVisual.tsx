@@ -1,7 +1,7 @@
 'use client';
 
 import { Box, Typography } from '@mui/material';
-import { ArrowForward, KeyboardArrowDown } from '@mui/icons-material';
+import { ArrowForward, KeyboardArrowDown, MenuBook, Build, Rocket } from '@mui/icons-material';
 
 interface CourseProgressionVisualProps {
   currentPhase?: 'theory' | 'practice' | 'application';
@@ -18,27 +18,33 @@ const CourseProgressionVisual: React.FC<CourseProgressionVisualProps> = ({
   const phases = [
     {
       id: 'theory',
-      icon: '📚',
+      icon: MenuBook,
       label: 'Theory',
       description: 'Learn fundamental concepts',
-      color: 'rgba(0, 203, 117, 0.15)',
-      activeColor: 'rgba(0, 203, 117, 0.3)',
+      color: 'rgba(0, 203, 117, 0.2)',
+      activeColor: 'rgba(0, 203, 117, 0.35)',
+      borderColor: 'rgba(0, 203, 117, 0.4)',
+      activeBorderColor: 'rgba(0, 203, 117, 0.7)',
     },
     {
       id: 'practice',
-      icon: '🔧',
-      label: 'Practice',
+      icon: Build,
+      label: 'Practice', 
       description: 'Apply skills through exercises',
-      color: 'rgba(0, 203, 117, 0.3)',
+      color: 'rgba(0, 203, 117, 0.35)',
       activeColor: 'rgba(0, 203, 117, 0.5)',
+      borderColor: 'rgba(0, 203, 117, 0.5)',
+      activeBorderColor: 'rgba(0, 203, 117, 0.8)',
     },
     {
       id: 'application',
-      icon: '🚀',
+      icon: Rocket,
       label: 'Application',
       description: 'Build real-world solutions',
-      color: 'rgba(45, 250, 135, 0.4)',
-      activeColor: 'rgba(45, 250, 135, 0.6)',
+      color: 'rgba(45, 250, 135, 0.5)',
+      activeColor: 'rgba(45, 250, 135, 0.65)',
+      borderColor: 'rgba(45, 250, 135, 0.6)',
+      activeBorderColor: 'rgba(45, 250, 135, 0.9)',
     },
   ];
 
@@ -97,17 +103,20 @@ const CourseProgressionVisual: React.FC<CourseProgressionVisualProps> = ({
               alignItems: 'center',
               justifyContent: 'center',
               minHeight: sizeConfig.containerHeight,
-              padding: 2,
-              borderRadius: 2,
+              padding: 2.5,
+              borderRadius: '8px 0px 8px 0px',
               background: currentPhase === phase.id ? phase.activeColor : phase.color,
-              border: '1px solid',
+              border: '2px solid',
               borderColor: currentPhase === phase.id 
-                ? 'rgba(0, 203, 117, 0.6)' 
-                : 'rgba(0, 203, 117, 0.3)',
+                ? phase.activeBorderColor 
+                : phase.borderColor,
               backdropFilter: 'blur(10px)',
               transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
               position: 'relative',
               minWidth: { xs: '200px', md: '160px' },
+              boxShadow: currentPhase === phase.id
+                ? '0 4px 16px rgba(45, 250, 135, 0.25)'
+                : '0 2px 8px rgba(0, 203, 117, 0.15)',
               '&::before': {
                 content: '""',
                 position: 'absolute',
@@ -115,19 +124,19 @@ const CourseProgressionVisual: React.FC<CourseProgressionVisualProps> = ({
                 left: 0,
                 right: 0,
                 bottom: 0,
-                borderRadius: 2,
+                borderRadius: '8px 0px 8px 0px',
                 background: currentPhase === phase.id 
-                  ? 'rgba(0, 203, 117, 0.1)'
-                  : 'transparent',
+                  ? 'rgba(255, 255, 255, 0.1)'
+                  : 'rgba(255, 255, 255, 0.05)',
                 zIndex: -1,
               },
               '&:hover': {
-                borderColor: 'rgba(0, 203, 117, 0.5)',
+                borderColor: phase.activeBorderColor,
                 background: phase.activeColor,
-                transform: 'translateY(-2px)',
+                transform: 'translateY(-3px)',
                 boxShadow: currentPhase === phase.id
-                  ? '0 8px 24px rgba(45, 250, 135, 0.3)'
-                  : '0 6px 20px rgba(0, 203, 117, 0.2)',
+                  ? '0 8px 24px rgba(45, 250, 135, 0.35)'
+                  : '0 6px 20px rgba(0, 203, 117, 0.25)',
               },
             }}
             role="button"
@@ -135,18 +144,25 @@ const CourseProgressionVisual: React.FC<CourseProgressionVisualProps> = ({
             aria-label={`${phase.label}: ${phase.description}`}
           >
             {/* Icon */}
-            <Typography
-              component="span"
+            <Box
               sx={{
-                fontSize: sizeConfig.iconSize,
-                lineHeight: 1,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
                 mb: showLabels ? 1 : 0,
               }}
               role="img"
               aria-label={`${phase.label} icon`}
             >
-              {phase.icon}
-            </Typography>
+              <phase.icon
+                sx={{
+                  fontSize: sizeConfig.iconSize === '1.5rem' ? '2rem' : 
+                           sizeConfig.iconSize === '2rem' ? '2.5rem' : '3rem',
+                  color: '#1a1a1a',
+                  filter: 'drop-shadow(0 1px 2px rgba(255, 255, 255, 0.8))',
+                }}
+              />
+            </Box>
 
             {/* Label */}
             {showLabels && (
@@ -155,11 +171,12 @@ const CourseProgressionVisual: React.FC<CourseProgressionVisualProps> = ({
                 component="h4"
                 sx={{
                   fontSize: sizeConfig.labelSize,
-                  fontWeight: 600,
-                  color: 'white',
+                  fontWeight: 700,
+                  color: '#1a1a1a',
                   textAlign: 'center',
                   mb: 0.5,
                   lineHeight: 1.2,
+                  textShadow: '0 1px 2px rgba(255, 255, 255, 0.8)',
                 }}
               >
                 {phase.label}
@@ -172,10 +189,12 @@ const CourseProgressionVisual: React.FC<CourseProgressionVisualProps> = ({
                 variant="body2"
                 sx={{
                   fontSize: sizeConfig.descriptionSize,
-                  color: 'rgba(255, 255, 255, 0.8)',
+                  color: '#2a2a2a',
                   textAlign: 'center',
                   lineHeight: 1.3,
                   maxWidth: '140px',
+                  fontWeight: 500,
+                  textShadow: '0 1px 1px rgba(255, 255, 255, 0.6)',
                 }}
               >
                 {phase.description}
@@ -191,13 +210,21 @@ const CourseProgressionVisual: React.FC<CourseProgressionVisualProps> = ({
                 alignItems: 'center',
                 justifyContent: 'center',
                 px: 2,
+                animation: 'pulse 2s infinite',
+                '@keyframes pulse': {
+                  '0%': { opacity: 0.6 },
+                  '50%': { opacity: 1 },
+                  '100%': { opacity: 0.6 },
+                },
               }}
               aria-hidden="true"
             >
               <ArrowForward
                 sx={{
-                  color: 'rgba(45, 250, 135, 0.8)',
-                  fontSize: '1.5rem',
+                  color: '#00cb75',
+                  fontSize: '1.8rem',
+                  fontWeight: 'bold',
+                  filter: 'drop-shadow(0 2px 4px rgba(0, 203, 117, 0.3))',
                 }}
               />
             </Box>
@@ -211,13 +238,21 @@ const CourseProgressionVisual: React.FC<CourseProgressionVisualProps> = ({
                 alignItems: 'center',
                 justifyContent: 'center',
                 py: 1,
+                animation: 'bounce 2s infinite',
+                '@keyframes bounce': {
+                  '0%, 20%, 50%, 80%, 100%': { transform: 'translateY(0)' },
+                  '40%': { transform: 'translateY(-5px)' },
+                  '60%': { transform: 'translateY(-2px)' },
+                },
               }}
               aria-hidden="true"
             >
               <KeyboardArrowDown
                 sx={{
-                  color: 'rgba(45, 250, 135, 0.8)',
-                  fontSize: '2rem',
+                  color: '#00cb75',
+                  fontSize: '2.2rem',
+                  fontWeight: 'bold',
+                  filter: 'drop-shadow(0 2px 4px rgba(0, 203, 117, 0.3))',
                 }}
               />
             </Box>

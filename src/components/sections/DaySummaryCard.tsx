@@ -1,7 +1,7 @@
 'use client';
 
 import { Box, Typography, Card, CardContent, Chip, Collapse, IconButton } from '@mui/material';
-import { ExpandMore } from '@mui/icons-material';
+import { ExpandMore, Psychology, FlashOn, Rocket } from '@mui/icons-material';
 import { CurriculumDay } from '../../data/curriculum';
 
 interface DaySummaryCardProps {
@@ -54,7 +54,7 @@ const DaySummaryCard: React.FC<DaySummaryCardProps> = ({
   const keyFocus = getKeyFocus(day.id);
   const moduleCoverage = getModuleCoverage(day.modules);
   const keySkills = getKeySkills(day.modules);
-  const dayIcon = dayNumber === 1 ? '🧠' : dayNumber === 2 ? '⚡' : '🚀';
+  const DayIcon = dayNumber === 1 ? Psychology : dayNumber === 2 ? FlashOn : Rocket;
 
   return (
     <Card
@@ -90,13 +90,22 @@ const DaySummaryCard: React.FC<DaySummaryCardProps> = ({
           }}
         >
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, flex: 1 }}>
-            <Typography
-              variant="h4"
-              component="span"
-              sx={{ fontSize: '2rem', mb: 0 }}
+            <Box
+              sx={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center',
+                mb: 0 
+              }}
             >
-              {dayIcon}
-            </Typography>
+              <DayIcon
+                sx={{
+                  fontSize: '2rem',
+                  color: '#1a1a1a',
+                  filter: 'drop-shadow(0 1px 2px rgba(0, 203, 117, 0.3))',
+                }}
+              />
+            </Box>
             <Box sx={{ flex: 1 }}>
               <Typography
                 variant="h5"

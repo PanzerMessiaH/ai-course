@@ -1,15 +1,16 @@
 'use client';
 
 import { Box, Typography, Card, CardContent } from '@mui/material';
+import { GpsFixed } from '@mui/icons-material';
 import { Section, CTAButton } from '../shared';
 
 interface BenefitCardProps {
-  icon: string;
+  icon: React.ComponentType<{ sx?: object }>;
   title: string;
   items: string[];
 }
 
-const BenefitCard: React.FC<BenefitCardProps> = ({ icon, title, items }) => (
+const BenefitCard: React.FC<BenefitCardProps> = ({ icon: IconComponent, title, items }) => (
   <Card
     sx={{
       height: '100%',
@@ -32,7 +33,6 @@ const BenefitCard: React.FC<BenefitCardProps> = ({ icon, title, items }) => (
       <Box sx={{ display: 'flex', alignItems: 'flex-start', mb: 3 }}>
         <Box
           sx={{
-            fontSize: '2rem',
             mr: 3,
             display: 'flex',
             alignItems: 'center',
@@ -45,7 +45,12 @@ const BenefitCard: React.FC<BenefitCardProps> = ({ icon, title, items }) => (
             color: 'var(--neon-green-on-white)',
           }}
         >
-          {icon}
+          <IconComponent
+            sx={{
+              fontSize: '2rem',
+              color: 'var(--neon-green-on-white)',
+            }}
+          />
         </Box>
         <Typography
           variant="h4"
@@ -108,7 +113,7 @@ const BenefitCard: React.FC<BenefitCardProps> = ({ icon, title, items }) => (
 const BenefitsSection = () => {
   const benefits = [
     {
-      icon: '🎯',
+      icon: GpsFixed,
       title: "What You'll Achieve",
       items: [
         'Transform your development approach with systematic problem-solving and innovative thinking capabilities',

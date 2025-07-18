@@ -1,16 +1,17 @@
 'use client';
 
 import { Box, Typography, Card, CardContent } from '@mui/material';
+import { Handshake, Rocket } from '@mui/icons-material';
 import { Section } from '../shared';
 
 interface ContentCardProps {
-  icon: string;
+  icon: React.ComponentType<{ sx?: object }>;
   title: string;
   items: string[];
   variant?: 'problem' | 'solution';
 }
 
-const ContentCard: React.FC<ContentCardProps> = ({ icon, title, items, variant = 'problem' }) => (
+const ContentCard: React.FC<ContentCardProps> = ({ icon: IconComponent, title, items, variant = 'problem' }) => (
   <Card
     sx={{
       backgroundColor: 'var(--card-background)',
@@ -49,15 +50,12 @@ const ContentCard: React.FC<ContentCardProps> = ({ icon, title, items, variant =
             : '2px solid var(--neon-green-on-white)',
         }}
       >
-        <Typography
+        <IconComponent
           sx={{
             fontSize: '1.5rem',
-            fontWeight: 'bold',
-            color: variant === 'problem' ? 'var(--orange)' : 'var(--neon-green-on-white)',
+            color: 'white',
           }}
-        >
-          {icon}
-        </Typography>
+        />
       </Box>
 
       {/* Card Header */}
@@ -212,13 +210,13 @@ const ProblemSolutionSection = () => {
           }}
         >
           <ContentCard
-            icon="🤝"
+            icon={Handshake}
             title="How You Work Now"
             items={problems}
             variant="problem"
           />
           <ContentCard
-            icon="🚀"
+            icon={Rocket}
             title="What You Gain"
             items={solutions}
             variant="solution"
