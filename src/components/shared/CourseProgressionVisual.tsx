@@ -85,38 +85,47 @@ const CourseProgressionVisual: React.FC<CourseProgressionVisualProps> = ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: sizeConfig.spacing,
-        py: sizeConfig.spacing,
-        px: 2,
+        gap: { xs: 2, md: sizeConfig.spacing },
+        py: { xs: 2, md: sizeConfig.spacing },
+        px: { xs: 1, md: 2 },
         flexDirection: { xs: 'column', md: 'row' },
+        width: '100%',
+        maxWidth: { xs: '100%', md: 'none' },
       }}
       role="region"
       aria-label="Course learning progression from theory to practice to application"
     >
       {phases.map((phase, index) => (
-        <Box key={phase.id} sx={{ display: 'flex', alignItems: 'center', gap: sizeConfig.spacing }}>
+        <Box key={phase.id} sx={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'center',
+          gap: { xs: 1, md: sizeConfig.spacing },
+          width: { xs: '100%', md: 'auto' },
+        }}>
           {/* Phase Card */}
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              minHeight: sizeConfig.containerHeight,
-              padding: 2.5,
-              borderRadius: '8px 0px 8px 0px',
-              background: currentPhase === phase.id ? phase.activeColor : phase.color,
-              border: '2px solid',
-              borderColor: currentPhase === phase.id 
-                ? phase.activeBorderColor 
-                : phase.borderColor,
-              backdropFilter: 'blur(10px)',
-              transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-              position: 'relative',
-              minWidth: { xs: '200px', md: '160px' },
-              boxShadow: currentPhase === phase.id
-                ? '0 4px 16px rgba(45, 250, 135, 0.25)'
-                : '0 2px 8px rgba(0, 203, 117, 0.15)',
+                      <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                minHeight: sizeConfig.containerHeight,
+                padding: { xs: 2, md: 2.5 },
+                borderRadius: '8px 0px 8px 0px',
+                background: currentPhase === phase.id ? phase.activeColor : phase.color,
+                border: '2px solid',
+                borderColor: currentPhase === phase.id 
+                  ? phase.activeBorderColor 
+                  : phase.borderColor,
+                backdropFilter: 'blur(10px)',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                position: 'relative',
+                width: { xs: '170px', md: '160px' },
+                margin: { xs: '0 auto', md: '0' },
+                boxShadow: currentPhase === phase.id
+                  ? '0 4px 16px rgba(45, 250, 135, 0.25)'
+                  : '0 2px 8px rgba(0, 203, 117, 0.15)',
               '&::before': {
                 content: '""',
                 position: 'absolute',
@@ -192,7 +201,7 @@ const CourseProgressionVisual: React.FC<CourseProgressionVisualProps> = ({
                   color: '#2a2a2a',
                   textAlign: 'center',
                   lineHeight: 1.3,
-                  maxWidth: '140px',
+                  maxWidth: { xs: '120px', md: '140px' },
                   fontWeight: 500,
                   textShadow: '0 1px 1px rgba(255, 255, 255, 0.6)',
                 }}
@@ -230,11 +239,11 @@ const CourseProgressionVisual: React.FC<CourseProgressionVisualProps> = ({
             </Box>
           )}
 
-          {/* Mobile Arrow */}
+          {/* Mobile Arrow - Hidden */}
           {index < phases.length - 1 && (
             <Box
               sx={{
-                display: { xs: 'flex', md: 'none' },
+                display: 'none',
                 alignItems: 'center',
                 justifyContent: 'center',
                 py: 1,

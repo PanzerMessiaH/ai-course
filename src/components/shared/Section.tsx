@@ -18,7 +18,7 @@ interface SectionProps extends Omit<BoxProps, 'component'> {
 const Section: React.FC<SectionProps> = ({
   children,
   background = 'default',
-  spacing = 'large',
+  spacing = 'medium',
   maxWidth = 'default',
   component = 'section',
   ariaLabel,
@@ -54,12 +54,13 @@ const Section: React.FC<SectionProps> = ({
   const getPaddingStyles = () => {
     switch (spacing) {
       case 'small':
-        return { py: { xs: 4, md: 6 } };
+        return { py: { xs: 3, md: 4 } };
       case 'medium':
-        return { py: { xs: 6, md: 8 } };
+        return { py: { xs: 5, md: 7 } };
       case 'large':
-      default:
         return { py: { xs: 8, md: 12 } };
+      default:
+        return { py: { xs: 5, md: 7 } }; // Default to medium spacing
     }
   };
 
