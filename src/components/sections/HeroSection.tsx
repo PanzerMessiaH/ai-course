@@ -229,6 +229,7 @@ const HeroSection = () => {
 
         {/* Authority Indicators */}
         <Box sx={{ 
+          mt: 8,
           mb: 4, 
           display: 'flex', 
           flexDirection: { xs: 'column', md: 'row' },
@@ -237,15 +238,16 @@ const HeroSection = () => {
           gap: { xs: 0, md: 4, lg: 6 },
           textAlign: { xs: 'left', md: 'center' },
         }}>
-          <AuthorityIndicator>Led by industry professionals with 15+ years experience</AuthorityIndicator>
-          <AuthorityIndicator>Hands-on learning with real enterprise scenarios</AuthorityIndicator>
-          <AuthorityIndicator>Proven methodologies from successful AI transformations</AuthorityIndicator>
+          <AuthorityIndicator>Agents Write the Code. You Guide the Intelligence.</AuthorityIndicator>
+          <AuthorityIndicator>Team Knowledge Compounds via Shared Memory</AuthorityIndicator>
+          <AuthorityIndicator>Full-Role Transformation Across the Scrum Team</AuthorityIndicator>
+          <AuthorityIndicator>Backed by PKM & KM Theory for Organizational Learning</AuthorityIndicator>
         </Box>
 
         {/* CTA Button */}
-        <Box sx={{ mb: 5 }}>
+        <Box sx={{ mt: 4, mb: 8 }}>
           <CTAButton variant="primary" href="/register">
-            Register for 3-Day Intensive Course
+            Join Waitlist
           </CTAButton>
         </Box>
 
@@ -266,10 +268,28 @@ const HeroSection = () => {
             gap: 2,
             flexDirection: { xs: 'column', sm: 'row' }
           }}>
-            <StatCard number="200+" label="Enterprise Teams Transformed" />
-            <StatCard number="85%" label="Productivity Increase" />
-            <StatCard number="3 Days" label="To AI-Native Workflow" />
+            <StatCard number="3" label="Days Training" />
+            <StatCard number="100%" label="Hands-On Learning" />
+            <StatCard number="90%" label="Faster Development" />
           </Box>
+          
+          {/* Testimonial Quote */}
+          <Typography
+            variant="body1"
+            sx={{
+              textAlign: 'center',
+              fontStyle: 'italic',
+              color: 'var(--banner-text-color)',
+              opacity: 0.9,
+              mt: 3,
+              fontSize: { xs: '1rem', md: '1.1rem' },
+              lineHeight: 1.6,
+              maxWidth: '500px',
+              mx: 'auto',
+            }}
+          >
+            &ldquo;We don&apos;t write code anymore. We guide the agents who do. This changed how we deliver, think, and work—completely.&rdquo;
+          </Typography>
         </Card>
       </Box>
     </Section>

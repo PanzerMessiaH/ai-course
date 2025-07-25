@@ -121,37 +121,38 @@ const CourseProgressionVisual: React.FC<CourseProgressionVisualProps> = ({
                 backdropFilter: 'blur(10px)',
                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                 position: 'relative',
-                width: { xs: '170px', md: '160px' },
+                width: { xs: '170px', md: '220px' },
+                height: { xs: 'auto', md: '220px' },
                 margin: { xs: '0 auto', md: '0' },
                 boxShadow: currentPhase === phase.id
                   ? '0 4px 16px rgba(45, 250, 135, 0.25)'
                   : '0 2px 8px rgba(0, 203, 117, 0.15)',
-              '&::before': {
-                content: '""',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                borderRadius: '8px 0px 8px 0px',
-                background: currentPhase === phase.id 
-                  ? 'rgba(255, 255, 255, 0.1)'
-                  : 'rgba(255, 255, 255, 0.05)',
-                zIndex: -1,
-              },
-              '&:hover': {
-                borderColor: phase.activeBorderColor,
-                background: phase.activeColor,
-                transform: 'translateY(-3px)',
-                boxShadow: currentPhase === phase.id
-                  ? '0 8px 24px rgba(45, 250, 135, 0.35)'
-                  : '0 6px 20px rgba(0, 203, 117, 0.25)',
-              },
-            }}
-            role="button"
-            tabIndex={0}
-            aria-label={`${phase.label}: ${phase.description}`}
-          >
+                '&::before': {
+                  content: '""',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  borderRadius: '8px 0px 8px 0px',
+                  background: currentPhase === phase.id 
+                    ? 'rgba(255, 255, 255, 0.1)'
+                    : 'rgba(255, 255, 255, 0.05)',
+                  zIndex: -1,
+                },
+                '&:hover': {
+                  borderColor: phase.activeBorderColor,
+                  background: phase.activeColor,
+                  transform: 'translateY(-3px)',
+                  boxShadow: currentPhase === phase.id
+                    ? '0 8px 24px rgba(45, 250, 135, 0.35)'
+                    : '0 6px 20px rgba(0, 203, 117, 0.25)',
+                },
+              }}
+              role="button"
+              tabIndex={0}
+              aria-label={`${phase.label}: ${phase.description}`}
+            >
             {/* Icon */}
             <Box
               sx={{
