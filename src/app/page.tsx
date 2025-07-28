@@ -46,6 +46,14 @@ const BenefitsSection = dynamic(() => import('@/components/sections/BenefitsSect
   ),
 });
 
+const Footer = dynamic(() => import('@/components/sections/Footer'), {
+  loading: () => (
+    <Box sx={{ display: 'flex', justifyContent: 'center', py: 4 }}>
+      <CircularProgress />
+    </Box>
+  ),
+});
+
 export default function Home() {
   return (
     <>
@@ -65,6 +73,8 @@ export default function Home() {
           <BenefitsSection />
         </Suspense>
       </main>
+      
+      <Footer />
     </>
   );
 }

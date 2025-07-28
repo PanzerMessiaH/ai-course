@@ -6,6 +6,7 @@ import { Section } from '../shared';
 const AuthoritySection = () => {
   return (
     <Section 
+      spacing="small"
       ariaLabel="Why choose ACCSO and Dominic Systems - company authority and credentials"
       sx={{
         backgroundColor: 'var(--page-background)',
@@ -17,7 +18,6 @@ const AuthoritySection = () => {
       <Box sx={{ 
         maxWidth: '1000px',
         margin: '0 auto',
-        padding: { xs: 3, sm: 4, md: 5, lg: 6 },
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

@@ -175,55 +175,48 @@ A comprehensive 3 day intensive that transforms your enterprise scrum team into 
 ## **BLOCK 17: PROGRAM DETAILS SECTION - DAY 1**
 **File**: `src/components/sections/ProgramDetailsSection.tsx`
 
-Day 1: Paradigm Shift + Core Agentic Skills
+Day 1: Mindset Transformation + Foundational AI-Native Skills
 
 Activities:
-✓ tbd
-✓ tbd
-✓ tbd
-✓ tbd
-✓ tbd
-✓ tbd
-
+✓ Introduction to AI-Native Development: Understanding the paradigm shift from traditional to AI-augmented development approaches
+✓ Problem Analysis & Solution Validation: Systematic approaches to breaking down complex challenges and validating potential solutions
+✓ Strategic Planning & Architecture Design: Comprehensive project planning and architectural decision-making frameworks
+✓ Design Thinking & Creative Problem Solving: Creative solution generation and design decision frameworks for innovative outcomes
 
 Day 1 Outcome:
-...tbd
+AI-Native Foundation Established - Participants will have transformed their mindset toward AI-native development and gained foundational skills in problem analysis, strategic planning, and creative problem solving. They will be equipped to approach any development challenge with systematic, innovative thinking.
 
 ---
 
 ## **BLOCK 18: PROGRAM DETAILS SECTION - DAY 2**
 **File**: `src/components/sections/ProgramDetailsSection.tsx`
 
-Day 2: Applying Agentic Workflows Across Scrum Roles
+Day 2: Role-Based Application + Advanced Problem-Solving
 
 Activities:
-✓ tbd
-✓ tbd
-✓ tbd
-✓ tbd
-✓ tbd
-✓ tbd
+✓ Efficient Code Development & Implementation: Rapid development techniques and implementation best practices for high-quality code delivery
+✓ Continuous Learning & Knowledge Management: Learning acceleration and knowledge capture systems for continuous improvement
+✓ Advanced Productivity Techniques: Workflow optimization and advanced problem-solving patterns for complex challenges
+✓ Tool Integration & Automation: AI tool mastery and automation workflows for enhanced development capabilities
 
 Day 2 Outcome:
-...tbd
+Advanced Application Mastery - Participants will have mastered advanced development techniques and learned to apply their skills effectively in their specific roles. They will have integrated cutting-edge tools and automation into their workflows, significantly enhancing their productivity and problem-solving capabilities.
 
 ---
 
 ## **BLOCK 19: PROGRAM DETAILS SECTION - DAY 3**
 **File**: `src/components/sections/ProgramDetailsSection.tsx`
 
-Day 3: Team Integration + Memory Reflection + Scaling the Practice
+Day 3: Team Collaboration + Knowledge Management + Organizational Scaling
 
 Activities:
-✓ tbd
-✓ tbd
-✓ tbd
-✓ tbd
-✓ tbd
-✓ tbd
+✓ Team Collaboration & Best Practices: Team coordination, knowledge sharing, and collaborative workflows for AI-native teams
+✓ Quality Assurance & Deployment Excellence: Testing strategies, security practices, and deployment mastery for reliable software delivery
+✓ Real-World Case Studies & Implementation: Pattern recognition and implementation strategies from successful AI-native transformations
+✓ Scaling & Future-Proofing Your Practice: Scaling strategies, future trend awareness, and continuous adaptation for sustainable growth
 
 Day 3 Outcome:
-...tbd
+Organizational Excellence Achieved - Participants will have developed comprehensive team collaboration skills and learned to implement AI-native practices at scale. They will be equipped to lead organizational transformation, ensure quality and security, and build sustainable practices that adapt to future technological developments.
 
 ---
 

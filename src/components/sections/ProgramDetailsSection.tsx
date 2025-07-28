@@ -201,7 +201,7 @@ const ProgramDetailsSection = () => {
   }));
 
   return (
-    <Section background="secondary" spacing="large" id="program-details">
+    <Section background="secondary" spacing="medium" id="program-details">
       {/* Section Header */}
       <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 8 } }}>
         <Typography
