@@ -57,7 +57,7 @@ const AuthoritySection = () => {
             textAlign: 'center',
           }}
         >
-          <Box component="strong" sx={{ color: 'var(--neon-green-on-white)' }}>ACCSO</Box> is a leading technology partner with 2,000+ delivered projects since 2010. Operating across five global locations with 350+ professionals, we specialize in enterprise digital transformation and AI-native development.
+          <Box component="strong" sx={{ color: 'var(--neon-green-on-white)' }}>Accso</Box> delivers transformation at scale. Since 2010, we&apos;ve completed over 2,000 projects with a team of more than 350 specialists from five global hubs. We specialise in enterprise digital transformation and AI-native development that drives your competitiveness.
         </Typography>
 
         {/* Dominic Systems Description */}

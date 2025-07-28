@@ -10,12 +10,25 @@ const Footer = () => {
       spacing="medium"
       sx={{
         backgroundColor: 'var(--dark-green)',
+        background: 'linear-gradient(135deg, var(--dark-green) 0%, #1a4d3a 50%, var(--dark-green) 100%)',
         color: 'white',
         position: 'relative',
         mt: 0,
+        overflow: 'hidden',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'radial-gradient(circle at 20% 80%, rgba(105, 255, 148, 0.05) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(105, 255, 148, 0.05) 0%, transparent 50%)',
+          pointerEvents: 'none',
+          zIndex: 1,
+        },
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
         <Box sx={{ 
           display: 'flex',
           flexDirection: { xs: 'column', md: 'row' },
@@ -75,7 +88,20 @@ const Footer = () => {
             display: 'flex',
             flexDirection: 'column',
             gap: 2,
-            flex: 1
+            flex: 1,
+            padding: 3,
+            borderRadius: '0 20px 0 20px',
+            background: 'rgba(105, 255, 148, 0.08)',
+            border: '1px solid rgba(105, 255, 148, 0.2)',
+            position: 'relative',
+            '&::before': {
+              content: '"🚀"',
+              position: 'absolute',
+              top: -8,
+              right: -8,
+              fontSize: '1.5rem',
+              opacity: 0.7,
+            },
           }}>
             <Typography variant="h6" sx={{ 
               color: 'var(--neon-green)',

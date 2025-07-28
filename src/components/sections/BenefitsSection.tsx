@@ -114,7 +114,7 @@ const BenefitsSection = () => {
   const benefits = [
     {
       icon: GpsFixed,
-      title: "What You'll Achieve",
+      title: "In 3 Days, your Team will:",
       items: [
         'Transform your development approach with systematic problem-solving and innovative thinking capabilities',
         'Master efficient development techniques and integrate cutting-edge tools for enhanced productivity',
@@ -225,37 +225,6 @@ const BenefitsSection = () => {
             mb: 6,
           }}
         >
-          {/* Partnership Authority Statement */}
-          <Typography
-            variant="h3"
-            component="h3"
-            sx={{
-              fontWeight: 700,
-              mb: 3,
-              color: 'var(--heading-text-color)',
-              fontSize: { xs: '1.75rem', md: '2.25rem' },
-            }}
-          >
-            Delivered by ACCSO & Dominic Systems
-          </Typography>
-          <Typography
-            variant="body1"
-            component="p"
-            sx={{
-              color: 'var(--text-color)',
-              maxWidth: '800px',
-              mx: 'auto',
-              lineHeight: 1.6,
-              mb: 4,
-              fontWeight: 500,
-              fontSize: { xs: '1.1rem', md: '1.2rem' },
-            }}
-          >
-            Combined expertise in AI-Native development training and enterprise Microsoft Dynamics 365 
-            with AI/Copilot integration. Leading organizations trust us to deliver transformational 
-            learning experiences that drive real business outcomes.
-          </Typography>
-
           {/* Next Cohort Information */}
           <Box
             sx={{
@@ -278,7 +247,7 @@ const BenefitsSection = () => {
                 fontSize: { xs: '1.5rem', md: '1.75rem' },
               }}
             >
-              3-Day AI-Native Programming Bootcamp
+              Ready to Claim your Seat?
             </Typography>
             <Typography
               variant="body1"
@@ -288,7 +257,7 @@ const BenefitsSection = () => {
                 fontSize: { xs: '1rem', md: '1.125rem' },
               }}
             >
-              Limited spaces available for our intensive 3-day AI-Native Programming Bootcamp
+              Three days. One career‑defining leap. Join the waitlist to secure your spot
             </Typography>
             <Typography
               variant="body2"

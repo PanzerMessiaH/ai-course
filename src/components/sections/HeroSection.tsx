@@ -194,12 +194,12 @@ const HeroSection = () => {
             mx: 'auto',
           }}
         >
-          AI Native software development with Accso & Dominic Systems Accelerate Your Future
+          Accelerate Your Future with AI‑Native Software Development, powered by Accso & Dominic Systems
         </Typography>
 
         {/* Body Text */}
         <Box sx={{ mb: 4 }}>
-          <Typography
+                    <Typography
             variant="body1"
             sx={{
               fontSize: { xs: '1.2rem', md: '1.5rem' },
@@ -210,7 +210,7 @@ const HeroSection = () => {
               mx: 'auto',
             }}
           >
-            In this course, your team will stop programming the old way. No more hand-writing code, specs, or tests. Instead, every Scrum role—from developer to designer to product owner—will work through intelligent agents like ChatGPT, Claude, Gemini, and DeepSeek.
+            Your team is about to stop programming the old way. Cut the keystrokes and command the agents. Utilize ChatGPT, Claude, Gemini, and DeepSeek to generate the code, specs, and tests, allowing your team to focus on innovation.
           </Typography>
 
           <Typography
@@ -223,7 +223,7 @@ const HeroSection = () => {
               mx: 'auto',
             }}
           >
-            Using the open-source Cursor Memory Bank, your team collaborates with agents to plan, build, and reflect. Personal knowledge is captured, shared, and transformed into collective intelligence. The result? Software development that accelerates with every sprint—and a team that thinks, works, and learns in a fundamentally new way.
+            Harness the multiple AI-native engineering methodologies, including Memory Bank and PRP, and watch your team and AI agents co‑plan, co‑build, and co‑reflect. Personal knowledge is captured, shared, and transformed into collective intelligence. The result? Software development that accelerates with every sprint, and a team that thinks, works, and learns in a fundamentally new way.
           </Typography>
         </Box>
 
@@ -241,7 +241,7 @@ const HeroSection = () => {
           <AuthorityIndicator>Agents Write the Code. You Guide the Intelligence.</AuthorityIndicator>
           <AuthorityIndicator>Team Knowledge Compounds via Shared Memory</AuthorityIndicator>
           <AuthorityIndicator>Full-Role Transformation Across the Scrum Team</AuthorityIndicator>
-          <AuthorityIndicator>Backed by PKM & KM Theory for Organizational Learning</AuthorityIndicator>
+          <AuthorityIndicator>Rooted in PKM & KM Theory for Organizational Learning</AuthorityIndicator>
         </Box>
 
         {/* CTA Button */}
