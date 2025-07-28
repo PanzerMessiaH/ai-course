@@ -6,12 +6,12 @@ Your role is to facilitate the **reflection** on the completed task and then, up
 
 ```mermaid
 graph TD
-    Start["🚀 START REFLECT+ARCHIVE MODE"] --> ReadDocs["📚 Read tasks.md, progress.md<br>.cursor/rules/isolation_rules/main.mdc"]
+    Start["🚀 START REFLECT+ARCHIVE MODE"] --> ReadDocs["📚 Read tasks.md, progress.md<br>.cursor/rules/isolation_rules/main.md"]
     
     %% Initialization & Default Behavior (Reflection)
     ReadDocs --> VerifyImplement{"✅ Verify Implementation<br>Complete in tasks.md?"}
     VerifyImplement -->|"No"| ReturnImplement["⛔ ERROR:<br>Return to IMPLEMENT Mode"]
-    VerifyImplement -->|"Yes"| LoadReflectMap["🗺️ Load Reflect Map<br>.cursor/rules/isolation_rules/visual-maps/reflect-mode-map.mdc"]
+    VerifyImplement -->|"Yes"| LoadReflectMap["🗺️ Load Reflect Map<br>.cursor/rules/isolation_rules/visual-maps/reflect-mode-map.md"]
     LoadReflectMap --> AssessLevelReflect{"🧩 Determine Complexity Level"}
     AssessLevelReflect --> LoadLevelReflectRules["📚 Load Level-Specific<br>Reflection Rules"]
     LoadLevelReflectRules --> ReflectProcess["🤔 EXECUTE REFLECTION PROCESS"]
@@ -29,7 +29,7 @@ graph TD
     PromptArchive --> UserCommand{"⌨️ User Command?"}
     
     %% Triggered Behavior (Archiving)
-    UserCommand -- "ARCHIVE NOW" --> LoadArchiveMap["🗺️ Load Archive Map<br>.cursor/rules/isolation_rules/visual-maps/archive-mode-map.mdc"]
+    UserCommand -- "ARCHIVE NOW" --> LoadArchiveMap["🗺️ Load Archive Map<br>.cursor/rules/isolation_rules/visual-maps/archive-mode-map.md"]
     LoadArchiveMap --> VerifyReflectComplete{"✅ Verify reflection.md<br>Exists & Complete?"}
     VerifyReflectComplete -->|"No"| ErrorReflect["⛔ ERROR:<br>Complete Reflection First"]
     VerifyReflectComplete -->|"Yes"| AssessLevelArchive{"🧩 Determine Complexity Level"}
@@ -63,50 +63,24 @@ graph TD
 
 ## IMPLEMENTATION STEPS
 ### Step 1: READ MAIN RULE & CONTEXT FILES
-```
-read_file({
-  target_file: ".cursor/rules/isolation_rules/main.mdc",
-  should_read_entire_file: true
-})
-
-read_file({
-  target_file: "tasks.md",
-  should_read_entire_file: true
-})
-
-read_file({
-  target_file: "progress.md",
-  should_read_entire_file: true
-})
-```
+**Read the complete files:**
+- `.github/instructions/main.md`
+- `tasks.md`
+- `progress.md`
 
 ### Step 2: LOAD REFLECT+ARCHIVE MODE MAPS
 Load the visual maps for both reflection and archiving, as this mode handles both.
-```
-read_file({
-  target_file: ".cursor/rules/isolation_rules/visual-maps/reflect-mode-map.mdc",
-  should_read_entire_file: true
-})
-
-read_file({
-  target_file: ".cursor/rules/isolation_rules/visual-maps/archive-mode-map.mdc",
-  should_read_entire_file: true
-})
-```
+**Read the complete files:**
+- `.github/instructions/visual-maps/reflect-mode-map.md`
+- `.github/instructions/visual-maps/archive-mode-map.md`
 
 ### Step 3: LOAD COMPLEXITY-SPECIFIC RULES (Based on tasks.md)
 Load the appropriate level-specific rules for both reflection and archiving.  
 Example for Level 2:
-```
-read_file({
-  target_file: ".cursor/rules/isolation_rules/Level2/reflection-basic.mdc",
-  should_read_entire_file: true
-})
-read_file({
-  target_file: ".cursor/rules/isolation_rules/Level2/archive-basic.mdc",
-  should_read_entire_file: true
-})
-```
+**Read the complete files:**
+- `.github/instructions/Level2/reflection-basic.md`
+- `.github/instructions/Level2/archive-basic.md`
+
 (Adjust paths for Level 1, 3, or 4 as needed)
 
 ## DEFAULT BEHAVIOR: REFLECTION

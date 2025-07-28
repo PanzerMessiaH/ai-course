@@ -4,17 +4,17 @@ Your role is to perform detailed design and architecture work for components fla
 
 ```mermaid
 graph TD
-    Start["🚀 START CREATIVE MODE"] --> ReadTasks["📚 Read tasks.md &<br>implementation-plan.md<br>.cursor/rules/isolation_rules/main.mdc"]
+    Start["🚀 START CREATIVE MODE"] --> ReadTasks["📚 Read tasks.md &<br>implementation-plan.md<br>.github/instructions/main.md"]
     
     %% Initialization
-    ReadTasks --> Identify["🔍 Identify Components<br>Requiring Creative Phases<br>.cursor/rules/isolation_rules/visual-maps/creative-mode-map.mdc"]
+    ReadTasks --> Identify["🔍 Identify Components<br>Requiring Creative Phases<br>.github/instructions/visual-maps/creative-mode-map.md"]
     Identify --> Prioritize["📊 Prioritize Components<br>for Creative Work"]
     
     %% Creative Phase Type Determination
     Prioritize --> TypeCheck{"🎨 Determine<br>Creative Phase<br>Type"}
-    TypeCheck -->|"Architecture"| ArchDesign["🏗️ ARCHITECTURE DESIGN<br>.cursor/rules/isolation_rules/visual-maps/creative-mode-map.mdc"]
-    TypeCheck -->|"Algorithm"| AlgoDesign["⚙️ ALGORITHM DESIGN<br>.cursor/rules/isolation_rules/visual-maps/creative-mode-map.mdc"]
-    TypeCheck -->|"UI/UX"| UIDesign["🎨 UI/UX DESIGN<br>.cursor/rules/isolation_rules/visual-maps/creative-mode-map.mdc"]
+    TypeCheck -->|"Architecture"| ArchDesign["🏗️ ARCHITECTURE DESIGN<br>.github/instructions/visual-maps/creative-mode-map.md"]
+    TypeCheck -->|"Algorithm"| AlgoDesign["⚙️ ALGORITHM DESIGN<br>.github/instructions/visual-maps/creative-mode-map.md"]
+    TypeCheck -->|"UI/UX"| UIDesign["🎨 UI/UX DESIGN<br>.github/instructions/visual-maps/creative-mode-map.md"]
     
     %% Architecture Design Process
     ArchDesign --> ArchRequirements["📋 Define Requirements<br>& Constraints"]
@@ -76,70 +76,30 @@ graph TD
 ## IMPLEMENTATION STEPS
 
 ### Step 1: READ TASKS & MAIN RULE
-```
-read_file({
-  target_file: "tasks.md",
-  should_read_entire_file: true
-})
-
-read_file({
-  target_file: "implementation-plan.md",
-  should_read_entire_file: true
-})
-
-read_file({
-  target_file: ".cursor/rules/isolation_rules/main.mdc",
-  should_read_entire_file: true
-})
-```
+**Read the complete files:**
+- `tasks.md`
+- `implementation-plan.md`
+- `.github/instructions/main.md`
 
 ### Step 2: LOAD CREATIVE MODE MAP
-```
-read_file({
-  target_file: ".cursor/rules/isolation_rules/visual-maps/creative-mode-map.mdc",
-  should_read_entire_file: true
-})
-```
+**Read the complete file:** `.github/instructions/visual-maps/creative-mode-map.md`
 
 ### Step 3: LOAD CREATIVE PHASE REFERENCES
-```
-read_file({
-  target_file: ".cursor/rules/isolation_rules/Core/creative-phase-enforcement.mdc",
-  should_read_entire_file: true
-})
-
-read_file({
-  target_file: ".cursor/rules/isolation_rules/Core/creative-phase-metrics.mdc",
-  should_read_entire_file: true
-})
-```
+**Read the complete files:**
+- `.github/instructions/Core/creative-phase-enforcement.md`
+- `.github/instructions/Core/creative-phase-metrics.md`
 
 ### Step 4: LOAD DESIGN TYPE-SPECIFIC REFERENCES
 Based on the type of creative phase needed, load:
 
 #### For Architecture Design:
-```
-read_file({
-  target_file: ".cursor/rules/isolation_rules/Phases/CreativePhase/creative-phase-architecture.mdc",
-  should_read_entire_file: true
-})
-```
+**Read the complete file:** `.github/instructions/Phases/CreativePhase/creative-phase-architecture.md`
 
 #### For Algorithm Design:
-```
-read_file({
-  target_file: ".cursor/rules/isolation_rules/Phases/CreativePhase/creative-phase-algorithm.mdc",
-  should_read_entire_file: true
-})
-```
+**Read the complete file:** `.github/instructions/Phases/CreativePhase/creative-phase-architecture.md`
 
 #### For UI/UX Design:
-```
-read_file({
-  target_file: ".cursor/rules/isolation_rules/Phases/CreativePhase/creative-phase-uiux.mdc",
-  should_read_entire_file: true
-})
-```
+**Read the complete file:** `.github/instructions/Phases/CreativePhase/creative-phase-uiux.md`
 
 ## CREATIVE PHASE APPROACH
 

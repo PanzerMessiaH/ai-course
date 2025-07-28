@@ -1,16 +1,28 @@
 # MEMORY BANK BUILD MODE
 
-Your role is to build the planned changes following the implementation plan and creative phase decisions.
+Your role is to build the planned changes foll### St### Step 1: READ COMMAND EXECUTION GUIDE
+**Read the complete file:** `.github/instructions/Core/command-execution.md`
+
+### Step 2: READ TASKS & IMPLEMENTATION PLAN
+**Read the complete files:**
+- `tasks.md` 
+- `implementation-plan.md`XECUTION GUIDE
+**Read the complete file:** `.github/instructions/Core/command-execution.md`
+
+### Step 2: READ TASKS & IMPLEMENTATION PLAN
+**Read the complete files:**
+- `tasks.md` 
+- `implementation-plan.md`tion plan and creative phase decisions.
 
 ```mermaid
 graph TD
-    Start["🚀 START BUILD MODE"] --> ReadDocs["📚 Read Reference Documents<br>.cursor/rules/isolation_rules/Core/command-execution.mdc"]
+    Start["🚀 START BUILD MODE"] --> ReadDocs["📚 Read Reference Documents<br>.github/instructions/Core/command-execution.md"]
     
     %% Initialization
     ReadDocs --> CheckLevel{"🧩 Determine<br>Complexity Level<br>from tasks.md"}
     
     %% Level 1 Implementation
-    CheckLevel -->|"Level 1<br>Quick Bug Fix"| L1Process["🔧 LEVEL 1 PROCESS<br>.cursor/rules/isolation_rules/visual-maps/implement-mode-map.mdc"]
+    CheckLevel -->|"Level 1<br>Quick Bug Fix"| L1Process["🔧 LEVEL 1 PROCESS<br>.github/instructions/visual-maps/implement-mode-map.md"]
     L1Process --> L1Review["🔍 Review Bug<br>Report"]
     L1Review --> L1Examine["👁️ Examine<br>Relevant Code"]
     L1Examine --> L1Fix["⚒️ Implement<br>Targeted Fix"]
@@ -18,7 +30,7 @@ graph TD
     L1Test --> L1Update["📝 Update<br>tasks.md"]
     
     %% Level 2 Implementation
-    CheckLevel -->|"Level 2<br>Simple Enhancement"| L2Process["🔨 LEVEL 2 PROCESS<br>.cursor/rules/isolation_rules/visual-maps/implement-mode-map.mdc"]
+    CheckLevel -->|"Level 2<br>Simple Enhancement"| L2Process["🔨 LEVEL 2 PROCESS<br>.github/instructions/visual-maps/implement-mode-map.md"]
     L2Process --> L2Review["🔍 Review Build<br>Plan"]
     L2Review --> L2Examine["👁️ Examine Relevant<br>Code Areas"]
     L2Examine --> L2Implement["⚒️ Implement Changes<br>Sequentially"]
@@ -26,7 +38,7 @@ graph TD
     L2Test --> L2Update["📝 Update<br>tasks.md"]
     
     %% Level 3-4 Implementation
-    CheckLevel -->|"Level 3-4<br>Feature/System"| L34Process["🏗️ LEVEL 3-4 PROCESS<br>.cursor/rules/isolation_rules/visual-maps/implement-mode-map.mdc"]
+    CheckLevel -->|"Level 3-4<br>Feature/System"| L34Process["🏗️ LEVEL 3-4 PROCESS<br>.github/instructions/visual-maps/implement-mode-map.md"]
     L34Process --> L34Review["🔍 Review Plan &<br>Creative Decisions"]
     L34Review --> L34Phase{"📋 Select<br>Build<br>Phase"}
     
@@ -42,7 +54,7 @@ graph TD
     L34Document --> L34Update["📝 Update<br>tasks.md"]
     
     %% Command Execution
-    L1Fix & L2Implement & L34Phase1 --> CommandExec["⚙️ COMMAND EXECUTION<br>.cursor/rules/isolation_rules/Core/command-execution.mdc"]
+    L1Fix & L2Implement & L34Phase1 --> CommandExec["⚙️ COMMAND EXECUTION<br>.github/instructions/Core/command-execution.md"]
     CommandExec --> DocCommands["📝 Document Commands<br>& Results"]
     
     %% Implementation Documentation
@@ -68,68 +80,32 @@ graph TD
     style Transition fill:#5fd94d,stroke:#3da336,color:white
 ```
 
-## BUILD STEPS
+## IMPLEMENTATION STEPS
 
-### Step 1: READ COMMAND EXECUTION RULES
-```
-read_file({
-  target_file: ".cursor/rules/isolation_rules/Core/command-execution.mdc",
-  should_read_entire_file: true
-})
-```
+### Step 1: READ COMMAND EXECUTION GUIDE
+**Read the complete file:** `.github/instructions/Core/command-execution.md`
 
 ### Step 2: READ TASKS & IMPLEMENTATION PLAN
-```
-read_file({
-  target_file: "tasks.md",
-  should_read_entire_file: true
-})
-
-read_file({
-  target_file: "implementation-plan.md",
-  should_read_entire_file: true
-})
-```
+**Read the complete files:**
+- `tasks.md` 
+- `implementation-plan.md`
 
 ### Step 3: LOAD IMPLEMENTATION MODE MAP
-```
-read_file({
-  target_file: ".cursor/rules/isolation_rules/visual-maps/implement-mode-map.mdc",
-  should_read_entire_file: true
-})
-```
+**Read the complete file:** `.github/instructions/visual-maps/implement-mode-map.md`
 
 ### Step 4: LOAD COMPLEXITY-SPECIFIC IMPLEMENTATION REFERENCES
 Based on complexity level determined from tasks.md, load:
 
 #### For Level 1:
-```
-read_file({
-  target_file: ".cursor/rules/isolation_rules/Level1/workflow-level1.mdc",
-  should_read_entire_file: true
-})
-```
+**Read the complete file:** `.github/instructions/Level1/workflow-level1.md`
 
 #### For Level 2:
-```
-read_file({
-  target_file: ".cursor/rules/isolation_rules/Level2/workflow-level2.mdc",
-  should_read_entire_file: true
-})
-```
+**Read the complete file:** `.github/instructions/Level2/workflow-level2.md`
 
 #### For Level 3-4:
-```
-read_file({
-  target_file: ".cursor/rules/isolation_rules/Phases/Implementation/implementation-phase-reference.mdc",
-  should_read_entire_file: true
-})
-
-read_file({
-  target_file: ".cursor/rules/isolation_rules/Level4/phased-implementation.mdc",
-  should_read_entire_file: true
-})
-```
+**Read the complete files:**
+- `.github/instructions/Phases/CreativePhase/creative-phase-architecture.md`
+- `.github/instructions/Level4/phased-implementation.md`
 
 ## BUILD APPROACH
 

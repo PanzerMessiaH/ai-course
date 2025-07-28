@@ -4,13 +4,13 @@ Your role is to create a detailed plan for task execution based on the complexit
 
 ```mermaid
 graph TD
-    Start["🚀 START PLANNING"] --> ReadTasks["📚 Read tasks.md<br>.cursor/rules/isolation_rules/main.mdc"]
+    Start["🚀 START PLANNING"] --> ReadTasks["📚 Read tasks.md<br>.github/instructions/main.md"]
     
     %% Complexity Level Determination
     ReadTasks --> CheckLevel{"🧩 Determine<br>Complexity Level"}
-    CheckLevel -->|"Level 2"| Level2["📝 LEVEL 2 PLANNING<br>.cursor/rules/isolation_rules/visual-maps/plan-mode-map.mdc"]
-    CheckLevel -->|"Level 3"| Level3["📋 LEVEL 3 PLANNING<br>.cursor/rules/isolation_rules/visual-maps/plan-mode-map.mdc"]
-    CheckLevel -->|"Level 4"| Level4["📊 LEVEL 4 PLANNING<br>.cursor/rules/isolation_rules/visual-maps/plan-mode-map.mdc"]
+    CheckLevel -->|"Level 2"| Level2["📝 LEVEL 2 PLANNING<br>.github/instructions/visual-maps/plan-mode-map.md"]
+    CheckLevel -->|"Level 3"| Level3["📋 LEVEL 3 PLANNING<br>.github/instructions/visual-maps/plan-mode-map.md"]
+    CheckLevel -->|"Level 4"| Level4["📊 LEVEL 4 PLANNING<br>.github/instructions/visual-maps/plan-mode-map.md"]
     
     %% Level 2 Planning
     Level2 --> L2Review["🔍 Review Code<br>Structure"]
@@ -70,62 +70,28 @@ graph TD
 ## IMPLEMENTATION STEPS
 
 ### Step 1: READ MAIN RULE & TASKS
-```
-read_file({
-  target_file: ".cursor/rules/isolation_rules/main.mdc",
-  should_read_entire_file: true
-})
-
-read_file({
-  target_file: "tasks.md",
-  should_read_entire_file: true
-})
-```
+**Read the complete files:**
+- `.github/instructions/main.md`
+- `tasks.md`
 
 ### Step 2: LOAD PLAN MODE MAP
-```
-read_file({
-  target_file: ".cursor/rules/isolation_rules/visual-maps/plan-mode-map.mdc",
-  should_read_entire_file: true
-})
-```
+**Read the complete file:** `.github/instructions/visual-maps/plan-mode-map.md`
 
 ### Step 3: LOAD COMPLEXITY-SPECIFIC PLANNING REFERENCES
 Based on complexity level determined from tasks.md, load one of:
 
 #### For Level 2:
-```
-read_file({
-  target_file: ".cursor/rules/isolation_rules/Level2/task-tracking-basic.mdc",
-  should_read_entire_file: true
-})
-```
+**Read the complete file:** `.github/instructions/Level2/task-tracking-basic.md`
 
 #### For Level 3:
-```
-read_file({
-  target_file: ".cursor/rules/isolation_rules/Level3/task-tracking-intermediate.mdc",
-  should_read_entire_file: true
-})
-
-read_file({
-  target_file: ".cursor/rules/isolation_rules/Level3/planning-comprehensive.mdc",
-  should_read_entire_file: true
-})
-```
+**Read the complete files:**
+- `.github/instructions/Level3/task-tracking-intermediate.md`
+- `.github/instructions/Level3/planning-comprehensive.md`
 
 #### For Level 4:
-```
-read_file({
-  target_file: ".cursor/rules/isolation_rules/Level4/task-tracking-advanced.mdc",
-  should_read_entire_file: true
-})
-
-read_file({
-  target_file: ".cursor/rules/isolation_rules/Level4/architectural-planning.mdc",
-  should_read_entire_file: true
-})
-```
+**Read the complete files:**
+- `.github/instructions/Level4/task-tracking-advanced.md`
+- `.github/instructions/Level4/architectural-planning.md`
 
 ## PLANNING APPROACH
 
